@@ -1,0 +1,20 @@
+asset_id,ip,hostname,asset_name,business_service,criticality,environment,zone,internet_facing,data_classification,owner_dept
+A-001,203.0.113.10,vpn.novarefino.example,Perimeter firewall / VPN,Remote access for staff and contractors,5,production,DMZ,yes,internal,NETWORK
+A-002,203.0.113.11,portal.novarefino.example,Citrix gateway,Remote apps for engineering,4,production,DMZ,yes,internal,IT-INFRA
+A-003,203.0.113.20,suppliers.novarefino.example,Supplier portal,Procurement and supplier onboarding,4,production,DMZ,yes,personal,APPSEC-DEV
+A-004,203.0.113.25,jump01.novarefino.example,Admin jump host,IT administration,3,production,DMZ,yes,internal,IT-INFRA
+A-010,10.10.1.10,dc01.corp.novarefino.example,Domain controller,Identity for all corporate users,5,production,IT,no,confidential,IAM
+A-011,10.10.1.20,fs01.corp.novarefino.example,HR file server,HR records and payroll exports,4,production,IT,no,personal,IT-INFRA
+A-020,10.10.2.30,mq01.corp.novarefino.example,Message broker,ERP to MES integration,4,production,IT,no,internal,IT-INFRA
+A-021,10.10.2.40,erp-db01.corp.novarefino.example,ERP database,Finance and procurement,5,production,IT,no,personal,IT-INFRA
+A-022,10.10.2.50,intranet.corp.novarefino.example,Intranet web server,Employee intranet,2,production,IT,no,internal,APPSEC-DEV
+A-023,10.10.2.60,maint-app.corp.novarefino.example,Maintenance planning app,Plant maintenance work orders,4,production,IT,no,internal,APPSEC-DEV
+A-030,10.10.3.5,core-sw01.corp.novarefino.example,Core switch,Campus network,5,production,IT,no,internal,NETWORK
+A-031,10.10.3.8,prn-ctrlroom.corp.novarefino.example,Control room printer,Shift reports printing,1,production,IT,no,internal,IT-INFRA
+A-040,10.20.0.10,ews01.ot.novarefino.example,Engineering workstation (DCS/PLC programming),Crude distillation unit control,5,production,OT,no,internal,OT-ENG
+A-041,10.20.0.21,plc-cdu-01.ot.novarefino.example,PLC crude distillation unit,Crude distillation unit control,5,production,OT,no,internal,OT-ENG
+A-042,10.20.0.22,plc-utl-02.ot.novarefino.example,PLC utilities (steam/cooling water),Utilities,5,production,OT,no,internal,OT-ENG
+A-043,10.20.0.30,opc-hist01.ot.novarefino.example,OPC UA historian gateway,Process data to IT (historian),4,production,OT,no,internal,OT-ENG
+A-044,10.20.0.40,hmi-cdu-01.ot.novarefino.example,HMI crude distillation unit,Operator console,5,production,OT,no,internal,OT-ENG
+A-090,,users,Workforce,All business processes,4,production,IT,no,personal,HR-AWARENESS
+A-091,,siem,SIEM / SOC tooling,Security monitoring,4,production,IT,no,confidential,SOC

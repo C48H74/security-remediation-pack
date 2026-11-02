@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- Fictitious Burp Suite issues export for the NovaRefino demo. Same SQLi as ZAP on purpose: shows cross-tool de-duplication. -->
+<issues burpVersion="2026.10">
+  <issue>
+    <serialNumber>100001</serialNumber><type>1049088</type><name>SQL injection</name>
+    <host ip="203.0.113.20">https://suppliers.novarefino.example</host>
+    <path>/catalog/search</path><location>/catalog/search [q parameter]</location>
+    <severity>High</severity><confidence>Certain</confidence>
+  </issue>
+  <issue>
+    <serialNumber>100002</serialNumber><type>5245344</type><name>Cookie without HttpOnly flag set</name>
+    <host ip="203.0.113.20">https://suppliers.novarefino.example</host>
+    <path>/login</path><location>/login [SESSIONID cookie]</location>
+    <severity>Low</severity><confidence>Firm</confidence>
+  </issue>
+  <issue>
+    <serialNumber>100003</serialNumber><type>6291968</type><name>Email addresses disclosed</name>
+    <host ip="203.0.113.20">https://suppliers.novarefino.example</host>
+    <path>/about</path><location>/about</location>
+    <severity>Information</severity><confidence>Certain</confidence>
+  </issue>
+</issues>

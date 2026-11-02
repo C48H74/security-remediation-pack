@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fictitious sample. NovaRefino Demo Corp does not exist. -->
+<nmaprun scanner="nmap" args="nmap -sS -sU -sV --script vulners,smb-protocols,smb-vuln-ms17-010,snmp-info -p- -iL scope.txt" version="7.95">
+<host><status state="up" reason="syn-ack"/>
+<address addr="203.0.113.10" addrtype="ipv4"/>
+<hostnames><hostname name="vpn.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack"/><service name="https" product="Palo Alto GlobalProtect" version="PAN-OS 10.2.9" method="probed" conf="10"/>
+<script id="vulners" output="cpe:/o:paloaltonetworks:pan-os:10.2.9:&#xa;    &#x9;CVE-2024-3400&#x9;10.0&#x9;https://vulners.com/cve/CVE-2024-3400&#x9;*EXPLOIT*"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="203.0.113.11" addrtype="ipv4"/>
+<hostnames><hostname name="portal.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack"/><service name="https" product="Citrix NetScaler Gateway" version="13.1-48.47" method="probed" conf="10"/>
+<script id="vulners" output="cpe:/a:citrix:netscaler_gateway:13.1:&#xa;    &#x9;CVE-2023-4966&#x9;9.4&#x9;https://vulners.com/cve/CVE-2023-4966&#x9;*EXPLOIT*"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="203.0.113.20" addrtype="ipv4"/>
+<hostnames><hostname name="suppliers.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="tcp" portid="443"><state state="open" reason="syn-ack"/><service name="https" product="nginx" version="1.24.0" method="probed" conf="10"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="203.0.113.25" addrtype="ipv4"/>
+<hostnames><hostname name="jump01.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="tcp" portid="3389"><state state="open" reason="syn-ack"/><service name="ms-wbt-server" product="Microsoft Terminal Services" version="" method="probed" conf="10"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="10.10.1.10" addrtype="ipv4"/>
+<hostnames><hostname name="dc01.corp.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="tcp" portid="88"><state state="open" reason="syn-ack"/><service name="kerberos-sec" product="Microsoft Windows Kerberos" version="" method="probed" conf="10"/>
+</port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack"/><service name="microsoft-ds" product="Microsoft Windows Server 2016" version="" method="probed" conf="10"/>
+<script id="vulners" output="cpe:/o:microsoft:windows_server_2016:&#xa;    &#x9;CVE-2020-1472&#x9;10.0&#x9;https://vulners.com/cve/CVE-2020-1472&#x9;*EXPLOIT*"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="10.10.1.20" addrtype="ipv4"/>
+<hostnames><hostname name="fs01.corp.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack"/><service name="microsoft-ds" product="Microsoft Windows Server 2008 R2" version="" method="probed" conf="10"/>
+<script id="smb-protocols" output="dialects:&#xa;  NT LM 0.12 (SMBv1) [dangerous, but default]&#xa;  2.0.2&#xa;  2.1"/>
+<script id="smb-vuln-ms17-010" output="VULNERABLE:&#xa;  Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)&#xa;    State: VULNERABLE&#xa;    IDs:  CVE:CVE-2017-0143"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="10.10.2.30" addrtype="ipv4"/>
+<hostnames><hostname name="mq01.corp.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="tcp" portid="61616"><state state="open" reason="syn-ack"/><service name="apachemq" product="ActiveMQ OpenWire transport" version="5.17.5" method="probed" conf="10"/>
+<script id="vulners" output="cpe:/a:apache:activemq:5.17.5:&#xa;    &#x9;CVE-2023-46604&#x9;10.0&#x9;https://vulners.com/cve/CVE-2023-46604&#x9;*EXPLOIT*"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="10.10.2.40" addrtype="ipv4"/>
+<hostnames><hostname name="erp-db01.corp.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="tcp" portid="1433"><state state="open" reason="syn-ack"/><service name="ms-sql-s" product="Microsoft SQL Server 2016" version="13.00.5026" method="probed" conf="10"/>
+</port>
+<port protocol="tcp" portid="5432"><state state="open" reason="syn-ack"/><service name="postgresql" product="PostgreSQL DB" version="12.3" method="probed" conf="10"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="10.10.2.50" addrtype="ipv4"/>
+<hostnames><hostname name="intranet.corp.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack"/><service name="http" product="Apache httpd" version="2.4.49" method="probed" conf="10"/>
+<script id="vulners" output="cpe:/a:apache:http_server:2.4.49:&#xa;    &#x9;CVE-2021-41773&#x9;7.5&#x9;https://vulners.com/cve/CVE-2021-41773&#x9;*EXPLOIT*&#xa;    &#x9;CVE-2021-42013&#x9;9.8&#x9;https://vulners.com/cve/CVE-2021-42013&#x9;*EXPLOIT*&#xa;    &#x9;CVE-2022-22720&#x9;9.8&#x9;https://vulners.com/cve/CVE-2022-22720&#xa;    &#x9;CVE-2023-25690&#x9;9.8&#x9;https://vulners.com/cve/CVE-2023-25690"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="10.10.2.60" addrtype="ipv4"/>
+<hostnames><hostname name="maint-app.corp.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="tcp" portid="8080"><state state="open" reason="syn-ack"/><service name="http" product="Apache Tomcat" version="9.0.31" method="probed" conf="10"/>
+<script id="vulners" output="cpe:/a:apache:log4j:2.14.1:&#xa;    &#x9;CVE-2021-44228&#x9;10.0&#x9;https://vulners.com/cve/CVE-2021-44228&#x9;*EXPLOIT*"/>
+</port>
+<port protocol="tcp" portid="22"><state state="open" reason="syn-ack"/><service name="ssh" product="OpenSSH" version="8.9p1" method="probed" conf="10"/>
+<script id="vulners" output="cpe:/a:openbsd:openssh:8.9p1:&#xa;    &#x9;CVE-2024-6387&#x9;8.1&#x9;https://vulners.com/cve/CVE-2024-6387&#xa;    &#x9;CVE-2023-48795&#x9;5.9&#x9;https://vulners.com/cve/CVE-2023-48795"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="10.10.3.5" addrtype="ipv4"/>
+<hostnames><hostname name="core-sw01.corp.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="udp" portid="161"><state state="open" reason="syn-ack"/><service name="snmp" product="SNMPv1 server; public" version="" method="probed" conf="10"/>
+<script id="snmp-info" output="enterprise: ciscoSystems&#xa;  engineIDFormat: unknown&#xa;  community: public (read)"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="10.10.3.8" addrtype="ipv4"/>
+<hostnames><hostname name="prn-ctrlroom.corp.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="tcp" portid="21"><state state="open" reason="syn-ack"/><service name="ftp" product="vsftpd" version="3.0.3" method="probed" conf="10"/>
+</port>
+<port protocol="tcp" portid="23"><state state="open" reason="syn-ack"/><service name="telnet" product="Busybox telnetd" version="" method="probed" conf="10"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="10.10.9.99" addrtype="ipv4"/>
+<hostnames></hostnames><ports>
+<port protocol="tcp" portid="5900"><state state="open" reason="syn-ack"/><service name="vnc" product="VNC" version="protocol 3.8" method="probed" conf="10"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="10.20.0.10" addrtype="ipv4"/>
+<hostnames><hostname name="ews01.ot.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="tcp" portid="3389"><state state="open" reason="syn-ack"/><service name="ms-wbt-server" product="Microsoft Terminal Services" version="" method="probed" conf="10"/>
+<script id="vulners" output="cpe:/o:microsoft:windows_7:&#xa;    &#x9;CVE-2019-0708&#x9;9.8&#x9;https://vulners.com/cve/CVE-2019-0708&#x9;*EXPLOIT*"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="10.20.0.21" addrtype="ipv4"/>
+<hostnames><hostname name="plc-cdu-01.ot.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="tcp" portid="502"><state state="open" reason="syn-ack"/><service name="modbus" product="Modbus TCP" version="" method="probed" conf="10"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="10.20.0.22" addrtype="ipv4"/>
+<hostnames><hostname name="plc-utl-02.ot.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="tcp" portid="102"><state state="open" reason="syn-ack"/><service name="iso-tsap" product="Siemens S7 PLC" version="" method="probed" conf="10"/>
+</port>
+</ports></host>
+<host><status state="up" reason="syn-ack"/>
+<address addr="10.20.0.30" addrtype="ipv4"/>
+<hostnames><hostname name="opc-hist01.ot.novarefino.example" type="PTR"/></hostnames><ports>
+<port protocol="tcp" portid="4840"><state state="open" reason="syn-ack"/><service name="opcua-tcp" product="OPC UA Server" version="" method="probed" conf="10"/>
+</port>
+</ports></host>
+<runstats><finished timestr="2026-10-28 10:42:00"/></runstats></nmaprun>

@@ -1,0 +1,631 @@
+[
+  {
+    "ticket_id": "IT-INFRA-001",
+    "department": "IT-INFRA",
+    "department_name": "IT Infrastructure & Operations",
+    "queue": "INFRA",
+    "assignee_group": "IT Infrastructure",
+    "lead": "Jordi Puig (fictitious)",
+    "lead_email": "it-infra@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-001",
+    "fingerprint": "cec04fddeb",
+    "priority": "P1",
+    "jira_priority": "Highest",
+    "snow_urgency": 1,
+    "snow_impact": 1,
+    "due_date": "2026-11-05",
+    "summary": "[P1] Outdated software with known vulnerabilities on Perimeter firewall / VPN (vpn.novarefino.example:443)",
+    "steps": [
+      "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+      "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+      "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+      "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+    ],
+    "verify": [
+      "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+      "Re-run the original exploit check (non-destructive) and confirm it fails."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02",
+      "KEV"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "SOC",
+      "NETWORK"
+    ]
+  },
+  {
+    "ticket_id": "IT-INFRA-002",
+    "department": "IT-INFRA",
+    "department_name": "IT Infrastructure & Operations",
+    "queue": "INFRA",
+    "assignee_group": "IT Infrastructure",
+    "lead": "Jordi Puig (fictitious)",
+    "lead_email": "it-infra@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-002",
+    "fingerprint": "f436dcea04",
+    "priority": "P1",
+    "jira_priority": "Highest",
+    "snow_urgency": 1,
+    "snow_impact": 1,
+    "due_date": "2026-11-05",
+    "summary": "[P1] Outdated software with known vulnerabilities on Citrix gateway (portal.novarefino.example:443)",
+    "steps": [
+      "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+      "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+      "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+      "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+    ],
+    "verify": [
+      "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+      "Re-run the original exploit check (non-destructive) and confirm it fails."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02",
+      "KEV"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "SOC",
+      "NETWORK"
+    ]
+  },
+  {
+    "ticket_id": "IT-INFRA-003",
+    "department": "IT-INFRA",
+    "department_name": "IT Infrastructure & Operations",
+    "queue": "INFRA",
+    "assignee_group": "IT Infrastructure",
+    "lead": "Jordi Puig (fictitious)",
+    "lead_email": "it-infra@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-004",
+    "fingerprint": "5c3b099f2c",
+    "priority": "P1",
+    "jira_priority": "Highest",
+    "snow_urgency": 1,
+    "snow_impact": 1,
+    "due_date": "2026-11-05",
+    "summary": "[P1] Legacy SMBv1 enabled / SMB exposed on HR file server (fs01.corp.novarefino.example:445)",
+    "steps": [
+      "Disable SMBv1 on the server and clients (Windows feature removal or GPO) after checking that no legacy device still depends on it.",
+      "Scanner guidance: Apply the vendor security update for SMB server and disable SMBv1.",
+      "Install the cumulative security update that covers the listed CVEs.",
+      "Restrict TCP 445 to the subnets that need file services; never expose it to the internet or to the OT zone."
+    ],
+    "verify": [
+      "nmap -p445 --script smb-protocols <host> must not list SMBv1 (NT LM 0.12).",
+      "nmap -p445 --script smb-vuln-ms17-010 <host> must report not vulnerable."
+    ],
+    "labels": [
+      "legacy-smb",
+      "T1210",
+      "T1021.002",
+      "KEV"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "NETWORK",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "IT-INFRA-004",
+    "department": "IT-INFRA",
+    "department_name": "IT Infrastructure & Operations",
+    "queue": "INFRA",
+    "assignee_group": "IT Infrastructure",
+    "lead": "Jordi Puig (fictitious)",
+    "lead_email": "it-infra@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-005",
+    "fingerprint": "52ec51831a",
+    "priority": "P1",
+    "jira_priority": "Highest",
+    "snow_urgency": 1,
+    "snow_impact": 1,
+    "due_date": "2026-11-05",
+    "summary": "[P1] Outdated software with known vulnerabilities on Domain controller (dc01.corp.novarefino.example:445)",
+    "steps": [
+      "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+      "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+      "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+      "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+    ],
+    "verify": [
+      "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+      "Re-run the original exploit check (non-destructive) and confirm it fails."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02",
+      "KEV"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "SOC",
+      "IAM"
+    ]
+  },
+  {
+    "ticket_id": "IT-INFRA-005",
+    "department": "IT-INFRA",
+    "department_name": "IT Infrastructure & Operations",
+    "queue": "INFRA",
+    "assignee_group": "IT Infrastructure",
+    "lead": "Jordi Puig (fictitious)",
+    "lead_email": "it-infra@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-006",
+    "fingerprint": "c4915084ae",
+    "priority": "P1",
+    "jira_priority": "Highest",
+    "snow_urgency": 1,
+    "snow_impact": 1,
+    "due_date": "2026-11-05",
+    "summary": "[P1] Outdated software with known vulnerabilities on Message broker (mq01.corp.novarefino.example:61616)",
+    "steps": [
+      "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+      "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+      "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+      "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+    ],
+    "verify": [
+      "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+      "Re-run the original exploit check (non-destructive) and confirm it fails."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02",
+      "KEV"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "IT-INFRA-006",
+    "department": "IT-INFRA",
+    "department_name": "IT Infrastructure & Operations",
+    "queue": "INFRA",
+    "assignee_group": "IT Infrastructure",
+    "lead": "Jordi Puig (fictitious)",
+    "lead_email": "it-infra@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-007",
+    "fingerprint": "540c0312a7",
+    "priority": "P1",
+    "jira_priority": "Highest",
+    "snow_urgency": 1,
+    "snow_impact": 1,
+    "due_date": "2026-11-05",
+    "summary": "[P1] Outdated software with known vulnerabilities on Maintenance planning app (maint-app.corp.novarefino.example:8080)",
+    "steps": [
+      "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+      "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+      "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+      "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+    ],
+    "verify": [
+      "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+      "Re-run the original exploit check (non-destructive) and confirm it fails."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02",
+      "KEV"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "IT-INFRA-007",
+    "department": "IT-INFRA",
+    "department_name": "IT Infrastructure & Operations",
+    "queue": "INFRA",
+    "assignee_group": "IT Infrastructure",
+    "lead": "Jordi Puig (fictitious)",
+    "lead_email": "it-infra@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-008",
+    "fingerprint": "0d26bfd84d",
+    "priority": "P1",
+    "jira_priority": "Highest",
+    "snow_urgency": 1,
+    "snow_impact": 1,
+    "due_date": "2026-11-05",
+    "summary": "[P1] Outdated software with known vulnerabilities on Intranet web server (intranet.corp.novarefino.example:80)",
+    "steps": [
+      "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+      "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+      "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+      "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+    ],
+    "verify": [
+      "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+      "Re-run the original exploit check (non-destructive) and confirm it fails."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02",
+      "KEV"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "IT-INFRA-008",
+    "department": "IT-INFRA",
+    "department_name": "IT Infrastructure & Operations",
+    "queue": "INFRA",
+    "assignee_group": "IT Infrastructure",
+    "lead": "Jordi Puig (fictitious)",
+    "lead_email": "it-infra@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-015",
+    "fingerprint": "8ec1aef740",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-16",
+    "summary": "[P2] Sensitive or personal data exposed (public storage, backups, listings) on Supplier portal (suppliers.novarefino.example:443)",
+    "steps": [
+      "Remove public access to the storage/backup location immediately and keep a copy of access logs as evidence.",
+      "Rotate any secrets found inside the exposed files.",
+      "DPO assesses whether personal data was accessed and whether a GDPR Art. 33 notification (72 hours) is required.",
+      "Enable encryption at rest and a policy that blocks public buckets/shares by default."
+    ],
+    "verify": [
+      "Anonymous request to the object/share URL returns 403.",
+      "Cloud posture scan shows the 'block public access' control enabled."
+    ],
+    "labels": [
+      "sensitive-data-exposure",
+      "T1530",
+      "T1552.001",
+      "WSTG-v42-CONF-04",
+      "WSTG-v42-CONF-11"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC",
+      "NETWORK",
+      "APPSEC-DEV"
+    ]
+  },
+  {
+    "ticket_id": "IT-INFRA-009",
+    "department": "IT-INFRA",
+    "department_name": "IT Infrastructure & Operations",
+    "queue": "INFRA",
+    "assignee_group": "IT Infrastructure",
+    "lead": "Jordi Puig (fictitious)",
+    "lead_email": "it-infra@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-017",
+    "fingerprint": "b882517c0c",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-16",
+    "summary": "[P2] Outdated software with known vulnerabilities on ERP database (erp-db01.corp.novarefino.example:1433)",
+    "steps": [
+      "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+      "Scanner guidance: Upgrade to a supported version of SQL Server.",
+      "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+      "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+      "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+    ],
+    "verify": [
+      "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+      "Re-run the original exploit check (non-destructive) and confirm it fails."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "IT-INFRA-010",
+    "department": "IT-INFRA",
+    "department_name": "IT Infrastructure & Operations",
+    "queue": "INFRA",
+    "assignee_group": "IT Infrastructure",
+    "lead": "Jordi Puig (fictitious)",
+    "lead_email": "it-infra@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-018",
+    "fingerprint": "5c6bd9a8b2",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-16",
+    "summary": "[P2] Database or cache service reachable without network restriction on ERP database (erp-db01.corp.novarefino.example:1433)",
+    "steps": [
+      "Bind the service to the application subnet only and add a host firewall rule allowing just the app servers.",
+      "Require authentication and TLS for every client connection; remove anonymous or default accounts.",
+      "Move the database into a dedicated data tier segment if it currently shares the user VLAN."
+    ],
+    "verify": [
+      "From a user-VLAN host, nmap -p <db port> <host> must report filtered.",
+      "Unauthenticated connection attempt must be refused."
+    ],
+    "labels": [
+      "exposed-database",
+      "T1190",
+      "T1213",
+      "WSTG-v42-CONF-01"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV",
+      "NETWORK",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "IT-INFRA-011",
+    "department": "IT-INFRA",
+    "department_name": "IT Infrastructure & Operations",
+    "queue": "INFRA",
+    "assignee_group": "IT Infrastructure",
+    "lead": "Jordi Puig (fictitious)",
+    "lead_email": "it-infra@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-019",
+    "fingerprint": "310a6a620f",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-16",
+    "summary": "[P2] Database or cache service reachable without network restriction on ERP database (erp-db01.corp.novarefino.example:5432)",
+    "steps": [
+      "Bind the service to the application subnet only and add a host firewall rule allowing just the app servers.",
+      "Require authentication and TLS for every client connection; remove anonymous or default accounts.",
+      "Move the database into a dedicated data tier segment if it currently shares the user VLAN."
+    ],
+    "verify": [
+      "From a user-VLAN host, nmap -p <db port> <host> must report filtered.",
+      "Unauthenticated connection attempt must be refused."
+    ],
+    "labels": [
+      "exposed-database",
+      "T1190",
+      "T1213",
+      "WSTG-v42-CONF-01"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV",
+      "NETWORK",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "IT-INFRA-012",
+    "department": "IT-INFRA",
+    "department_name": "IT Infrastructure & Operations",
+    "queue": "INFRA",
+    "assignee_group": "IT Infrastructure",
+    "lead": "Jordi Puig (fictitious)",
+    "lead_email": "it-infra@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-021",
+    "fingerprint": "77de0ff2b7",
+    "priority": "P3",
+    "jira_priority": "Medium",
+    "snow_urgency": 2,
+    "snow_impact": 2,
+    "due_date": "2026-12-17",
+    "summary": "[P3] Outdated software with known vulnerabilities on Maintenance planning app (maint-app.corp.novarefino.example:22)",
+    "steps": [
+      "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+      "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+      "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+      "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+    ],
+    "verify": [
+      "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+      "Re-run the original exploit check (non-destructive) and confirm it fails."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "IT-INFRA-013",
+    "department": "IT-INFRA",
+    "department_name": "IT Infrastructure & Operations",
+    "queue": "INFRA",
+    "assignee_group": "IT Infrastructure",
+    "lead": "Jordi Puig (fictitious)",
+    "lead_email": "it-infra@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-029",
+    "fingerprint": "c15aff38e5",
+    "priority": "P4",
+    "jira_priority": "Low",
+    "snow_urgency": 3,
+    "snow_impact": 3,
+    "due_date": "2027-01-31",
+    "summary": "[P4] Weak TLS configuration (old protocol versions or ciphers) on Citrix gateway (portal.novarefino.example:443)",
+    "steps": [
+      "Disable SSLv3, TLS 1.0 and TLS 1.1; keep TLS 1.2 with AEAD ciphers and TLS 1.3.",
+      "Scanner guidance: Enable TLS 1.2 or 1.3 only.",
+      "Replace self-signed or expiring certificates with certificates from the corporate or public CA and automate renewal.",
+      "Apply the change through a shared hardening baseline (Ansible/GPO) so every web front end gets it."
+    ],
+    "verify": [
+      "nmap --script ssl-enum-ciphers -p443 <host> must show no TLS 1.0/1.1 and grade A ciphers only.",
+      "testssl.sh <host> shows no high or critical items."
+    ],
+    "labels": [
+      "weak-tls",
+      "T1557",
+      "WSTG-v42-CRYP-01"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "NETWORK"
+    ]
+  },
+  {
+    "ticket_id": "IT-INFRA-014",
+    "department": "IT-INFRA",
+    "department_name": "IT Infrastructure & Operations",
+    "queue": "INFRA",
+    "assignee_group": "IT Infrastructure",
+    "lead": "Jordi Puig (fictitious)",
+    "lead_email": "it-infra@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-030",
+    "fingerprint": "7d5433fa01",
+    "priority": "P4",
+    "jira_priority": "Low",
+    "snow_urgency": 3,
+    "snow_impact": 3,
+    "due_date": "2027-01-31",
+    "summary": "[P4] Cleartext management or file-transfer protocol in use on Control room printer (prn-ctrlroom.corp.novarefino.example:21)",
+    "steps": [
+      "Replace Telnet with SSH and FTP with SFTP/FTPS; disable the cleartext daemon after migration.",
+      "Rotate every credential that was ever used over the cleartext protocol.",
+      "Block the cleartext port at the host firewall so it cannot be re-enabled silently."
+    ],
+    "verify": [
+      "nmap -p 21,23 <host> must report closed/filtered.",
+      "Confirm that the replacement encrypted service accepts logins with rotated credentials."
+    ],
+    "labels": [
+      "cleartext-protocol",
+      "T1040",
+      "T1557",
+      "WSTG-v42-CRYP-03"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "NETWORK"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "IT-INFRA-015",
+    "department": "IT-INFRA",
+    "department_name": "IT Infrastructure & Operations",
+    "queue": "INFRA",
+    "assignee_group": "IT Infrastructure",
+    "lead": "Jordi Puig (fictitious)",
+    "lead_email": "it-infra@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-031",
+    "fingerprint": "ed60b0ce24",
+    "priority": "P4",
+    "jira_priority": "Low",
+    "snow_urgency": 3,
+    "snow_impact": 3,
+    "due_date": "2027-01-31",
+    "summary": "[P4] Cleartext management or file-transfer protocol in use on Control room printer (prn-ctrlroom.corp.novarefino.example:23)",
+    "steps": [
+      "Replace Telnet with SSH and FTP with SFTP/FTPS; disable the cleartext daemon after migration.",
+      "Rotate every credential that was ever used over the cleartext protocol.",
+      "Block the cleartext port at the host firewall so it cannot be re-enabled silently."
+    ],
+    "verify": [
+      "nmap -p 21,23 <host> must report closed/filtered.",
+      "Confirm that the replacement encrypted service accepts logins with rotated credentials."
+    ],
+    "labels": [
+      "cleartext-protocol",
+      "T1040",
+      "T1557",
+      "WSTG-v42-CRYP-03"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "NETWORK"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  }
+]

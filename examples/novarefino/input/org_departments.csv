@@ -1,0 +1,10 @@
+dept_code,name,lead,email,jira_component,servicenow_group
+MGMT,Management / CISO office,Clara Ventura (fictitious),ciso@novarefino.example,SEC-MGMT,CISO Office
+IT-INFRA,IT Infrastructure & Operations,Jordi Puig (fictitious),it-infra@novarefino.example,INFRA,IT Infrastructure
+NETWORK,Network & Perimeter,Ana Ribeiro (fictitious),network@novarefino.example,NET,Network Operations
+APPSEC-DEV,Application Security & Development,Marc Soler (fictitious),appsec@novarefino.example,APPSEC,AppSec
+SOC,Security Operations Center,Lucia Ferrer (fictitious),soc@novarefino.example,SOC,SOC L2
+IAM,Identity & Access Management,Pedro Lima (fictitious),iam@novarefino.example,IAM,Identity
+OT-ENG,OT / Plant Engineering & Automation,Ramon Vidal (fictitious),ot-eng@novarefino.example,OT,OT Engineering
+GRC-DPO,Legal / Compliance / DPO,Elena Sanz (fictitious),dpo@novarefino.example,GRC,Compliance
+HR-AWARENESS,HR & Security Awareness,Beatriz Costa (fictitious),awareness@novarefino.example,HR-SEC,HR Security Awareness

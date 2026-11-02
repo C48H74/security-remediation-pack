@@ -1,0 +1,4 @@
+ticket_id,type,priority,jira_priority,due_date,department,summary,finding_id,labels,accountable,consulted,informed
+NETWORK-001,fix,P2,High,2026-11-16,NETWORK,[P2] Remote administration service reachable from untrusted networks on Admin jump host (jump01.novarefino.example:3389),F-014,exposed-remote-access;T1133;T1021.001;T1110;WSTG-v42-CONF-01,MGMT,IAM;IT-INFRA,SOC
+NETWORK-002,fix,P3,Medium,2026-12-17,NETWORK,[P3] Remote administration service reachable from untrusted networks on 10.10.9.99 (not in inventory) (10.10.9.99:5900),F-022,exposed-remote-access;T1133;T1021.001;T1110;WSTG-v42-CONF-01,MGMT,IAM;IT-INFRA,SOC
+NETWORK-003,fix,P3,Medium,2026-12-17,NETWORK,[P3] SNMP v1/v2c with default or guessable community string on Core switch (core-sw01.corp.novarefino.example:161),F-024,snmp-weak-community;T1046;T1078.001,MGMT,IT-INFRA,SOC

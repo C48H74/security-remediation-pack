@@ -1,0 +1,217 @@
+[
+  {
+    "ticket_id": "APPSEC-DEV-001",
+    "department": "APPSEC-DEV",
+    "department_name": "Application Security & Development",
+    "queue": "APPSEC",
+    "assignee_group": "AppSec",
+    "lead": "Marc Soler (fictitious)",
+    "lead_email": "appsec@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-013",
+    "fingerprint": "aa3890b6f2",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-16",
+    "summary": "[P2] Injection in web application (SQL / OS command) on Supplier portal (suppliers.novarefino.example:443)",
+    "steps": [
+      "Replace string-built queries/commands with parameterised queries or safe APIs in the affected endpoint and in every endpoint that reuses the same data-access helper.",
+      "Add server-side input validation (allowlist of type, length, format).",
+      "Run the database account with least privilege (no DDL, no file or OS access).",
+      "Add a regression test reproducing the payload to the CI pipeline and a SAST rule for the pattern."
+    ],
+    "verify": [
+      "Re-run the original proof of concept request; the response must not change behaviour or leak data.",
+      "DAST (ZAP active scan) on the endpoint reports no injection alert; CI regression test passes."
+    ],
+    "labels": [
+      "web-injection",
+      "T1190",
+      "WSTG-v42-INPV-05",
+      "WSTG-v42-INPV-12"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "IT-INFRA",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC",
+      "NETWORK"
+    ]
+  },
+  {
+    "ticket_id": "APPSEC-DEV-002",
+    "department": "APPSEC-DEV",
+    "department_name": "Application Security & Development",
+    "queue": "APPSEC",
+    "assignee_group": "AppSec",
+    "lead": "Marc Soler (fictitious)",
+    "lead_email": "appsec@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-020",
+    "fingerprint": "af19711eed",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-16",
+    "summary": "[P2] Broken access control (IDOR / BOLA) on Supplier portal (suppliers.novarefino.example:443)",
+    "steps": [
+      "Enforce an object-level authorization check on the server for every request that takes an object identifier (owner or tenant match).",
+      "Centralise the check in a policy middleware instead of per-controller code.",
+      "Use non-sequential identifiers as defence in depth (never as the only control).",
+      "Add negative authorization tests (user A cannot read user B) to CI."
+    ],
+    "verify": [
+      "Repeat the request with a second low-privilege account; the API must return 403/404.",
+      "Automated authorization test suite passes."
+    ],
+    "labels": [
+      "broken-access-control",
+      "T1190",
+      "T1213",
+      "WSTG-v42-ATHZ-02",
+      "WSTG-v42-ATHZ-04"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "IAM",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC",
+      "NETWORK"
+    ]
+  },
+  {
+    "ticket_id": "APPSEC-DEV-003",
+    "department": "APPSEC-DEV",
+    "department_name": "Application Security & Development",
+    "queue": "APPSEC",
+    "assignee_group": "AppSec",
+    "lead": "Marc Soler (fictitious)",
+    "lead_email": "appsec@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-023",
+    "fingerprint": "4d3efd44ee",
+    "priority": "P3",
+    "jira_priority": "Medium",
+    "snow_urgency": 2,
+    "snow_impact": 2,
+    "due_date": "2026-12-17",
+    "summary": "[P3] Administrative interface exposed to users or internet on Supplier portal (suppliers.novarefino.example:443)",
+    "steps": [
+      "Move the admin path to an internal-only listener or restrict it by source IP at the reverse proxy.",
+      "Require SSO + MFA for the admin role.",
+      "Remove sample/installer pages left by the vendor."
+    ],
+    "verify": [
+      "External request to the admin path returns 403/404.",
+      "Admin access works from the admin network with MFA."
+    ],
+    "labels": [
+      "admin-interface-exposed",
+      "T1190",
+      "T1078",
+      "WSTG-v42-CONF-05"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "NETWORK",
+      "IAM",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "APPSEC-DEV-004",
+    "department": "APPSEC-DEV",
+    "department_name": "Application Security & Development",
+    "queue": "APPSEC",
+    "assignee_group": "AppSec",
+    "lead": "Marc Soler (fictitious)",
+    "lead_email": "appsec@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-026",
+    "fingerprint": "9956f836e7",
+    "priority": "P3",
+    "jira_priority": "Medium",
+    "snow_urgency": 2,
+    "snow_impact": 2,
+    "due_date": "2026-12-17",
+    "summary": "[P3] Cross-site scripting (reflected or stored) on Supplier portal (suppliers.novarefino.example:443)",
+    "steps": [
+      "Apply context-aware output encoding in the template layer for the affected parameter (HTML, attribute, JS, URL contexts).",
+      "Enable the framework's auto-escaping and remove any raw/unsafe rendering helpers in the affected view.",
+      "Deploy a restrictive Content-Security-Policy (no unsafe-inline) as defence in depth.",
+      "Set HttpOnly on session cookies so injected script cannot read them."
+    ],
+    "verify": [
+      "Replay the payload; it must render as inert text.",
+      "ZAP passive + active scan shows no XSS alert for the endpoint."
+    ],
+    "labels": [
+      "web-xss",
+      "T1185",
+      "T1059.007",
+      "WSTG-v42-CLNT-01",
+      "WSTG-v42-INPV-01",
+      "WSTG-v42-INPV-02"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC",
+      "NETWORK"
+    ]
+  },
+  {
+    "ticket_id": "APPSEC-DEV-005",
+    "department": "APPSEC-DEV",
+    "department_name": "Application Security & Development",
+    "queue": "APPSEC",
+    "assignee_group": "AppSec",
+    "lead": "Marc Soler (fictitious)",
+    "lead_email": "appsec@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-028",
+    "fingerprint": "dd6cd5a0b5",
+    "priority": "P3",
+    "jira_priority": "Medium",
+    "snow_urgency": 2,
+    "snow_impact": 2,
+    "due_date": "2026-12-17",
+    "summary": "[P3] Missing web security headers / insecure cookie attributes on Supplier portal (suppliers.novarefino.example:443)",
+    "steps": [
+      "Add Strict-Transport-Security (max-age >= 1 year), Content-Security-Policy, X-Content-Type-Options and frame-ancestors at the reverse proxy for all virtual hosts.",
+      "Set Secure, HttpOnly and SameSite on session cookies in the framework configuration.",
+      "Keep the header set in a shared proxy snippet under version control."
+    ],
+    "verify": [
+      "curl -sI https://<host> shows the headers; ZAP passive scan shows no header alerts.",
+      "Browser dev tools show the cookie flags."
+    ],
+    "labels": [
+      "security-misconfiguration-web",
+      "T1185",
+      "WSTG-v42-CLNT-09",
+      "WSTG-v42-CONF-07",
+      "WSTG-v42-SESS-02"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "IT-INFRA",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "NETWORK"
+    ]
+  }
+]

@@ -1,0 +1,5 @@
+ticket_id,type,priority,jira_priority,due_date,department,summary,finding_id,labels,accountable,consulted,informed
+OT-ENG-001,fix,P1,Highest,2026-11-12,OT-ENG,[P1] Outdated software with known vulnerabilities on Engineering workstation (DCS/PLC programming) (ews01.ot.novarefino.example:3389),F-003,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02;KEV;OT,MGMT,IT-INFRA;APPSEC-DEV,SOC
+OT-ENG-002,fix,P2,High,2026-12-09,OT-ENG,[P2] Industrial control protocol reachable from outside the OT zone on PLC crude distillation unit (plc-cdu-01.ot.novarefino.example:502),F-009,ot-protocol-exposed;T0883;T0886;T1692;OT,MGMT,NETWORK;SOC,GRC-DPO
+OT-ENG-003,fix,P2,High,2026-12-09,OT-ENG,[P2] Industrial control protocol reachable from outside the OT zone on PLC utilities (steam/cooling water) (plc-utl-02.ot.novarefino.example:102),F-010,ot-protocol-exposed;T0883;T0886;T1692;OT,MGMT,NETWORK;SOC,GRC-DPO
+OT-ENG-004,fix,P2,High,2026-12-09,OT-ENG,[P2] Industrial control protocol reachable from outside the OT zone on OPC UA historian gateway (opc-hist01.ot.novarefino.example:4840),F-012,ot-protocol-exposed;T0883;T0886;T1692;OT,MGMT,NETWORK;SOC,GRC-DPO

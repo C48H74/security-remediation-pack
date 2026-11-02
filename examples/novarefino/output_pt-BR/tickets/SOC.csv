@@ -1,0 +1,22 @@
+ticket_id,type,priority,jira_priority,due_date,department,summary,finding_id,labels,accountable,consulted,informed
+SOC-001,detection,P1,Highest,2026-11-04,SOC,"[P1] Interim detection while F-001 is open: T1190, T1210 on Perimeter firewall / VPN",F-001,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02;KEV,MGMT,APPSEC-DEV,SOC;NETWORK
+SOC-002,detection,P1,Highest,2026-11-04,SOC,"[P1] Interim detection while F-002 is open: T1190, T1210 on Citrix gateway",F-002,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02;KEV,MGMT,APPSEC-DEV,SOC;NETWORK
+SOC-003,detection,P1,Highest,2026-11-04,SOC,"[P1] Interim detection while F-003 is open: T1190, T1210 on Engineering workstation (DCS/PLC programming)",F-003,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02;KEV;OT,MGMT,IT-INFRA;APPSEC-DEV,SOC
+SOC-004,detection,P1,Highest,2026-11-04,SOC,"[P1] Interim detection while F-004 is open: T1210, T1021.002 on HR file server",F-004,legacy-smb;T1210;T1021.002;KEV,MGMT,NETWORK;GRC-DPO,SOC
+SOC-005,detection,P1,Highest,2026-11-04,SOC,"[P1] Interim detection while F-005 is open: T1190, T1210 on Domain controller",F-005,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02;KEV,MGMT,APPSEC-DEV,SOC;IAM
+SOC-006,detection,P1,Highest,2026-11-04,SOC,"[P1] Interim detection while F-006 is open: T1190, T1210 on Message broker",F-006,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02;KEV,MGMT,APPSEC-DEV,SOC
+SOC-007,detection,P1,Highest,2026-11-04,SOC,"[P1] Interim detection while F-007 is open: T1190, T1210 on Maintenance planning app",F-007,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02;KEV,MGMT,APPSEC-DEV,SOC
+SOC-008,detection,P1,Highest,2026-11-04,SOC,"[P1] Interim detection while F-008 is open: T1190, T1210 on Intranet web server",F-008,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02;KEV,MGMT,APPSEC-DEV,SOC
+SOC-009,detection,P2,High,2026-11-04,SOC,"[P2] Interim detection while F-009 is open: T0883, T0886, T1692 on PLC crude distillation unit",F-009,ot-protocol-exposed;T0883;T0886;T1692;OT,MGMT,NETWORK;SOC,GRC-DPO
+SOC-010,detection,P2,High,2026-11-04,SOC,"[P2] Interim detection while F-010 is open: T0883, T0886, T1692 on PLC utilities (steam/cooling water)",F-010,ot-protocol-exposed;T0883;T0886;T1692;OT,MGMT,NETWORK;SOC,GRC-DPO
+SOC-011,detection,P2,High,2026-11-04,SOC,[P2] Interim detection while F-011 is open: T1078.001 on HMI crude distillation unit,F-011,default-credentials;T1078.001;WSTG-v42-ATHN-02;OT,MGMT,IAM;IT-INFRA,SOC
+SOC-012,detection,P2,High,2026-11-04,SOC,"[P2] Interim detection while F-012 is open: T0883, T0886, T1692 on OPC UA historian gateway",F-012,ot-protocol-exposed;T0883;T0886;T1692;OT,MGMT,NETWORK;SOC,GRC-DPO
+SOC-013,detection,P2,High,2026-11-04,SOC,[P2] Interim detection while F-013 is open: T1190 on Supplier portal,F-013,web-injection;T1190;WSTG-v42-INPV-05;WSTG-v42-INPV-12,MGMT,IT-INFRA;GRC-DPO,SOC;NETWORK
+SOC-014,detection,P2,High,2026-11-04,SOC,"[P2] Interim detection while F-014 is open: T1133, T1021.001, T1110 on Admin jump host",F-014,exposed-remote-access;T1133;T1021.001;T1110;WSTG-v42-CONF-01,MGMT,IAM;IT-INFRA,SOC
+SOC-015,detection,P2,High,2026-11-04,SOC,"[P2] Interim detection while F-015 is open: T1530, T1552.001 on Supplier portal",F-015,sensitive-data-exposure;T1530;T1552.001;WSTG-v42-CONF-04;WSTG-v42-CONF-11,MGMT,GRC-DPO,SOC;NETWORK;APPSEC-DEV
+SOC-016,detection,P2,High,2026-11-04,SOC,"[P2] Interim detection while F-016 is open: T1110, T1078 on Domain controller",F-016,auth-weakness;T1110;T1078;WSTG-v42-ATHN-03;WSTG-v42-ATHN-07,MGMT,APPSEC-DEV,SOC
+SOC-017,detection,P2,High,2026-11-04,SOC,"[P2] Interim detection while F-017 is open: T1190, T1210 on ERP database",F-017,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02,MGMT,APPSEC-DEV;GRC-DPO,SOC
+SOC-018,detection,P2,High,2026-11-04,SOC,"[P2] Interim detection while F-018 is open: T1190, T1213 on ERP database",F-018,exposed-database;T1190;T1213;WSTG-v42-CONF-01,MGMT,APPSEC-DEV;NETWORK;GRC-DPO,SOC
+SOC-019,detection,P2,High,2026-11-04,SOC,"[P2] Interim detection while F-019 is open: T1190, T1213 on ERP database",F-019,exposed-database;T1190;T1213;WSTG-v42-CONF-01,MGMT,APPSEC-DEV;NETWORK;GRC-DPO,SOC
+SOC-020,detection,P2,High,2026-11-04,SOC,"[P2] Interim detection while F-020 is open: T1190, T1213 on Supplier portal",F-020,broken-access-control;T1190;T1213;WSTG-v42-ATHZ-02;WSTG-v42-ATHZ-04,MGMT,IAM;GRC-DPO,SOC;NETWORK
+SOC-021,fix,P3,Medium,2026-12-17,SOC,[P3] Attack activity not detected or not logged on SIEM / SOC tooling (siem),F-027,logging-detection-gap;T1046;T1110,MGMT,IT-INFRA,

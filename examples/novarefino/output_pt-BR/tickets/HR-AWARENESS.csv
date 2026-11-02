@@ -1,0 +1,2 @@
+ticket_id,type,priority,jira_priority,due_date,department,summary,finding_id,labels,accountable,consulted,informed
+HR-AWARENESS-001,fix,P3,Medium,2026-12-17,HR-AWARENESS,[P3] Users susceptible to phishing / social engineering on Workforce (users),F-025,phishing-susceptibility;T1566,MGMT,SOC;GRC-DPO,

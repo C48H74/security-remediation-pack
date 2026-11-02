@@ -1,0 +1,70 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><style>
+.stage{position:relative;height:640px;margin-top:30px}
+svg.lines{position:absolute;left:0;top:0;width:1520px;height:640px;overflow:visible}
+.ins{position:absolute;left:0;top:20px;width:232px}
+.in{height:40px;margin-bottom:36px;border-radius:10px;border:1px solid rgba(0,229,255,.3);background:rgba(0,229,255,.06);font:600 14px "JetBrains Mono";color:#d7e3f4;display:flex;align-items:center;padding:0 14px}
+.in.ctx{border-color:rgba(124,255,107,.35);background:rgba(124,255,107,.06);color:#c8ffbd}
+.lbl{position:absolute;font:700 12.5px "JetBrains Mono";letter-spacing:.14em;color:#6f84a3;top:-24px}
+.fc{position:absolute;left:282px;top:12px;width:460px;height:616px;padding:20px 22px}
+.fc .id{display:flex;justify-content:space-between;align-items:center}
+.fc .id b{font:700 15px "JetBrains Mono";color:#00e5ff}
+.pill{font:700 13px "JetBrains Mono";padding:4px 10px;border-radius:999px;background:rgba(255,64,96,.16);color:#ff9bb0;border:1px solid rgba(255,64,96,.5)}
+.fc h3{font:700 22px "Space Grotesk";color:#fff;margin:10px 0 4px;line-height:1.2}
+.fc .as{font-size:14px;color:#9fb2cc}
+.kv{display:grid;grid-template-columns:118px 1fr;gap:7px 10px;margin-top:14px;font-size:14px}
+.kv dt{font:600 12.5px "JetBrains Mono";color:#6f84a3;padding-top:2px} .kv dd{color:#e2ebf7}
+.kv dd code{font:600 13px "JetBrains Mono";color:#a9ff9a}
+.why{margin-top:14px;padding:12px 14px;border-left:3px solid #ff5470;background:rgba(255,64,96,.07);border-radius:0 8px 8px 0;font-size:13.5px;line-height:1.45;color:#e8d9de}
+.router{position:absolute;left:792px;top:170.0px;width:143px;height:300px;border-radius:16px;border:1.5px solid rgba(0,229,255,.55);background:linear-gradient(180deg,rgba(0,229,255,.14),rgba(124,255,107,.08));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px;box-shadow:0 0 40px rgba(0,229,255,.18)}
+.router b{font:700 21px "Space Grotesk";color:#fff;line-height:1.15} .router span{font:600 12px "JetBrains Mono";color:#9fdcf0;margin-top:10px;line-height:1.6}
+.dn{position:absolute;left:1075px;width:445px;height:62px;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:rgba(16,24,40,.85);display:flex;align-items:center;padding:0 14px;gap:12px}
+.dn.on{border-color:rgba(0,229,255,.55);background:rgba(0,229,255,.08)} .dn.mid{border-color:rgba(124,255,107,.45)}
+.dn.off{opacity:.55}
+.rb{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font:700 15px "JetBrains Mono";background:#00e5ff;color:#04121c;flex:none}
+.dn.mid .rb{background:#7cff6b} .dn.off .dt{margin-left:42px}
+.dt{width:178px;flex:none} .dt b{font:700 14.5px "JetBrains Mono";color:#a9ff9a;display:block} .dt span{font-size:12.5px;color:#8396b3}
+.dm{text-align:right;flex:1} .dm i{font-style:normal;font-size:13.5px;color:#e2ebf7;display:block;white-space:nowrap} .dm em{font:500 12px "JetBrains Mono";font-style:normal;color:#6f84a3}
+.layers{margin-top:34px;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.ly{padding:14px 16px} .ly h4{font:700 12.5px "JetBrains Mono";letter-spacing:.12em;color:#00e5ff;text-transform:uppercase}
+.ly p{font:700 17px "Space Grotesk";color:#fff;margin:6px 0 4px} .ly span{font-size:13px;color:#9fb2cc;line-height:1.4;display:block}
+.ly.x{opacity:.6} .ly.x p{text-decoration:line-through;text-decoration-color:#ff5470}
+.outs{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.outs b{font:700 12.5px "JetBrains Mono";letter-spacing:.14em;color:#6f84a3;margin-right:6px}
+.outs span{font:600 13px "JetBrains Mono";padding:6px 10px;border-radius:8px;border:1px solid rgba(124,255,107,.3);color:#c8ffbd;background:rgba(124,255,107,.05)}
+</style></head><body><div class="grid-bg"></div><div class="wrap">
+<div class="kicker">Architecture · how one finding reaches every team that must act</div>
+<h1>One finding in, <em>three owned tickets</em> out</h1>
+<p class="sub">Real record from the fictitious refinery demo. Two scanners reported the same SMBv1 flaw; the skill merged them, enriched the result from public catalogs, decided P1, and the RACI router opened a fix, a detection and a GDPR ticket, each with its own due date.</p>
+<div class="stage"><svg class="lines"><path d="M935,320.0 C1010,320.0 1000,31.0 1075,31.0" stroke="#00e5ff" stroke-width="2.6" fill="none" /><circle cx="1075" cy="31.0" r="4.5" fill="#00e5ff"/><path d="M935,320.0 C1010,320.0 1000,103.25 1075,103.25" stroke="#00e5ff" stroke-width="2.6" fill="none" /><circle cx="1075" cy="103.25" r="4.5" fill="#00e5ff"/><path d="M935,320.0 C1010,320.0 1000,175.5 1075,175.5" stroke="#00e5ff" stroke-width="2.6" fill="none" /><circle cx="1075" cy="175.5" r="4.5" fill="#00e5ff"/><path d="M935,320.0 C1010,320.0 1000,247.75 1075,247.75" stroke="#00e5ff" stroke-width="2.6" fill="none" /><circle cx="1075" cy="247.75" r="4.5" fill="#00e5ff"/><path d="M935,320.0 C1010,320.0 1000,320.0 1075,320.0" stroke="#a9ff9a" stroke-width="2" fill="none" /><circle cx="1075" cy="320.0" r="4.5" fill="#a9ff9a"/><path d="M935,320.0 C1010,320.0 1000,392.25 1075,392.25" stroke="rgba(140,160,190,.22)" stroke-width="1.2" fill="none" stroke-dasharray="4 6"/><path d="M935,320.0 C1010,320.0 1000,464.5 1075,464.5" stroke="rgba(140,160,190,.22)" stroke-width="1.2" fill="none" stroke-dasharray="4 6"/><path d="M935,320.0 C1010,320.0 1000,536.75 1075,536.75" stroke="rgba(140,160,190,.22)" stroke-width="1.2" fill="none" stroke-dasharray="4 6"/><path d="M935,320.0 C1010,320.0 1000,609.0 1075,609.0" stroke="rgba(140,160,190,.22)" stroke-width="1.2" fill="none" stroke-dasharray="4 6"/><path d="M232,40 C262,40 252,320.0 282,320.0" stroke="rgba(0,229,255,.35)" stroke-width="1.4" fill="none"/><path d="M232,116 C262,116 252,320.0 282,320.0" stroke="rgba(0,229,255,.35)" stroke-width="1.4" fill="none"/><path d="M232,192 C262,192 252,320.0 282,320.0" stroke="rgba(0,229,255,.35)" stroke-width="1.4" fill="none"/><path d="M232,268 C262,268 252,320.0 282,320.0" stroke="rgba(0,229,255,.35)" stroke-width="1.4" fill="none"/><path d="M232,344 C262,344 252,320.0 282,320.0" stroke="rgba(0,229,255,.35)" stroke-width="1.4" fill="none"/><path d="M232,420 C262,420 252,320.0 282,320.0" stroke="rgba(0,229,255,.35)" stroke-width="1.4" fill="none"/><path d="M232,496 C262,496 252,320.0 282,320.0" stroke="rgba(0,229,255,.35)" stroke-width="1.4" fill="none"/><path d="M232,572 C262,572 252,320.0 282,320.0" stroke="rgba(0,229,255,.35)" stroke-width="1.4" fill="none"/><path d="M742,320.0 L790,320.0" stroke="#00e5ff" stroke-width="2.6"/><path d="M782,314.0 L792,320.0 L782,326.0" fill="none" stroke="#00e5ff" stroke-width="2.6"/></svg>
+<div class="ins"><div class="lbl">INPUTS</div><div class="in">nmap XML</div><div class="in">Nessus .nessus</div><div class="in">OWASP ZAP XML</div><div class="in">Burp Suite XML</div><div class="in">Findings CSV</div><div class="in">Notes (agent → CSV)</div><div class="in ctx">assets.csv</div><div class="in ctx">org_departments.csv</div></div>
+<div class="fc card"><div class="lbl" style="left:0">NORMALIZED FINDING</div>
+ <div class="id"><b>F-004 · fingerprint-stable ID</b><span class="pill">P1 · ACT</span></div>
+ <h3>SMBv1 / MS17-010 on the HR file server</h3><div class="as">fs01 · 445/tcp · IT zone · personal data · criticality 4/5</div>
+ <dl class="kv">
+ <dt>SOURCES</dt><dd>nmap + Nessus, merged into one record</dd>
+ <dt>CVE</dt><dd><code>CVE-2017-0143 · 0144 · 0145</code></dd>
+ <dt>CVSS v4</dt><dd>10.0 Critical</dd>
+ <dt>CISA KEV</dt><dd>Yes, used in ransomware</dd>
+ <dt>FIRST EPSS</dt><dd>0.99 (99.9th percentile)</dd>
+ <dt>ATT&amp;CK</dt><dd><code>T1210 · T1021.002</code></dd>
+ <dt>D3FEND</dt><dd><code>D3-SU · D3-ACH · D3-ITF</code></dd>
+ <dt>CWE</dt><dd><code>CWE-477</code></dd>
+ <dt>FIX</dt><dd>Disable SMBv1, patch, limit 445/tcp</dd>
+ <dt>VERIFY</dt><dd>smb-protocols shows no SMBv1</dd>
+ <dt>DEDUP</dt><dd>2 tool reports → 1 finding</dd></dl>
+ <div class="why"><b>Why P1:</b> on the CISA KEV list and used in ransomware, full system compromise if exploited, business criticality 4/5. Due in 3 days.</div>
+</div>
+<div class="router"><b>RACI<br>+ SLA<br>router</b><span>category → RACI<br>zone → SLA<br>personal → DPO<br>P1/P2 → SOC<br>OT → MOC</span></div>
+<div class="lbl" style="left:1075px">DEPARTMENT QUEUES · TICKETS FROM F-004</div>
+<div class="dn on" style="top:0px"><span class="rb">A</span><div class="dt"><b>MGMT</b><span>Management / CISO</span></div><div class="dm"><i>Accountable · signs off</i><em>1 ticket total</em></div></div><div class="dn on" style="top:72px"><span class="rb">R</span><div class="dt"><b>IT-INFRA</b><span>IT Infrastructure</span></div><div class="dm"><i>Fix ticket · due Nov 5</i><em>15 tickets total</em></div></div><div class="dn on" style="top:144px"><span class="rb">D</span><div class="dt"><b>SOC</b><span>Security Operations</span></div><div class="dm"><i>Interim detection · due Nov 4</i><em>21 tickets total</em></div></div><div class="dn on" style="top:217px"><span class="rb">C</span><div class="dt"><b>GRC-DPO</b><span>Legal, Compliance &amp; DPO</span></div><div class="dm"><i>GDPR check · due Nov 5</i><em>7 tickets total</em></div></div><div class="dn mid" style="top:289px"><span class="rb">C</span><div class="dt"><b>NETWORK</b><span>Network &amp; Perimeter</span></div><div class="dm"><i>Consulted · 445/tcp ACL</i><em>3 tickets total</em></div></div><div class="dn off" style="top:361px"><div class="dt"><b>APPSEC-DEV</b><span>AppSec &amp; Development</span></div><div class="dm"><i>Not involved</i><em>5 tickets total</em></div></div><div class="dn off" style="top:434px"><div class="dt"><b>IAM</b><span>Identity &amp; Access</span></div><div class="dm"><i>Not involved</i><em>1 ticket total</em></div></div><div class="dn off" style="top:506px"><div class="dt"><b>OT-ENG</b><span>OT / Plant Engineering</span></div><div class="dm"><i>Not involved</i><em>5 tickets total</em></div></div><div class="dn off" style="top:578px"><div class="dt"><b>HR-AWARENESS</b><span>HR &amp; Awareness</span></div><div class="dm"><i>Not involved</i><em>1 ticket total</em></div></div>
+</div>
+<div class="layers">
+ <div class="ly card"><h4>Method</h4><p>PTES · NIST SP 800-115</p><span>Phases, rules of engagement, planning and the report structure.</span></div>
+ <div class="ly card"><h4>Test catalog</h4><p>OWASP WSTG v4.2</p><span>Stable test IDs on every web finding, so a retest repeats the same test.</span></div>
+ <div class="ly card"><h4>Shared language</h4><p>ATT&amp;CK v20 · D3FEND 1.6</p><span>Enterprise and ICS techniques for the SOC, countermeasures for the fixers.</span></div>
+ <div class="ly card"><h4>Decision</h4><p>CVSS v4 · KEV · EPSS · SSVC</p><span>None of the six frameworks ranks findings, so these do it.</span></div>
+ <div class="ly card x"><h4>Ideas only / excluded</h4><p>OSSTMM 3 · ISSAF</p><span>OSSTMM metrics inspired the scoring notes. ISSAF is no longer maintained.</span></div>
+</div>
+<div class="outs"><b>PACKAGE</b><span>report.md</span><span>findings.json / .csv</span><span>tickets/&lt;dept&gt;.md · .csv · .json</span><span>jira_import.csv</span><span>servicenow_import.json</span><span>defectdojo_generic.json</span><span>navigator/ enterprise + ics</span></div>
+<div class="footer"><span>Python 3 standard library · offline with KEV/EPSS snapshots, or --online · MIT license</span><span>R responsible · A accountable · C consulted · D detection owner</span></div>
+</div></body></html>

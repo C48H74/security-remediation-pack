@@ -1,0 +1,12 @@
+ticket_id,type,priority,jira_priority,due_date,department,summary,finding_id,labels,accountable,consulted,informed
+SOC-001,detection,P1,Highest,2026-11-11,SOC,"[P1] Interim detection while F-002 is open: T1190, T1210 on Citrix gateway",F-002,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02;KEV,MGMT,APPSEC-DEV,SOC;NETWORK
+SOC-002,detection,P1,Highest,2026-11-11,SOC,"[P1] Interim detection while F-003 is open: T1190, T1210 on Engineering workstation (DCS/PLC programming)",F-003,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02;KEV;OT,MGMT,IT-INFRA;APPSEC-DEV,SOC
+SOC-003,detection,P1,Highest,2026-11-11,SOC,"[P1] Interim detection while F-005 is open: T1190, T1210 on Domain controller",F-005,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02;KEV,MGMT,APPSEC-DEV,SOC;IAM
+SOC-004,detection,P1,Highest,2026-11-11,SOC,"[P1] Interim detection while F-006 is open: T1190, T1210 on Message broker",F-006,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02;KEV,MGMT,APPSEC-DEV,SOC
+SOC-005,detection,P1,Highest,2026-11-11,SOC,"[P1] Interim detection while F-007 is open: T1190, T1210 on Maintenance planning app",F-007,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02;KEV,MGMT,APPSEC-DEV,SOC
+SOC-006,detection,P1,Highest,2026-11-11,SOC,"[P1] Interim detection while F-008 is open: T1190, T1210 on Intranet web server",F-008,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02;KEV,MGMT,APPSEC-DEV,SOC
+SOC-007,detection,P2,High,2026-11-11,SOC,"[P2] Interim detection while F-009 is open: T0883, T0886, T1692 on PLC crude distillation unit",F-009,ot-protocol-exposed;T0883;T0886;T1692;OT,MGMT,NETWORK;SOC,GRC-DPO
+SOC-008,detection,P2,High,2026-11-11,SOC,"[P2] Interim detection while F-010 is open: T0883, T0886, T1692 on PLC utilities (steam/cooling water)",F-010,ot-protocol-exposed;T0883;T0886;T1692;OT,MGMT,NETWORK;SOC,GRC-DPO
+SOC-009,detection,P2,High,2026-11-11,SOC,"[P2] Interim detection while F-012 is open: T0883, T0886, T1692 on OPC UA historian gateway",F-012,ot-protocol-exposed;T0883;T0886;T1692;OT,MGMT,NETWORK;SOC,GRC-DPO
+SOC-010,detection,P2,High,2026-11-11,SOC,"[P2] Interim detection while F-018 is open: T1190, T1213 on ERP database",F-018,exposed-database;T1190;T1213;WSTG-v42-CONF-01,MGMT,APPSEC-DEV;NETWORK;GRC-DPO,SOC
+SOC-011,detection,P2,High,2026-11-11,SOC,"[P2] Interim detection while F-019 is open: T1190, T1213 on ERP database",F-019,exposed-database;T1190;T1213;WSTG-v42-CONF-01,MGMT,APPSEC-DEV;NETWORK;GRC-DPO,SOC

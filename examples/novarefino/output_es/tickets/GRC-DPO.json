@@ -1,0 +1,289 @@
+[
+  {
+    "ticket_id": "GRC-DPO-001",
+    "department": "GRC-DPO",
+    "department_name": "Legal, Compliance & Data Protection Officer",
+    "queue": "GRC",
+    "assignee_group": "Compliance",
+    "lead": "Elena Sanz (fictitious)",
+    "lead_email": "dpo@novarefino.example",
+    "type": "compliance",
+    "finding_id": "F-004",
+    "fingerprint": "5c3b099f2c",
+    "priority": "P1",
+    "jira_priority": "Highest",
+    "snow_urgency": 1,
+    "snow_impact": 1,
+    "due_date": "2026-11-05",
+    "summary": "[P1] Assess personal-data impact of F-004 on HR file server",
+    "steps": [
+      "Check access logs for the exposure window together with SOC.",
+      "Decide whether the incident threshold for GDPR Art. 33 notification (72 h to the authority) is met and document the decision.",
+      "Record the finding and treatment in the risk register / RoPA."
+    ],
+    "verify": [
+      "Decision recorded with date and signatory."
+    ],
+    "labels": [
+      "legacy-smb",
+      "T1210",
+      "T1021.002",
+      "KEV"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "NETWORK",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "GRC-DPO-002",
+    "department": "GRC-DPO",
+    "department_name": "Legal, Compliance & Data Protection Officer",
+    "queue": "GRC",
+    "assignee_group": "Compliance",
+    "lead": "Elena Sanz (fictitious)",
+    "lead_email": "dpo@novarefino.example",
+    "type": "compliance",
+    "finding_id": "F-013",
+    "fingerprint": "aa3890b6f2",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-16",
+    "summary": "[P2] Assess personal-data impact of F-013 on Supplier portal",
+    "steps": [
+      "Check access logs for the exposure window together with SOC.",
+      "Decide whether the incident threshold for GDPR Art. 33 notification (72 h to the authority) is met and document the decision.",
+      "Record the finding and treatment in the risk register / RoPA."
+    ],
+    "verify": [
+      "Decision recorded with date and signatory."
+    ],
+    "labels": [
+      "web-injection",
+      "T1190",
+      "WSTG-v42-INPV-05",
+      "WSTG-v42-INPV-12"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "IT-INFRA",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC",
+      "NETWORK"
+    ]
+  },
+  {
+    "ticket_id": "GRC-DPO-003",
+    "department": "GRC-DPO",
+    "department_name": "Legal, Compliance & Data Protection Officer",
+    "queue": "GRC",
+    "assignee_group": "Compliance",
+    "lead": "Elena Sanz (fictitious)",
+    "lead_email": "dpo@novarefino.example",
+    "type": "compliance",
+    "finding_id": "F-015",
+    "fingerprint": "8ec1aef740",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-16",
+    "summary": "[P2] Assess personal-data impact of F-015 on Supplier portal",
+    "steps": [
+      "Check access logs for the exposure window together with SOC.",
+      "Decide whether the incident threshold for GDPR Art. 33 notification (72 h to the authority) is met and document the decision.",
+      "Record the finding and treatment in the risk register / RoPA."
+    ],
+    "verify": [
+      "Decision recorded with date and signatory."
+    ],
+    "labels": [
+      "sensitive-data-exposure",
+      "T1530",
+      "T1552.001",
+      "WSTG-v42-CONF-04",
+      "WSTG-v42-CONF-11"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC",
+      "NETWORK",
+      "APPSEC-DEV"
+    ]
+  },
+  {
+    "ticket_id": "GRC-DPO-004",
+    "department": "GRC-DPO",
+    "department_name": "Legal, Compliance & Data Protection Officer",
+    "queue": "GRC",
+    "assignee_group": "Compliance",
+    "lead": "Elena Sanz (fictitious)",
+    "lead_email": "dpo@novarefino.example",
+    "type": "compliance",
+    "finding_id": "F-017",
+    "fingerprint": "b882517c0c",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-16",
+    "summary": "[P2] Assess personal-data impact of F-017 on ERP database",
+    "steps": [
+      "Check access logs for the exposure window together with SOC.",
+      "Decide whether the incident threshold for GDPR Art. 33 notification (72 h to the authority) is met and document the decision.",
+      "Record the finding and treatment in the risk register / RoPA."
+    ],
+    "verify": [
+      "Decision recorded with date and signatory."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "GRC-DPO-005",
+    "department": "GRC-DPO",
+    "department_name": "Legal, Compliance & Data Protection Officer",
+    "queue": "GRC",
+    "assignee_group": "Compliance",
+    "lead": "Elena Sanz (fictitious)",
+    "lead_email": "dpo@novarefino.example",
+    "type": "compliance",
+    "finding_id": "F-018",
+    "fingerprint": "5c6bd9a8b2",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-16",
+    "summary": "[P2] Assess personal-data impact of F-018 on ERP database",
+    "steps": [
+      "Check access logs for the exposure window together with SOC.",
+      "Decide whether the incident threshold for GDPR Art. 33 notification (72 h to the authority) is met and document the decision.",
+      "Record the finding and treatment in the risk register / RoPA."
+    ],
+    "verify": [
+      "Decision recorded with date and signatory."
+    ],
+    "labels": [
+      "exposed-database",
+      "T1190",
+      "T1213",
+      "WSTG-v42-CONF-01"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV",
+      "NETWORK",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "GRC-DPO-006",
+    "department": "GRC-DPO",
+    "department_name": "Legal, Compliance & Data Protection Officer",
+    "queue": "GRC",
+    "assignee_group": "Compliance",
+    "lead": "Elena Sanz (fictitious)",
+    "lead_email": "dpo@novarefino.example",
+    "type": "compliance",
+    "finding_id": "F-019",
+    "fingerprint": "310a6a620f",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-16",
+    "summary": "[P2] Assess personal-data impact of F-019 on ERP database",
+    "steps": [
+      "Check access logs for the exposure window together with SOC.",
+      "Decide whether the incident threshold for GDPR Art. 33 notification (72 h to the authority) is met and document the decision.",
+      "Record the finding and treatment in the risk register / RoPA."
+    ],
+    "verify": [
+      "Decision recorded with date and signatory."
+    ],
+    "labels": [
+      "exposed-database",
+      "T1190",
+      "T1213",
+      "WSTG-v42-CONF-01"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV",
+      "NETWORK",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "GRC-DPO-007",
+    "department": "GRC-DPO",
+    "department_name": "Legal, Compliance & Data Protection Officer",
+    "queue": "GRC",
+    "assignee_group": "Compliance",
+    "lead": "Elena Sanz (fictitious)",
+    "lead_email": "dpo@novarefino.example",
+    "type": "compliance",
+    "finding_id": "F-020",
+    "fingerprint": "af19711eed",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-16",
+    "summary": "[P2] Assess personal-data impact of F-020 on Supplier portal",
+    "steps": [
+      "Check access logs for the exposure window together with SOC.",
+      "Decide whether the incident threshold for GDPR Art. 33 notification (72 h to the authority) is met and document the decision.",
+      "Record the finding and treatment in the risk register / RoPA."
+    ],
+    "verify": [
+      "Decision recorded with date and signatory."
+    ],
+    "labels": [
+      "broken-access-control",
+      "T1190",
+      "T1213",
+      "WSTG-v42-ATHZ-02",
+      "WSTG-v42-ATHZ-04"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "IAM",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC",
+      "NETWORK"
+    ]
+  }
+]

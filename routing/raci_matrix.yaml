@@ -1,0 +1,168 @@
+# RACI routing matrix: finding category -> department roles.
+# R = Responsible (does the fix, gets the ticket)
+# A = Accountable (approves, owns the risk; exactly one)
+# C = Consulted (must be asked before the change)
+# I = Informed (gets a copy / dashboard line)
+# detect = department that builds the interim detection while the fix is pending
+#
+# Format note: deliberately simple YAML (2-space indent, inline lists) so the
+# stdlib-only parser in scripts/remediation_pack.py can read it. PyYAML is used
+# automatically when installed.
+
+version: 1
+
+departments:
+  MGMT:
+    name: Management / CISO office
+  IT-INFRA:
+    name: IT Infrastructure & Operations
+  NETWORK:
+    name: Network & Perimeter
+  APPSEC-DEV:
+    name: Application Security & Development
+  SOC:
+    name: Security Operations Center
+  IAM:
+    name: Identity & Access Management
+  OT-ENG:
+    name: OT / Plant Engineering & Automation
+  GRC-DPO:
+    name: Legal, Compliance & Data Protection Officer
+  HR-AWARENESS:
+    name: HR & Security Awareness
+
+# Remediation SLA in calendar days per priority. OT findings use ot_sla.
+sla:
+  P1: 3
+  P2: 14
+  P3: 45
+  P4: 90
+ot_sla:
+  P1: 3
+  P2: 30
+  P3: 90
+  P4: 180
+
+categories:
+  vulnerable-software:
+    R: [IT-INFRA]
+    A: MGMT
+    C: [APPSEC-DEV]
+    I: [SOC]
+    detect: SOC
+  exposed-remote-access:
+    R: [NETWORK]
+    A: MGMT
+    C: [IAM, IT-INFRA]
+    I: [SOC]
+    detect: SOC
+  cleartext-protocol:
+    R: [IT-INFRA]
+    A: MGMT
+    C: [NETWORK]
+    I: [SOC]
+    detect: SOC
+  legacy-smb:
+    R: [IT-INFRA]
+    A: MGMT
+    C: [NETWORK]
+    I: [SOC]
+    detect: SOC
+  exposed-database:
+    R: [IT-INFRA]
+    A: MGMT
+    C: [APPSEC-DEV, NETWORK]
+    I: [SOC, GRC-DPO]
+    detect: SOC
+  snmp-weak-community:
+    R: [NETWORK]
+    A: MGMT
+    C: [IT-INFRA]
+    I: [SOC]
+    detect: SOC
+  ot-protocol-exposed:
+    R: [OT-ENG]
+    A: MGMT
+    C: [NETWORK, SOC]
+    I: [GRC-DPO]
+    detect: SOC
+  weak-tls:
+    R: [IT-INFRA]
+    A: MGMT
+    C: [APPSEC-DEV]
+    I: []
+    detect: none
+  web-injection:
+    R: [APPSEC-DEV]
+    A: MGMT
+    C: [IT-INFRA]
+    I: [SOC, GRC-DPO]
+    detect: SOC
+  web-xss:
+    R: [APPSEC-DEV]
+    A: MGMT
+    C: []
+    I: [SOC]
+    detect: SOC
+  broken-access-control:
+    R: [APPSEC-DEV]
+    A: MGMT
+    C: [IAM]
+    I: [SOC, GRC-DPO]
+    detect: SOC
+  auth-weakness:
+    R: [IAM]
+    A: MGMT
+    C: [APPSEC-DEV]
+    I: [SOC]
+    detect: SOC
+  default-credentials:
+    R: [IAM]
+    A: MGMT
+    C: [IT-INFRA]
+    I: [SOC]
+    detect: SOC
+  security-misconfiguration-web:
+    R: [APPSEC-DEV]
+    A: MGMT
+    C: [IT-INFRA]
+    I: []
+    detect: none
+  admin-interface-exposed:
+    R: [APPSEC-DEV]
+    A: MGMT
+    C: [NETWORK, IAM]
+    I: [SOC]
+    detect: SOC
+  sensitive-data-exposure:
+    R: [IT-INFRA]
+    A: MGMT
+    C: [GRC-DPO]
+    I: [SOC]
+    detect: SOC
+  logging-detection-gap:
+    R: [SOC]
+    A: MGMT
+    C: [IT-INFRA]
+    I: []
+    detect: none
+  phishing-susceptibility:
+    R: [HR-AWARENESS]
+    A: MGMT
+    C: [SOC]
+    I: [GRC-DPO]
+    detect: SOC
+
+# Context overrides, applied in order after the category row.
+overrides:
+  ot_zone:
+    # any finding on an asset in the OT zone: OT engineering owns the fix,
+    # IT teams become consulted, process safety approval is mandatory.
+    move_R_to_C: true
+    R: [OT-ENG]
+    note: Requires Management of Change (MOC) and process-safety sign-off before any change on live equipment.
+  personal_data:
+    # asset stores personal data: DPO must be consulted
+    add_C: [GRC-DPO]
+  internet_facing:
+    add_I: [NETWORK]

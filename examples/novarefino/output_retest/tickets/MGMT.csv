@@ -1,0 +1,2 @@
+ticket_id,type,priority,jira_priority,due_date,department,summary,finding_id,labels,accountable,consulted,informed
+MGMT-001,governance,P1,Highest,2026-11-11,MGMT,"Approve remediation plan: 11 P1/P2 findings, resources and risk acceptances",,governance,MGMT,,

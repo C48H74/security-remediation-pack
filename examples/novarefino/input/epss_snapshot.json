@@ -1,0 +1,108 @@
+{
+ "status": "OK",
+ "status-code": 200,
+ "version": "1.0",
+ "access": "public",
+ "total": 16,
+ "offset": 0,
+ "limit": 100,
+ "data": [
+  {
+   "cve": "CVE-2024-6387",
+   "epss": "0.995060000",
+   "percentile": "0.999460000",
+   "date": "2026-11-02"
+  },
+  {
+   "cve": "CVE-2024-3400",
+   "epss": "0.999990000",
+   "percentile": "1.000000000",
+   "date": "2026-11-02"
+  },
+  {
+   "cve": "CVE-2023-4966",
+   "epss": "0.999990000",
+   "percentile": "0.999970000",
+   "date": "2026-11-02"
+  },
+  {
+   "cve": "CVE-2023-48795",
+   "epss": "0.935470000",
+   "percentile": "0.998400000",
+   "date": "2026-11-02"
+  },
+  {
+   "cve": "CVE-2023-46604",
+   "epss": "0.999920000",
+   "percentile": "0.999860000",
+   "date": "2026-11-02"
+  },
+  {
+   "cve": "CVE-2023-38408",
+   "epss": "0.797000000",
+   "percentile": "0.996060000",
+   "date": "2026-11-02"
+  },
+  {
+   "cve": "CVE-2023-25690",
+   "epss": "0.845080000",
+   "percentile": "0.997010000",
+   "date": "2026-11-02"
+  },
+  {
+   "cve": "CVE-2022-22720",
+   "epss": "0.281890000",
+   "percentile": "0.981130000",
+   "date": "2026-11-02"
+  },
+  {
+   "cve": "CVE-2021-44228",
+   "epss": "0.999990000",
+   "percentile": "1.000000000",
+   "date": "2026-11-02"
+  },
+  {
+   "cve": "CVE-2021-42013",
+   "epss": "0.999640000",
+   "percentile": "0.999760000",
+   "date": "2026-11-02"
+  },
+  {
+   "cve": "CVE-2021-41773",
+   "epss": "0.999920000",
+   "percentile": "0.999860000",
+   "date": "2026-11-02"
+  },
+  {
+   "cve": "CVE-2020-1472",
+   "epss": "0.993890000",
+   "percentile": "0.999400000",
+   "date": "2026-11-02"
+  },
+  {
+   "cve": "CVE-2019-0708",
+   "epss": "0.999990000",
+   "percentile": "0.999990000",
+   "date": "2026-11-02"
+  },
+  {
+   "cve": "CVE-2017-0144",
+   "epss": "0.992300000",
+   "percentile": "0.999360000",
+   "date": "2026-11-02"
+  },
+  {
+   "cve": "CVE-2017-0143",
+   "epss": "0.933070000",
+   "percentile": "0.998370000",
+   "date": "2026-11-02"
+  },
+  {
+   "cve": "CVE-2016-2183",
+   "epss": "0.946970000",
+   "percentile": "0.998570000",
+   "date": "2026-11-02"
+  }
+ ],
+ "_note": "FIRST EPSS scores retrieved 2026-11-02 from https://api.first.org/data/v1/epss . EPSS is provided by FIRST.org; see https://www.first.org/epss/ for terms. Use --online for live values."
+}

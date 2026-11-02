@@ -1,0 +1,44 @@
+{
+  "fixed": 3,
+  "still_open": 16,
+  "new": 0,
+  "not_retested": 12,
+  "fixed_items": [
+    "cec04fddeb",
+    "5c3b099f2c",
+    "fb827adb64"
+  ],
+  "not_retested_items": [
+    "43df786742",
+    "aa3890b6f2",
+    "8ec1aef740",
+    "3dc5ae0275",
+    "b882517c0c",
+    "af19711eed",
+    "4d3efd44ee",
+    "f3766172fe",
+    "9956f836e7",
+    "3e394be8a6",
+    "dd6cd5a0b5",
+    "c15aff38e5"
+  ],
+  "still_open_items": [
+    "f436dcea04",
+    "c428f48027",
+    "52ec51831a",
+    "c4915084ae",
+    "540c0312a7",
+    "0d26bfd84d",
+    "d0f9f2522e",
+    "bdafecb53f",
+    "a56d67d0df",
+    "5c6bd9a8b2",
+    "310a6a620f",
+    "77de0ff2b7",
+    "9f5d1684e4",
+    "568343cce0",
+    "7d5433fa01",
+    "ed60b0ce24"
+  ],
+  "new_items": []
+}

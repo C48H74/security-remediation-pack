@@ -1,0 +1,84 @@
+[
+  {
+    "ticket_id": "NETWORK-001",
+    "department": "NETWORK",
+    "department_name": "Network & Perimeter",
+    "queue": "NET",
+    "assignee_group": "Network Operations",
+    "lead": "Ana Ribeiro (fictitious)",
+    "lead_email": "network@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-022",
+    "fingerprint": "9f5d1684e4",
+    "priority": "P3",
+    "jira_priority": "Medium",
+    "snow_urgency": 2,
+    "snow_impact": 2,
+    "due_date": "2026-12-24",
+    "summary": "[P3] Remote administration service reachable from untrusted networks on 10.10.9.99 (not in inventory) (10.10.9.99:5900)",
+    "steps": [
+      "Remove the direct exposure: close the port on the perimeter firewall / security group for any source outside the admin allowlist.",
+      "Publish remote administration only through the corporate VPN or a zero-trust access broker with MFA.",
+      "Enforce Network Level Authentication (RDP) or key-only authentication (SSH) and disable password logins for privileged accounts.",
+      "Record the rule change with ticket ID in the firewall change log."
+    ],
+    "verify": [
+      "From an external vantage point, nmap -Pn -p <port> <public IP> must report filtered/closed.",
+      "Confirm the service is still reachable through the VPN / broker path for authorised admins."
+    ],
+    "labels": [
+      "exposed-remote-access",
+      "T1133",
+      "T1021.001",
+      "T1110",
+      "WSTG-v42-CONF-01"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "IAM",
+      "IT-INFRA"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "NETWORK-002",
+    "department": "NETWORK",
+    "department_name": "Network & Perimeter",
+    "queue": "NET",
+    "assignee_group": "Network Operations",
+    "lead": "Ana Ribeiro (fictitious)",
+    "lead_email": "network@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-024",
+    "fingerprint": "568343cce0",
+    "priority": "P3",
+    "jira_priority": "Medium",
+    "snow_urgency": 2,
+    "snow_impact": 2,
+    "due_date": "2026-12-24",
+    "summary": "[P3] SNMP v1/v2c with default or guessable community string on Core switch (core-sw01.corp.novarefino.example:161)",
+    "steps": [
+      "Migrate the device to SNMPv3 with authPriv (SHA-2 + AES).",
+      "If v2c must stay temporarily, set a long random read-only community and an ACL that allows only the NMS address.",
+      "Disable SNMP write access entirely."
+    ],
+    "verify": [
+      "nmap -sU -p161 --script snmp-info <host> with 'public' must fail.",
+      "NMS still polls the device over SNMPv3."
+    ],
+    "labels": [
+      "snmp-weak-community",
+      "T1046",
+      "T1078.001"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "IT-INFRA"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  }
+]

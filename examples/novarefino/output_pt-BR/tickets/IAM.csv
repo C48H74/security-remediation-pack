@@ -1,0 +1,2 @@
+ticket_id,type,priority,jira_priority,due_date,department,summary,finding_id,labels,accountable,consulted,informed
+IAM-001,fix,P2,High,2026-11-16,IAM,[P2] Weak authentication controls (no lockout / no MFA / weak policy) on Domain controller (dc01.corp.novarefino.example),F-016,auth-weakness;T1110;T1078;WSTG-v42-ATHN-03;WSTG-v42-ATHN-07,MGMT,APPSEC-DEV,SOC

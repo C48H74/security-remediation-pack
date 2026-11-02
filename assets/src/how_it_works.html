@@ -1,0 +1,67 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><style>
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;margin-top:40px;position:relative}
+.step{padding:22px 18px 18px;position:relative}
+.step .n{font:700 14px "JetBrains Mono";color:#05080f;background:#00e5ff;border-radius:999px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(0,229,255,.6)}
+.step h3{font:700 25px/1.15 "Space Grotesk";color:#fff;margin:14px 0 6px}
+.step .what{font-size:15.5px;color:#9fb2cc;line-height:1.45;margin-bottom:14px}
+.step ul{list-style:none}
+.step li{font-size:14.5px;line-height:1.4;padding:7px 0 7px 18px;border-top:1px dashed rgba(0,229,255,.12);position:relative;color:#cfdcee}
+.step li:before{content:"";position:absolute;left:2px;top:14px;width:7px;height:7px;border-radius:2px;background:#00e5ff;box-shadow:0 0 8px #00e5ff}
+.step:not(:last-child):after{content:"";position:absolute;right:-22px;top:40px;width:22px;height:2px;background:linear-gradient(90deg,#00e5ff,#7cff6b)}
+.step:not(:last-child):before{content:"";position:absolute;right:-24px;top:35px;border:6px solid transparent;border-left:8px solid #7cff6b;z-index:2;transform:translateX(8px)}
+.dec{display:grid;grid-template-columns:auto 1fr;gap:7px 8px;margin-top:10px;font:600 13px "JetBrains Mono";white-space:nowrap}
+.dec span:nth-child(odd){font-weight:700}
+.bottom{display:grid;grid-template-columns:1.25fr 1fr;gap:22px;margin-top:24px}
+.panel{padding:22px 24px}
+.panel h4{font:700 15px "JetBrains Mono";letter-spacing:.14em;text-transform:uppercase;color:#00e5ff;margin-bottom:14px}
+.depts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.dept{border:1px solid rgba(124,255,107,.22);border-radius:10px;padding:10px 12px;background:rgba(124,255,107,.04)}
+.dept b{font:700 14px "JetBrains Mono";color:#a9ff9a;display:block}
+.dept span{font-size:13px;color:#9fb2cc}
+.dept i{font-style:normal;float:right;font:700 14px "JetBrains Mono";color:#fff}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.stat{border:1px solid rgba(0,229,255,.18);border-radius:12px;padding:14px 16px}
+.stat .v{font:700 40px "Space Grotesk";color:#fff;line-height:1}
+.stat .l{font-size:14px;color:#9fb2cc;margin-top:6px;line-height:1.35}
+</style></head><body><div class="grid-bg"></div><div class="wrap">
+<div class="kicker">Open-source AI agent skill · security-remediation-pack</div>
+<h1>From scan output to <em>fixes each team owns</em></h1>
+<p class="sub">One command turns pentest and scanner results into a prioritized remediation package: every finding gets a reason, an owner, a deadline, fix steps and a retest check, split into one ticket queue per department.</p>
+
+<div class="flow">
+ <div class="step card"><div class="n">1</div><h3>Ingest</h3><p class="what">Raw results from the tools testers already use.</p>
+  <ul><li>nmap XML (NSE vulners, smb-vuln)</li><li>Nessus .nessus</li><li>OWASP ZAP and Burp XML</li><li>Findings CSV / pentest notes</li><li>Asset inventory (criticality, zone, data)</li><li>Departments and leads</li></ul></div>
+ <div class="step card"><div class="n">2</div><h3>Normalize &amp; merge</h3><p class="what">One finding per issue, even when three tools report it.</p>
+  <ul><li>18 finding categories</li><li>Stable fingerprint per service / URL</li><li>CVEs merged, KEV first</li><li>Unknown hosts flagged for the CMDB</li><li>Evidence kept word for word</li></ul></div>
+ <div class="step card"><div class="n">3</div><h3>Enrich &amp; map</h3><p class="what">Facts from public catalogs, never invented.</p>
+  <ul><li>CVSS v4.0 vector and score</li><li>CISA KEV (actively exploited)</li><li>FIRST EPSS probability</li><li>ATT&amp;CK v20 Enterprise + ICS</li><li>D3FEND 1.6 countermeasures</li><li>OWASP WSTG v4.2 test IDs, CWE</li></ul></div>
+ <div class="step card"><div class="n">4</div><h3>Decide</h3><p class="what">SSVC-style: exploitation × exposure × impact × asset criticality.</p>
+  <div class="dec"><span class="p1">P1 ACT</span><span>3 days</span><span class="p2">P2 ATTEND</span><span>14 d IT · 30 d OT</span><span class="p3">P3 TRACK*</span><span>45 d IT · 90 d OT</span><span class="p4">P4 TRACK</span><span>90 d IT · 180 d OT</span></div>
+  <ul style="margin-top:12px"><li>Plain-language "why" line</li><li>KEV is always P1 or P2</li><li>Policy floors per category</li></ul></div>
+ <div class="step card"><div class="n">5</div><h3>Route &amp; ship</h3><p class="what">RACI matrix sends each fix to the team that can do it.</p>
+  <ul><li>Fix tickets per Responsible team</li><li>SOC detection while fix is pending</li><li>DPO ticket when personal data is hit</li><li>OT assets: OT-ENG + MOC sign-off</li><li>Jira CSV · ServiceNow JSON</li><li>DefectDojo · ATT&amp;CK Navigator</li></ul></div>
+</div>
+
+<div class="bottom">
+ <div class="panel card"><h4>Tickets per department · demo run</h4>
+  <div class="depts">
+   <div class="dept"><b>IT-INFRA <i>15</i></b><span>Patching, hardening</span></div>
+   <div class="dept"><b>SOC <i>21</i></b><span>Interim detections</span></div>
+   <div class="dept"><b>GRC-DPO <i>7</i></b><span>GDPR Art. 33 checks</span></div>
+   <div class="dept"><b>APPSEC-DEV <i>5</i></b><span>Code and web fixes</span></div>
+   <div class="dept"><b>OT-ENG <i>5</i></b><span>Plant, via MOC</span></div>
+   <div class="dept"><b>NETWORK <i>3</i></b><span>Firewall, segmentation</span></div>
+   <div class="dept"><b>IAM <i>1</i></b><span>MFA, password policy</span></div>
+   <div class="dept"><b>HR-AWARENESS <i>1</i></b><span>Phishing training</span></div>
+   <div class="dept"><b>MGMT <i>1</i></b><span>Approve plan, accept risk</span></div>
+  </div></div>
+ <div class="panel card"><h4>Fictitious refinery demo · verified run</h4>
+  <div class="stats">
+   <div class="stat"><div class="v">31</div><div class="l">findings from 6 sources after de-duplication</div></div>
+   <div class="stat"><div class="v">59</div><div class="l">tickets for 9 departments, each with a due date</div></div>
+   <div class="stat"><div class="v"><span class="p1">8</span> P1</div><div class="l">all on the CISA KEV list, due in 3 days</div></div>
+   <div class="stat"><div class="v">669<span style="font-size:24px;color:#7cff6b">/669</span></div><div class="l">self-test checks passed (27 rules)</div></div>
+  </div></div>
+</div>
+<div class="footer"><span>Python 3 standard library · MIT license · EN / ES / PT-BR</span><span>Retest with <b>--baseline</b>: fixed · still open · new · not retested</span></div>
+</div></body></html>

@@ -1,0 +1,39 @@
+[
+  {
+    "ticket_id": "HR-AWARENESS-001",
+    "department": "HR-AWARENESS",
+    "department_name": "HR & Security Awareness",
+    "queue": "HR-SEC",
+    "assignee_group": "HR Security Awareness",
+    "lead": "Beatriz Costa (fictitious)",
+    "lead_email": "awareness@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-025",
+    "fingerprint": "f3766172fe",
+    "priority": "P3",
+    "jira_priority": "Medium",
+    "snow_urgency": 2,
+    "snow_impact": 2,
+    "due_date": "2026-12-17",
+    "summary": "[P3] Users susceptible to phishing / social engineering on Workforce (users)",
+    "steps": [
+      "Run short, role-based awareness sessions for the affected teams within 30 days (no blame, focus on reporting).",
+      "Deploy a one-click 'report phishing' button and publish the reporting channel.",
+      "Enforce MFA so a captured password alone is not enough.",
+      "Schedule a follow-up simulation in 90 days to measure improvement."
+    ],
+    "verify": [
+      "Follow-up simulation click rate below the agreed target; report rate above target."
+    ],
+    "labels": [
+      "phishing-susceptibility",
+      "T1566"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "SOC",
+      "GRC-DPO"
+    ],
+    "informed": []
+  }
+]

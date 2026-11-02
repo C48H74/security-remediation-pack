@@ -1,0 +1,776 @@
+{
+  "_meta": {
+    "description": "Finding-category knowledge base. Identifiers only from MITRE ATT&CK v20 (Enterprise + ICS), MITRE D3FEND 1.6.0, OWASP WSTG v4.2 (versioned IDs), CWE. All prose is original wording of this project.",
+    "attack_version": "20",
+    "d3fend_version": "1.6.0",
+    "wstg_version": "v42"
+  },
+  "categories": {
+    "vulnerable-software": {
+      "title": "Outdated software with known vulnerabilities",
+      "domain": "infra",
+      "cwe": [
+        1104
+      ],
+      "attack": [
+        "T1190",
+        "T1210"
+      ],
+      "attack_mitigations": [
+        "M1051",
+        "M1016"
+      ],
+      "d3fend": [
+        "D3-SU"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-02"
+      ],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "fix": [
+        "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+        "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+        "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+        "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+      ],
+      "verify": [
+        "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+        "Re-run the original exploit check (non-destructive) and confirm it fails."
+      ],
+      "detect": "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "cvss4_default_score": 9.3
+    },
+    "exposed-remote-access": {
+      "title": "Remote administration service reachable from untrusted networks",
+      "domain": "network",
+      "cwe": [
+        284
+      ],
+      "attack": [
+        "T1133",
+        "T1021.001",
+        "T1110"
+      ],
+      "attack_mitigations": [
+        "M1035",
+        "M1032",
+        "M1030"
+      ],
+      "d3fend": [
+        "D3-ITF",
+        "D3-MFA",
+        "D3-NI"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-01"
+      ],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "fix": [
+        "Remove the direct exposure: close the port on the perimeter firewall / security group for any source outside the admin allowlist.",
+        "Publish remote administration only through the corporate VPN or a zero-trust access broker with MFA.",
+        "Enforce Network Level Authentication (RDP) or key-only authentication (SSH) and disable password logins for privileged accounts.",
+        "Record the rule change with ticket ID in the firewall change log."
+      ],
+      "verify": [
+        "From an external vantage point, nmap -Pn -p <port> <public IP> must report filtered/closed.",
+        "Confirm the service is still reachable through the VPN / broker path for authorised admins."
+      ],
+      "detect": "SOC: alert on successful logons to this service from non-VPN source ranges and on password-spray patterns.",
+      "cvss4_default_score": 9.2
+    },
+    "cleartext-protocol": {
+      "title": "Cleartext management or file-transfer protocol in use",
+      "domain": "infra",
+      "cwe": [
+        319
+      ],
+      "attack": [
+        "T1040",
+        "T1557"
+      ],
+      "attack_mitigations": [
+        "M1041",
+        "M1042"
+      ],
+      "d3fend": [
+        "D3-ET",
+        "D3-MENCR"
+      ],
+      "wstg": [
+        "WSTG-v42-CRYP-03"
+      ],
+      "cvss4_default": "CVSS:4.0/AV:A/AC:L/AT:N/PR:N/UI:N/VC:H/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "fix": [
+        "Replace Telnet with SSH and FTP with SFTP/FTPS; disable the cleartext daemon after migration.",
+        "Rotate every credential that was ever used over the cleartext protocol.",
+        "Block the cleartext port at the host firewall so it cannot be re-enabled silently."
+      ],
+      "verify": [
+        "nmap -p 21,23 <host> must report closed/filtered.",
+        "Confirm that the replacement encrypted service accepts logins with rotated credentials."
+      ],
+      "detect": "SOC: network sensor rule for any new Telnet/FTP session on the segment.",
+      "cvss4_default_score": 7.1
+    },
+    "legacy-smb": {
+      "title": "Legacy SMBv1 enabled / SMB exposed",
+      "domain": "infra",
+      "cwe": [
+        477
+      ],
+      "attack": [
+        "T1210",
+        "T1021.002"
+      ],
+      "attack_mitigations": [
+        "M1042",
+        "M1051",
+        "M1037"
+      ],
+      "d3fend": [
+        "D3-SU",
+        "D3-ACH",
+        "D3-ITF"
+      ],
+      "wstg": [],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H",
+      "fix": [
+        "Disable SMBv1 on the server and clients (Windows feature removal or GPO) after checking that no legacy device still depends on it.",
+        "Install the cumulative security update that covers the listed CVEs.",
+        "Restrict TCP 445 to the subnets that need file services; never expose it to the internet or to the OT zone."
+      ],
+      "verify": [
+        "nmap -p445 --script smb-protocols <host> must not list SMBv1 (NT LM 0.12).",
+        "nmap -p445 --script smb-vuln-ms17-010 <host> must report not vulnerable."
+      ],
+      "detect": "SOC: alert on SMBv1 negotiation and on lateral SMB connections between workstations.",
+      "cvss4_default_score": 10.0
+    },
+    "exposed-database": {
+      "title": "Database or cache service reachable without network restriction",
+      "domain": "infra",
+      "cwe": [
+        668
+      ],
+      "attack": [
+        "T1190",
+        "T1213"
+      ],
+      "attack_mitigations": [
+        "M1035",
+        "M1030",
+        "M1026"
+      ],
+      "d3fend": [
+        "D3-NI",
+        "D3-ITF",
+        "D3-UAP"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-01"
+      ],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:L/VA:L/SC:N/SI:N/SA:N",
+      "fix": [
+        "Bind the service to the application subnet only and add a host firewall rule allowing just the app servers.",
+        "Require authentication and TLS for every client connection; remove anonymous or default accounts.",
+        "Move the database into a dedicated data tier segment if it currently shares the user VLAN."
+      ],
+      "verify": [
+        "From a user-VLAN host, nmap -p <db port> <host> must report filtered.",
+        "Unauthenticated connection attempt must be refused."
+      ],
+      "detect": "SOC: alert on database logins from hosts outside the application tier.",
+      "cvss4_default_score": 8.3
+    },
+    "snmp-weak-community": {
+      "title": "SNMP v1/v2c with default or guessable community string",
+      "domain": "network",
+      "cwe": [
+        798
+      ],
+      "attack": [
+        "T1046",
+        "T1078.001"
+      ],
+      "attack_mitigations": [
+        "M1042",
+        "M1027"
+      ],
+      "d3fend": [
+        "D3-SPP",
+        "D3-ACH"
+      ],
+      "wstg": [],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "fix": [
+        "Migrate the device to SNMPv3 with authPriv (SHA-2 + AES).",
+        "If v2c must stay temporarily, set a long random read-only community and an ACL that allows only the NMS address.",
+        "Disable SNMP write access entirely."
+      ],
+      "verify": [
+        "nmap -sU -p161 --script snmp-info <host> with 'public' must fail.",
+        "NMS still polls the device over SNMPv3."
+      ],
+      "detect": "SOC: alert on SNMP requests from sources other than the NMS.",
+      "cvss4_default_score": 6.9
+    },
+    "ot-protocol-exposed": {
+      "title": "Industrial control protocol reachable from outside the OT zone",
+      "domain": "ot",
+      "cwe": [
+        306
+      ],
+      "attack": [
+        "T0883",
+        "T0886",
+        "T1692"
+      ],
+      "attack_mitigations": [
+        "M0930",
+        "M0937",
+        "M0807"
+      ],
+      "d3fend": [
+        "D3-NI",
+        "D3-ITF",
+        "D3-NTA"
+      ],
+      "wstg": [],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:H/VA:H/SC:N/SI:H/SA:H",
+      "fix": [
+        "Do NOT scan aggressively or patch live controllers: open a Management of Change (MOC) with Process Safety before any intervention.",
+        "Contain first: add a deny rule at the IT/OT boundary (conduit) so the protocol is only reachable from the engineering workstations and historian in the OT DMZ (zones and conduits model, IEC 62443 style).",
+        "Enable the controller's write-protection / run-mode key or protocol allowlist where the vendor supports it.",
+        "Plan the permanent fix (firmware, segmentation redesign) for the next scheduled turnaround and record it in the plant maintenance system."
+      ],
+      "verify": [
+        "Passive check: from the corporate IT VLAN, a single TCP connect test (nc -zv <ip> <port>) must fail; no active protocol scanning on production.",
+        "OT-ENG confirms with the asset owner that HMI/historian communication is unaffected (sign-off in MOC)."
+      ],
+      "detect": "SOC + OT-ENG: passive OT network monitoring rule for any IT-sourced Modbus/S7/DNP3/EtherNet-IP session, and for write/program-download function codes.",
+      "cvss4_default_score": 9.3
+    },
+    "weak-tls": {
+      "title": "Weak TLS configuration (old protocol versions or ciphers)",
+      "domain": "infra",
+      "cwe": [
+        326
+      ],
+      "attack": [
+        "T1557"
+      ],
+      "attack_mitigations": [
+        "M1041"
+      ],
+      "d3fend": [
+        "D3-ET",
+        "D3-CA"
+      ],
+      "wstg": [
+        "WSTG-v42-CRYP-01"
+      ],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "fix": [
+        "Disable SSLv3, TLS 1.0 and TLS 1.1; keep TLS 1.2 with AEAD ciphers and TLS 1.3.",
+        "Replace self-signed or expiring certificates with certificates from the corporate or public CA and automate renewal.",
+        "Apply the change through a shared hardening baseline (Ansible/GPO) so every web front end gets it."
+      ],
+      "verify": [
+        "nmap --script ssl-enum-ciphers -p443 <host> must show no TLS 1.0/1.1 and grade A ciphers only.",
+        "testssl.sh <host> shows no high or critical items."
+      ],
+      "detect": "Low detection value; track through configuration compliance scanning.",
+      "cvss4_default_score": 6.3
+    },
+    "web-injection": {
+      "title": "Injection in web application (SQL / OS command)",
+      "domain": "appsec",
+      "cwe": [
+        89,
+        78
+      ],
+      "attack": [
+        "T1190"
+      ],
+      "attack_mitigations": [
+        "M1048",
+        "M1050",
+        "M1016"
+      ],
+      "d3fend": [
+        "D3-ACH"
+      ],
+      "wstg": [
+        "WSTG-v42-INPV-05",
+        "WSTG-v42-INPV-12"
+      ],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N",
+      "fix": [
+        "Replace string-built queries/commands with parameterised queries or safe APIs in the affected endpoint and in every endpoint that reuses the same data-access helper.",
+        "Add server-side input validation (allowlist of type, length, format).",
+        "Run the database account with least privilege (no DDL, no file or OS access).",
+        "Add a regression test reproducing the payload to the CI pipeline and a SAST rule for the pattern."
+      ],
+      "verify": [
+        "Re-run the original proof of concept request; the response must not change behaviour or leak data.",
+        "DAST (ZAP active scan) on the endpoint reports no injection alert; CI regression test passes."
+      ],
+      "detect": "SOC: WAF/application log rule for SQL error strings and injection payload signatures on this endpoint.",
+      "cvss4_default_score": 9.3
+    },
+    "web-xss": {
+      "title": "Cross-site scripting (reflected or stored)",
+      "domain": "appsec",
+      "cwe": [
+        79
+      ],
+      "attack": [
+        "T1185",
+        "T1059.007"
+      ],
+      "attack_mitigations": [
+        "M1021",
+        "M1048"
+      ],
+      "d3fend": [
+        "D3-ACH"
+      ],
+      "wstg": [
+        "WSTG-v42-INPV-01",
+        "WSTG-v42-INPV-02",
+        "WSTG-v42-CLNT-01"
+      ],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N",
+      "fix": [
+        "Apply context-aware output encoding in the template layer for the affected parameter (HTML, attribute, JS, URL contexts).",
+        "Enable the framework's auto-escaping and remove any raw/unsafe rendering helpers in the affected view.",
+        "Deploy a restrictive Content-Security-Policy (no unsafe-inline) as defence in depth.",
+        "Set HttpOnly on session cookies so injected script cannot read them."
+      ],
+      "verify": [
+        "Replay the payload; it must render as inert text.",
+        "ZAP passive + active scan shows no XSS alert for the endpoint."
+      ],
+      "detect": "SOC: CSP violation reports forwarded to SIEM; alert on spikes.",
+      "cvss4_default_score": 5.3
+    },
+    "broken-access-control": {
+      "title": "Broken access control (IDOR / BOLA)",
+      "domain": "appsec",
+      "cwe": [
+        639,
+        285
+      ],
+      "attack": [
+        "T1190",
+        "T1213"
+      ],
+      "attack_mitigations": [
+        "M1026",
+        "M1048"
+      ],
+      "d3fend": [
+        "D3-UAP"
+      ],
+      "wstg": [
+        "WSTG-v42-ATHZ-04",
+        "WSTG-v42-ATHZ-02"
+      ],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "fix": [
+        "Enforce an object-level authorization check on the server for every request that takes an object identifier (owner or tenant match).",
+        "Centralise the check in a policy middleware instead of per-controller code.",
+        "Use non-sequential identifiers as defence in depth (never as the only control).",
+        "Add negative authorization tests (user A cannot read user B) to CI."
+      ],
+      "verify": [
+        "Repeat the request with a second low-privilege account; the API must return 403/404.",
+        "Automated authorization test suite passes."
+      ],
+      "detect": "SOC: alert on a single session enumerating many object IDs in a short window.",
+      "cvss4_default_score": 7.1
+    },
+    "auth-weakness": {
+      "title": "Weak authentication controls (no lockout / no MFA / weak policy)",
+      "domain": "iam",
+      "cwe": [
+        307,
+        521
+      ],
+      "attack": [
+        "T1110",
+        "T1078"
+      ],
+      "attack_mitigations": [
+        "M1032",
+        "M1036",
+        "M1027"
+      ],
+      "d3fend": [
+        "D3-MFA",
+        "D3-AL",
+        "D3-SPP"
+      ],
+      "wstg": [
+        "WSTG-v42-ATHN-03",
+        "WSTG-v42-ATHN-07"
+      ],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "fix": [
+        "Put the application behind the corporate IdP (SSO) and enforce phishing-resistant MFA for all users, mandatory for admins.",
+        "Configure progressive delays or temporary lockout after repeated failures, plus breached-password screening.",
+        "Align password length and rotation rules with the corporate identity policy (length over complexity)."
+      ],
+      "verify": [
+        "Ten failed logins in a row trigger delay/lockout and a SIEM event.",
+        "Login without the second factor is refused for the test account."
+      ],
+      "detect": "SOC: password-spray and impossible-travel analytics on the IdP logs.",
+      "cvss4_default_score": 8.8
+    },
+    "default-credentials": {
+      "title": "Default or vendor credentials accepted",
+      "domain": "iam",
+      "cwe": [
+        1392
+      ],
+      "attack": [
+        "T1078.001"
+      ],
+      "attack_mitigations": [
+        "M1027",
+        "M1026"
+      ],
+      "d3fend": [
+        "D3-CH",
+        "D3-SPP"
+      ],
+      "wstg": [
+        "WSTG-v42-ATHN-02"
+      ],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "fix": [
+        "Change the default credential immediately to a unique secret stored in the corporate vault (PAM).",
+        "Disable or rename the vendor account if the product allows it.",
+        "Add a 'no default credentials' gate to the build/commissioning checklist for new devices."
+      ],
+      "verify": [
+        "Login with the vendor default must fail.",
+        "Vault entry exists and rotation policy is attached."
+      ],
+      "detect": "SOC: alert on any successful login with a known vendor account name.",
+      "cvss4_default_score": 9.3,
+      "min_priority": "P2"
+    },
+    "security-misconfiguration-web": {
+      "title": "Missing web security headers / insecure cookie attributes",
+      "domain": "appsec",
+      "cwe": [
+        693,
+        614
+      ],
+      "attack": [
+        "T1185"
+      ],
+      "attack_mitigations": [
+        "M1021"
+      ],
+      "d3fend": [
+        "D3-ACH"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-07",
+        "WSTG-v42-SESS-02",
+        "WSTG-v42-CLNT-09"
+      ],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:P/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "fix": [
+        "Add Strict-Transport-Security (max-age >= 1 year), Content-Security-Policy, X-Content-Type-Options and frame-ancestors at the reverse proxy for all virtual hosts.",
+        "Set Secure, HttpOnly and SameSite on session cookies in the framework configuration.",
+        "Keep the header set in a shared proxy snippet under version control."
+      ],
+      "verify": [
+        "curl -sI https://<host> shows the headers; ZAP passive scan shows no header alerts.",
+        "Browser dev tools show the cookie flags."
+      ],
+      "detect": "Track through configuration compliance; no SOC rule needed.",
+      "cvss4_default_score": 2.3
+    },
+    "admin-interface-exposed": {
+      "title": "Administrative interface exposed to users or internet",
+      "domain": "appsec",
+      "cwe": [
+        749
+      ],
+      "attack": [
+        "T1190",
+        "T1078"
+      ],
+      "attack_mitigations": [
+        "M1035",
+        "M1032"
+      ],
+      "d3fend": [
+        "D3-ITF",
+        "D3-MFA"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-05"
+      ],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N",
+      "fix": [
+        "Move the admin path to an internal-only listener or restrict it by source IP at the reverse proxy.",
+        "Require SSO + MFA for the admin role.",
+        "Remove sample/installer pages left by the vendor."
+      ],
+      "verify": [
+        "External request to the admin path returns 403/404.",
+        "Admin access works from the admin network with MFA."
+      ],
+      "detect": "SOC: alert on admin path access from external IPs.",
+      "cvss4_default_score": 6.9
+    },
+    "sensitive-data-exposure": {
+      "title": "Sensitive or personal data exposed (public storage, backups, listings)",
+      "domain": "data",
+      "cwe": [
+        200,
+        538
+      ],
+      "attack": [
+        "T1530",
+        "T1552.001"
+      ],
+      "attack_mitigations": [
+        "M1041",
+        "M1022"
+      ],
+      "d3fend": [
+        "D3-FE",
+        "D3-UAP"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-04",
+        "WSTG-v42-CONF-11"
+      ],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+      "fix": [
+        "Remove public access to the storage/backup location immediately and keep a copy of access logs as evidence.",
+        "Rotate any secrets found inside the exposed files.",
+        "DPO assesses whether personal data was accessed and whether a GDPR Art. 33 notification (72 hours) is required.",
+        "Enable encryption at rest and a policy that blocks public buckets/shares by default."
+      ],
+      "verify": [
+        "Anonymous request to the object/share URL returns 403.",
+        "Cloud posture scan shows the 'block public access' control enabled."
+      ],
+      "detect": "SOC: review access logs for the exposure window; alert on future public ACL changes.",
+      "cvss4_default_score": 8.7
+    },
+    "logging-detection-gap": {
+      "title": "Attack activity not detected or not logged",
+      "domain": "soc",
+      "cwe": [
+        778
+      ],
+      "attack": [
+        "T1046",
+        "T1110"
+      ],
+      "attack_mitigations": [
+        "M1047"
+      ],
+      "d3fend": [
+        "D3-NTA",
+        "D3-UBA",
+        "D3-PM"
+      ],
+      "wstg": [],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+      "fix": [
+        "Onboard the missing log source (host, firewall, application) to the SIEM with parsing validated.",
+        "Create or tune the detection for the ATT&CK techniques used during the test, using the ATT&CK v20 detection strategies as a starting point.",
+        "Add the scenario to the purple-team regression list."
+      ],
+      "verify": [
+        "Replay the test activity (atomic test) and confirm an alert is raised and triaged within the SOC SLA."
+      ],
+      "detect": "This ticket IS the detection work.",
+      "cvss4_default_score": 6.3,
+      "min_priority": "P3"
+    },
+    "phishing-susceptibility": {
+      "title": "Users susceptible to phishing / social engineering",
+      "domain": "people",
+      "cwe": [],
+      "attack": [
+        "T1566"
+      ],
+      "attack_mitigations": [
+        "M1017",
+        "M1054"
+      ],
+      "d3fend": [
+        "D3-DNSDL"
+      ],
+      "wstg": [],
+      "cvss4_default": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:H/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "fix": [
+        "Run short, role-based awareness sessions for the affected teams within 30 days (no blame, focus on reporting).",
+        "Deploy a one-click 'report phishing' button and publish the reporting channel.",
+        "Enforce MFA so a captured password alone is not enough.",
+        "Schedule a follow-up simulation in 90 days to measure improvement."
+      ],
+      "verify": [
+        "Follow-up simulation click rate below the agreed target; report rate above target."
+      ],
+      "detect": "SOC: triage queue for user-reported phishing with SLA.",
+      "cvss4_default_score": 7.0
+    }
+  },
+  "nmap_port_rules": [
+    {
+      "ports": [
+        23
+      ],
+      "category": "cleartext-protocol",
+      "label": "Telnet"
+    },
+    {
+      "ports": [
+        21
+      ],
+      "category": "cleartext-protocol",
+      "label": "FTP"
+    },
+    {
+      "ports": [
+        3389
+      ],
+      "category": "exposed-remote-access",
+      "label": "RDP",
+      "when": "internet_facing"
+    },
+    {
+      "ports": [
+        22
+      ],
+      "category": "exposed-remote-access",
+      "label": "SSH",
+      "when": "internet_facing"
+    },
+    {
+      "ports": [
+        5900
+      ],
+      "category": "exposed-remote-access",
+      "label": "VNC"
+    },
+    {
+      "ports": [
+        445,
+        139
+      ],
+      "category": "legacy-smb",
+      "label": "SMB",
+      "when": "script:smb-vuln-ms17-010:VULNERABLE|script:smb-protocols:SMBv1|internet_facing"
+    },
+    {
+      "ports": [
+        3306,
+        5432,
+        1433,
+        27017,
+        6379,
+        9200
+      ],
+      "category": "exposed-database",
+      "label": "Database/cache"
+    },
+    {
+      "ports": [
+        161
+      ],
+      "category": "snmp-weak-community",
+      "label": "SNMP",
+      "when": "script:snmp-info"
+    },
+    {
+      "ports": [
+        502
+      ],
+      "category": "ot-protocol-exposed",
+      "label": "Modbus/TCP",
+      "when": "not_ot_source"
+    },
+    {
+      "ports": [
+        102
+      ],
+      "category": "ot-protocol-exposed",
+      "label": "Siemens S7comm",
+      "when": "not_ot_source"
+    },
+    {
+      "ports": [
+        20000
+      ],
+      "category": "ot-protocol-exposed",
+      "label": "DNP3",
+      "when": "not_ot_source"
+    },
+    {
+      "ports": [
+        44818
+      ],
+      "category": "ot-protocol-exposed",
+      "label": "EtherNet/IP",
+      "when": "not_ot_source"
+    },
+    {
+      "ports": [
+        47808
+      ],
+      "category": "ot-protocol-exposed",
+      "label": "BACnet",
+      "when": "not_ot_source"
+    },
+    {
+      "ports": [
+        4840
+      ],
+      "category": "ot-protocol-exposed",
+      "label": "OPC UA",
+      "when": "not_ot_source"
+    }
+  ],
+  "zap_plugin_rules": {
+    "40018": "web-injection",
+    "40019": "web-injection",
+    "40024": "web-injection",
+    "90020": "web-injection",
+    "40012": "web-xss",
+    "40014": "web-xss",
+    "40026": "web-xss",
+    "10035": "security-misconfiguration-web",
+    "10038": "security-misconfiguration-web",
+    "10010": "security-misconfiguration-web",
+    "10011": "security-misconfiguration-web",
+    "10054": "security-misconfiguration-web",
+    "10020": "security-misconfiguration-web",
+    "10021": "security-misconfiguration-web",
+    "10202": "security-misconfiguration-web",
+    "10095": "sensitive-data-exposure",
+    "10045": "sensitive-data-exposure"
+  },
+  "impact_phrases": {
+    "infra": "an attacker could take control of the server and use it as a foothold for lateral movement or ransomware",
+    "network": "an attacker could reach internal systems directly from an untrusted network",
+    "ot": "an attacker could read or change process values or controller logic, with possible safety, environmental and production-loss consequences",
+    "appsec": "an attacker could read or modify application data and act as other users",
+    "iam": "an attacker could log in as a legitimate user and bypass most other controls",
+    "data": "confidential or personal data could be read by unauthorised parties, with regulatory exposure (GDPR)",
+    "soc": "an intrusion could progress without being noticed, increasing dwell time and damage",
+    "people": "attackers could obtain credentials or code execution through users"
+  }
+}

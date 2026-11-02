@@ -1,0 +1,3155 @@
+{
+  "generated": "2026-11-02",
+  "company": "NovaRefino Demo Corp (fictitious)",
+  "attack_version": "20",
+  "kev_catalog_version": "2026.10.30",
+  "findings": [
+    {
+      "host": "vpn.novarefino.example",
+      "ip": "203.0.113.10",
+      "port": 443,
+      "proto": "tcp",
+      "service": "https Palo Alto GlobalProtect PAN-OS 10.2.9",
+      "asset": {
+        "asset_id": "A-001",
+        "asset_name": "Perimeter firewall / VPN",
+        "business_service": "Remote access for staff and contractors",
+        "criticality": 5,
+        "environment": "production",
+        "zone": "DMZ",
+        "internet_facing": true,
+        "data_classification": "internal",
+        "owner_dept": "NETWORK",
+        "in_inventory": true
+      },
+      "category": "vulnerable-software",
+      "cves": [
+        "CVE-2024-3400"
+      ],
+      "title": "Palo Alto GlobalProtect PAN-OS 10.2.9: CVE-2024-3400",
+      "evidence": "nmap NSE vulners: cpe:/o:paloaltonetworks:pan-os:10.2.9: |     \tCVE-2024-3400\t10.0\thttps://vulners.com/cve/CVE-2024-3400\t*EXPLOIT*",
+      "exploit_available": true,
+      "host_key": "A-001",
+      "fingerprint": "cec04fddeb",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "cvss4_score": 9.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": true,
+      "kev_cves": [
+        "CVE-2024-3400"
+      ],
+      "kev_ransomware": true,
+      "epss": 0.99999,
+      "epss_percentile": 1.0,
+      "attack": [
+        "T1190",
+        "T1210"
+      ],
+      "attack_mitigations": [
+        "M1051",
+        "M1016"
+      ],
+      "d3fend": [
+        "D3-SU"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-02"
+      ],
+      "cwe": [
+        1104
+      ],
+      "fix": [
+        "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+        "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+        "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+        "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+      ],
+      "verify": [
+        "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+        "Re-run the original exploit check (non-destructive) and confirm it fails."
+      ],
+      "detect": "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "domain": "infra",
+      "category_title": "Outdated software with known vulnerabilities",
+      "decision": "ACT",
+      "decision_reasons": [
+        "exploitation=active",
+        "exposure=internet",
+        "technical_impact=total",
+        "asset_criticality=5/5"
+      ],
+      "risk_score": 100,
+      "exposure": "internet",
+      "priority": "P1",
+      "raci": {
+        "R": [
+          "IT-INFRA"
+        ],
+        "A": "MGMT",
+        "C": [
+          "APPSEC-DEV"
+        ],
+        "I": [
+          "SOC",
+          "NETWORK"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P1 because it is on the CISA KEV list, so attackers are already exploiting it in ransomware campaigns, the asset is reachable from the internet, a successful attack means full compromise of the system and its business criticality is 5/5 (CVSS v4 9.3).",
+      "sla_days": 3,
+      "due_date": "2026-11-05",
+      "business_impact": "Perimeter firewall / VPN supports 'Remote access for staff and contractors' (criticality 5/5, production, zone DMZ, internet-facing; data: internal). If exploited, an attacker could take control of the server and use it as a foothold for lateral movement or ransomware. CVE used by ransomware campaigns (KEV).",
+      "id": "F-001"
+    },
+    {
+      "host": "portal.novarefino.example",
+      "ip": "203.0.113.11",
+      "port": 443,
+      "proto": "tcp",
+      "service": "https Citrix NetScaler Gateway 13.1-48.47",
+      "asset": {
+        "asset_id": "A-002",
+        "asset_name": "Citrix gateway",
+        "business_service": "Remote apps for engineering",
+        "criticality": 4,
+        "environment": "production",
+        "zone": "DMZ",
+        "internet_facing": true,
+        "data_classification": "internal",
+        "owner_dept": "IT-INFRA",
+        "in_inventory": true
+      },
+      "category": "vulnerable-software",
+      "cves": [
+        "CVE-2023-4966"
+      ],
+      "title": "Citrix NetScaler Gateway 13.1-48.47: CVE-2023-4966",
+      "evidence": "nmap NSE vulners: cpe:/a:citrix:netscaler_gateway:13.1: |     \tCVE-2023-4966\t9.4\thttps://vulners.com/cve/CVE-2023-4966\t*EXPLOIT*",
+      "exploit_available": true,
+      "host_key": "A-002",
+      "fingerprint": "f436dcea04",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "cvss4_score": 9.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": true,
+      "kev_cves": [
+        "CVE-2023-4966"
+      ],
+      "kev_ransomware": true,
+      "epss": 0.99999,
+      "epss_percentile": 0.99997,
+      "attack": [
+        "T1190",
+        "T1210"
+      ],
+      "attack_mitigations": [
+        "M1051",
+        "M1016"
+      ],
+      "d3fend": [
+        "D3-SU"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-02"
+      ],
+      "cwe": [
+        1104
+      ],
+      "fix": [
+        "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+        "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+        "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+        "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+      ],
+      "verify": [
+        "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+        "Re-run the original exploit check (non-destructive) and confirm it fails."
+      ],
+      "detect": "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "domain": "infra",
+      "category_title": "Outdated software with known vulnerabilities",
+      "decision": "ACT",
+      "decision_reasons": [
+        "exploitation=active",
+        "exposure=internet",
+        "technical_impact=total",
+        "asset_criticality=4/5"
+      ],
+      "risk_score": 100,
+      "exposure": "internet",
+      "priority": "P1",
+      "raci": {
+        "R": [
+          "IT-INFRA"
+        ],
+        "A": "MGMT",
+        "C": [
+          "APPSEC-DEV"
+        ],
+        "I": [
+          "SOC",
+          "NETWORK"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P1 because it is on the CISA KEV list, so attackers are already exploiting it in ransomware campaigns, the asset is reachable from the internet, a successful attack means full compromise of the system and its business criticality is 4/5 (CVSS v4 9.3).",
+      "sla_days": 3,
+      "due_date": "2026-11-05",
+      "business_impact": "Citrix gateway supports 'Remote apps for engineering' (criticality 4/5, production, zone DMZ, internet-facing; data: internal). If exploited, an attacker could take control of the server and use it as a foothold for lateral movement or ransomware. CVE used by ransomware campaigns (KEV).",
+      "id": "F-002"
+    },
+    {
+      "host": "ews01.ot.novarefino.example",
+      "ip": "10.20.0.10",
+      "port": 3389,
+      "proto": "tcp",
+      "service": "ms-wbt-server Microsoft Terminal Services",
+      "asset": {
+        "asset_id": "A-040",
+        "asset_name": "Engineering workstation (DCS/PLC programming)",
+        "business_service": "Crude distillation unit control",
+        "criticality": 5,
+        "environment": "production",
+        "zone": "OT",
+        "internet_facing": false,
+        "data_classification": "internal",
+        "owner_dept": "OT-ENG",
+        "in_inventory": true
+      },
+      "category": "vulnerable-software",
+      "cves": [
+        "CVE-2019-0708"
+      ],
+      "title": "Microsoft Terminal Services: CVE-2019-0708",
+      "evidence": "nmap NSE vulners: cpe:/o:microsoft:windows_7: |     \tCVE-2019-0708\t9.8\thttps://vulners.com/cve/CVE-2019-0708\t*EXPLOIT*",
+      "exploit_available": true,
+      "host_key": "A-040",
+      "fingerprint": "c428f48027",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "cvss4_score": 9.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": true,
+      "kev_cves": [
+        "CVE-2019-0708"
+      ],
+      "kev_ransomware": true,
+      "epss": 0.99999,
+      "epss_percentile": 0.99999,
+      "attack": [
+        "T1190",
+        "T1210"
+      ],
+      "attack_mitigations": [
+        "M1051",
+        "M1016"
+      ],
+      "d3fend": [
+        "D3-SU"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-02"
+      ],
+      "cwe": [
+        1104
+      ],
+      "fix": [
+        "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+        "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+        "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+        "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+      ],
+      "verify": [
+        "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+        "Re-run the original exploit check (non-destructive) and confirm it fails."
+      ],
+      "detect": "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "domain": "infra",
+      "category_title": "Outdated software with known vulnerabilities",
+      "decision": "ACT",
+      "decision_reasons": [
+        "exploitation=active",
+        "exposure=ot",
+        "technical_impact=total",
+        "asset_criticality=5/5"
+      ],
+      "risk_score": 100,
+      "exposure": "ot",
+      "priority": "P1",
+      "raci": {
+        "R": [
+          "OT-ENG"
+        ],
+        "A": "MGMT",
+        "C": [
+          "IT-INFRA",
+          "APPSEC-DEV"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [
+        "Requires Management of Change (MOC) and process-safety sign-off before any change on live equipment.",
+        "OT rule: contain within 72 h with compensating controls (block the conduit at the IT/OT firewall, disable remote access, increase monitoring); apply the permanent fix in the next approved maintenance window or turnaround."
+      ],
+      "why": "P1 because it is on the CISA KEV list, so attackers are already exploiting it in ransomware campaigns, the asset sits in the plant control (OT) zone, a successful attack means full compromise of the system and its business criticality is 5/5 (CVSS v4 9.3).",
+      "sla_days": 3,
+      "due_date": "2026-11-05",
+      "business_impact": "Engineering workstation (DCS/PLC programming) supports 'Crude distillation unit control' (criticality 5/5, production, zone OT; data: internal). If exploited, an attacker could take control of the server and use it as a foothold for lateral movement or ransomware. CVE used by ransomware campaigns (KEV).",
+      "id": "F-003"
+    },
+    {
+      "host": "fs01.corp.novarefino.example",
+      "ip": "10.10.1.20",
+      "port": 445,
+      "proto": "tcp",
+      "service": "microsoft-ds Microsoft Windows Server 2008 R2",
+      "asset": {
+        "asset_id": "A-011",
+        "asset_name": "HR file server",
+        "business_service": "HR records and payroll exports",
+        "criticality": 4,
+        "environment": "production",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "personal",
+        "owner_dept": "IT-INFRA",
+        "in_inventory": true
+      },
+      "category": "legacy-smb",
+      "cves": [
+        "CVE-2017-0144",
+        "CVE-2017-0143",
+        "CVE-2017-0145"
+      ],
+      "title": "SMBv1 / MS17-010: CVE-2017-0143",
+      "evidence": "nmap NSE smb-vuln-ms17-010: VULNERABLE: |   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010) |     State: VULNERABLE |     IDs:  CVE:CVE-2017-0143 || Nessus plugin 97833: The remote host is affected by the SMBv1 remote code execution vulnerabilities.",
+      "exploit_available": true,
+      "host_key": "A-011",
+      "fingerprint": "5c3b099f2c",
+      "sources": [
+        "nessus",
+        "nmap"
+      ],
+      "tool_solution": "Apply the vendor security update for SMB server and disable SMBv1.",
+      "merged_titles": [
+        "SMBv1 / MS17-010: CVE-2017-0143"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H",
+      "cvss4_score": 10.0,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": true,
+      "kev_cves": [
+        "CVE-2017-0144",
+        "CVE-2017-0143",
+        "CVE-2017-0145"
+      ],
+      "kev_ransomware": true,
+      "epss": 0.9923,
+      "epss_percentile": 0.99936,
+      "attack": [
+        "T1210",
+        "T1021.002"
+      ],
+      "attack_mitigations": [
+        "M1042",
+        "M1051",
+        "M1037"
+      ],
+      "d3fend": [
+        "D3-SU",
+        "D3-ACH",
+        "D3-ITF"
+      ],
+      "wstg": [],
+      "cwe": [
+        477
+      ],
+      "fix": [
+        "Disable SMBv1 on the server and clients (Windows feature removal or GPO) after checking that no legacy device still depends on it.",
+        "Scanner guidance: Apply the vendor security update for SMB server and disable SMBv1.",
+        "Install the cumulative security update that covers the listed CVEs.",
+        "Restrict TCP 445 to the subnets that need file services; never expose it to the internet or to the OT zone."
+      ],
+      "verify": [
+        "nmap -p445 --script smb-protocols <host> must not list SMBv1 (NT LM 0.12).",
+        "nmap -p445 --script smb-vuln-ms17-010 <host> must report not vulnerable."
+      ],
+      "detect": "SOC: alert on SMBv1 negotiation and on lateral SMB connections between workstations.",
+      "domain": "infra",
+      "category_title": "Legacy SMBv1 enabled / SMB exposed",
+      "decision": "ACT",
+      "decision_reasons": [
+        "exploitation=active",
+        "exposure=internal",
+        "technical_impact=total",
+        "asset_criticality=4/5"
+      ],
+      "risk_score": 97.9,
+      "exposure": "internal",
+      "priority": "P1",
+      "raci": {
+        "R": [
+          "IT-INFRA"
+        ],
+        "A": "MGMT",
+        "C": [
+          "NETWORK",
+          "GRC-DPO"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P1 because it is on the CISA KEV list, so attackers are already exploiting it in ransomware campaigns, the asset is internal (not internet-facing), a successful attack means full compromise of the system and its business criticality is 4/5 (CVSS v4 10.0).",
+      "sla_days": 3,
+      "due_date": "2026-11-05",
+      "business_impact": "HR file server supports 'HR records and payroll exports' (criticality 4/5, production, zone IT; data: personal). If exploited, an attacker could take control of the server and use it as a foothold for lateral movement or ransomware. CVE used by ransomware campaigns (KEV).",
+      "id": "F-004"
+    },
+    {
+      "host": "dc01.corp.novarefino.example",
+      "ip": "10.10.1.10",
+      "port": 445,
+      "proto": "tcp",
+      "service": "microsoft-ds Microsoft Windows Server 2016",
+      "asset": {
+        "asset_id": "A-010",
+        "asset_name": "Domain controller",
+        "business_service": "Identity for all corporate users",
+        "criticality": 5,
+        "environment": "production",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "confidential",
+        "owner_dept": "IAM",
+        "in_inventory": true
+      },
+      "category": "vulnerable-software",
+      "cves": [
+        "CVE-2020-1472"
+      ],
+      "title": "Microsoft Windows Server 2016: CVE-2020-1472",
+      "evidence": "nmap NSE vulners: cpe:/o:microsoft:windows_server_2016: |     \tCVE-2020-1472\t10.0\thttps://vulners.com/cve/CVE-2020-1472\t*EXPLOIT*",
+      "exploit_available": true,
+      "host_key": "A-010",
+      "fingerprint": "52ec51831a",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "cvss4_score": 9.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": true,
+      "kev_cves": [
+        "CVE-2020-1472"
+      ],
+      "kev_ransomware": true,
+      "epss": 0.99389,
+      "epss_percentile": 0.9994,
+      "attack": [
+        "T1190",
+        "T1210"
+      ],
+      "attack_mitigations": [
+        "M1051",
+        "M1016"
+      ],
+      "d3fend": [
+        "D3-SU"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-02"
+      ],
+      "cwe": [
+        1104
+      ],
+      "fix": [
+        "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+        "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+        "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+        "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+      ],
+      "verify": [
+        "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+        "Re-run the original exploit check (non-destructive) and confirm it fails."
+      ],
+      "detect": "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "domain": "infra",
+      "category_title": "Outdated software with known vulnerabilities",
+      "decision": "ACT",
+      "decision_reasons": [
+        "exploitation=active",
+        "exposure=internal",
+        "technical_impact=total",
+        "asset_criticality=5/5"
+      ],
+      "risk_score": 95.7,
+      "exposure": "internal",
+      "priority": "P1",
+      "raci": {
+        "R": [
+          "IT-INFRA"
+        ],
+        "A": "MGMT",
+        "C": [
+          "APPSEC-DEV"
+        ],
+        "I": [
+          "SOC",
+          "IAM"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P1 because it is on the CISA KEV list, so attackers are already exploiting it in ransomware campaigns, the asset is internal (not internet-facing), a successful attack means full compromise of the system and its business criticality is 5/5 (CVSS v4 9.3).",
+      "sla_days": 3,
+      "due_date": "2026-11-05",
+      "business_impact": "Domain controller supports 'Identity for all corporate users' (criticality 5/5, production, zone IT; data: confidential). If exploited, an attacker could take control of the server and use it as a foothold for lateral movement or ransomware. CVE used by ransomware campaigns (KEV).",
+      "id": "F-005"
+    },
+    {
+      "host": "mq01.corp.novarefino.example",
+      "ip": "10.10.2.30",
+      "port": 61616,
+      "proto": "tcp",
+      "service": "apachemq ActiveMQ OpenWire transport 5.17.5",
+      "asset": {
+        "asset_id": "A-020",
+        "asset_name": "Message broker",
+        "business_service": "ERP to MES integration",
+        "criticality": 4,
+        "environment": "production",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "internal",
+        "owner_dept": "IT-INFRA",
+        "in_inventory": true
+      },
+      "category": "vulnerable-software",
+      "cves": [
+        "CVE-2023-46604"
+      ],
+      "title": "ActiveMQ OpenWire transport 5.17.5: CVE-2023-46604",
+      "evidence": "nmap NSE vulners: cpe:/a:apache:activemq:5.17.5: |     \tCVE-2023-46604\t10.0\thttps://vulners.com/cve/CVE-2023-46604\t*EXPLOIT*",
+      "exploit_available": true,
+      "host_key": "A-020",
+      "fingerprint": "c4915084ae",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "cvss4_score": 9.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": true,
+      "kev_cves": [
+        "CVE-2023-46604"
+      ],
+      "kev_ransomware": true,
+      "epss": 0.99992,
+      "epss_percentile": 0.99986,
+      "attack": [
+        "T1190",
+        "T1210"
+      ],
+      "attack_mitigations": [
+        "M1051",
+        "M1016"
+      ],
+      "d3fend": [
+        "D3-SU"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-02"
+      ],
+      "cwe": [
+        1104
+      ],
+      "fix": [
+        "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+        "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+        "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+        "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+      ],
+      "verify": [
+        "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+        "Re-run the original exploit check (non-destructive) and confirm it fails."
+      ],
+      "detect": "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "domain": "infra",
+      "category_title": "Outdated software with known vulnerabilities",
+      "decision": "ACT",
+      "decision_reasons": [
+        "exploitation=active",
+        "exposure=internal",
+        "technical_impact=total",
+        "asset_criticality=4/5"
+      ],
+      "risk_score": 93.8,
+      "exposure": "internal",
+      "priority": "P1",
+      "raci": {
+        "R": [
+          "IT-INFRA"
+        ],
+        "A": "MGMT",
+        "C": [
+          "APPSEC-DEV"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P1 because it is on the CISA KEV list, so attackers are already exploiting it in ransomware campaigns, the asset is internal (not internet-facing), a successful attack means full compromise of the system and its business criticality is 4/5 (CVSS v4 9.3).",
+      "sla_days": 3,
+      "due_date": "2026-11-05",
+      "business_impact": "Message broker supports 'ERP to MES integration' (criticality 4/5, production, zone IT; data: internal). If exploited, an attacker could take control of the server and use it as a foothold for lateral movement or ransomware. CVE used by ransomware campaigns (KEV).",
+      "id": "F-006"
+    },
+    {
+      "host": "maint-app.corp.novarefino.example",
+      "ip": "10.10.2.60",
+      "port": 8080,
+      "proto": "tcp",
+      "service": "http Apache Tomcat 9.0.31",
+      "asset": {
+        "asset_id": "A-023",
+        "asset_name": "Maintenance planning app",
+        "business_service": "Plant maintenance work orders",
+        "criticality": 4,
+        "environment": "production",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "internal",
+        "owner_dept": "APPSEC-DEV",
+        "in_inventory": true
+      },
+      "category": "vulnerable-software",
+      "cves": [
+        "CVE-2021-44228"
+      ],
+      "title": "Apache Tomcat 9.0.31: CVE-2021-44228",
+      "evidence": "nmap NSE vulners: cpe:/a:apache:log4j:2.14.1: |     \tCVE-2021-44228\t10.0\thttps://vulners.com/cve/CVE-2021-44228\t*EXPLOIT*",
+      "exploit_available": true,
+      "host_key": "A-023",
+      "fingerprint": "540c0312a7",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "cvss4_score": 9.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": true,
+      "kev_cves": [
+        "CVE-2021-44228"
+      ],
+      "kev_ransomware": true,
+      "epss": 0.99999,
+      "epss_percentile": 1.0,
+      "attack": [
+        "T1190",
+        "T1210"
+      ],
+      "attack_mitigations": [
+        "M1051",
+        "M1016"
+      ],
+      "d3fend": [
+        "D3-SU"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-02"
+      ],
+      "cwe": [
+        1104
+      ],
+      "fix": [
+        "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+        "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+        "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+        "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+      ],
+      "verify": [
+        "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+        "Re-run the original exploit check (non-destructive) and confirm it fails."
+      ],
+      "detect": "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "domain": "infra",
+      "category_title": "Outdated software with known vulnerabilities",
+      "decision": "ACT",
+      "decision_reasons": [
+        "exploitation=active",
+        "exposure=internal",
+        "technical_impact=total",
+        "asset_criticality=4/5"
+      ],
+      "risk_score": 93.8,
+      "exposure": "internal",
+      "priority": "P1",
+      "raci": {
+        "R": [
+          "IT-INFRA"
+        ],
+        "A": "MGMT",
+        "C": [
+          "APPSEC-DEV"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P1 because it is on the CISA KEV list, so attackers are already exploiting it in ransomware campaigns, the asset is internal (not internet-facing), a successful attack means full compromise of the system and its business criticality is 4/5 (CVSS v4 9.3).",
+      "sla_days": 3,
+      "due_date": "2026-11-05",
+      "business_impact": "Maintenance planning app supports 'Plant maintenance work orders' (criticality 4/5, production, zone IT; data: internal). If exploited, an attacker could take control of the server and use it as a foothold for lateral movement or ransomware. CVE used by ransomware campaigns (KEV).",
+      "id": "F-007"
+    },
+    {
+      "host": "intranet.corp.novarefino.example",
+      "ip": "10.10.2.50",
+      "port": 80,
+      "proto": "tcp",
+      "service": "http Apache httpd 2.4.49",
+      "asset": {
+        "asset_id": "A-022",
+        "asset_name": "Intranet web server",
+        "business_service": "Employee intranet",
+        "criticality": 2,
+        "environment": "production",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "internal",
+        "owner_dept": "APPSEC-DEV",
+        "in_inventory": true
+      },
+      "category": "vulnerable-software",
+      "cves": [
+        "CVE-2021-41773",
+        "CVE-2021-42013",
+        "CVE-2023-25690",
+        "CVE-2022-22720"
+      ],
+      "title": "Apache httpd 2.4.49: CVE-2021-41773 +3 more",
+      "evidence": "nmap NSE vulners: cpe:/a:apache:http_server:2.4.49: |     \tCVE-2021-41773\t7.5\thttps://vulners.com/cve/CVE-2021-41773\t*EXPLOIT* |     \tCVE-2021-42013\t9.8\thttps://vulners.com/cve/CVE-2021-42013\t*EXPLOIT* |     \tCVE-2022-22720\t9.8\thttps://vulners.com/cve/CVE-2022-22720 |     \tCVE-2023-25690\t9.8\thttps://vulners.com/cve/CVE-2023-25690",
+      "exploit_available": true,
+      "host_key": "A-022",
+      "fingerprint": "0d26bfd84d",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "cvss4_score": 9.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": true,
+      "kev_cves": [
+        "CVE-2021-41773",
+        "CVE-2021-42013"
+      ],
+      "kev_ransomware": true,
+      "epss": 0.99992,
+      "epss_percentile": 0.99986,
+      "attack": [
+        "T1190",
+        "T1210"
+      ],
+      "attack_mitigations": [
+        "M1051",
+        "M1016"
+      ],
+      "d3fend": [
+        "D3-SU"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-02"
+      ],
+      "cwe": [
+        1104
+      ],
+      "fix": [
+        "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+        "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+        "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+        "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+      ],
+      "verify": [
+        "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+        "Re-run the original exploit check (non-destructive) and confirm it fails."
+      ],
+      "detect": "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "domain": "infra",
+      "category_title": "Outdated software with known vulnerabilities",
+      "decision": "ACT",
+      "decision_reasons": [
+        "exploitation=active",
+        "exposure=internal",
+        "technical_impact=total",
+        "asset_criticality=2/5"
+      ],
+      "risk_score": 89.8,
+      "exposure": "internal",
+      "priority": "P1",
+      "raci": {
+        "R": [
+          "IT-INFRA"
+        ],
+        "A": "MGMT",
+        "C": [
+          "APPSEC-DEV"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P1 because it is on the CISA KEV list, so attackers are already exploiting it in ransomware campaigns, the asset is internal (not internet-facing), a successful attack means full compromise of the system and its business criticality is 2/5 (CVSS v4 9.3).",
+      "sla_days": 3,
+      "due_date": "2026-11-05",
+      "business_impact": "Intranet web server supports 'Employee intranet' (criticality 2/5, production, zone IT; data: internal). If exploited, an attacker could take control of the server and use it as a foothold for lateral movement or ransomware. CVE used by ransomware campaigns (KEV).",
+      "id": "F-008"
+    },
+    {
+      "host": "plc-cdu-01.ot.novarefino.example",
+      "ip": "10.20.0.21",
+      "port": 502,
+      "proto": "tcp",
+      "service": "modbus Modbus TCP",
+      "asset": {
+        "asset_id": "A-041",
+        "asset_name": "PLC crude distillation unit",
+        "business_service": "Crude distillation unit control",
+        "criticality": 5,
+        "environment": "production",
+        "zone": "OT",
+        "internet_facing": false,
+        "data_classification": "internal",
+        "owner_dept": "OT-ENG",
+        "in_inventory": true
+      },
+      "category": "ot-protocol-exposed",
+      "cves": [],
+      "title": "Modbus/TCP exposed on 502/tcp",
+      "evidence": "nmap: 502/tcp open, service 'modbus Modbus TCP'",
+      "exploit_available": false,
+      "host_key": "A-041",
+      "fingerprint": "d0f9f2522e",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:H/VA:H/SC:N/SI:H/SA:H",
+      "cvss4_score": 9.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T0883",
+        "T0886",
+        "T1692"
+      ],
+      "attack_mitigations": [
+        "M0930",
+        "M0937",
+        "M0807"
+      ],
+      "d3fend": [
+        "D3-NI",
+        "D3-ITF",
+        "D3-NTA"
+      ],
+      "wstg": [],
+      "cwe": [
+        306
+      ],
+      "fix": [
+        "Do NOT scan aggressively or patch live controllers: open a Management of Change (MOC) with Process Safety before any intervention.",
+        "Contain first: add a deny rule at the IT/OT boundary (conduit) so the protocol is only reachable from the engineering workstations and historian in the OT DMZ (zones and conduits model, IEC 62443 style).",
+        "Enable the controller's write-protection / run-mode key or protocol allowlist where the vendor supports it.",
+        "Plan the permanent fix (firmware, segmentation redesign) for the next scheduled turnaround and record it in the plant maintenance system."
+      ],
+      "verify": [
+        "Passive check: from the corporate IT VLAN, a single TCP connect test (nc -zv <ip> <port>) must fail; no active protocol scanning on production.",
+        "OT-ENG confirms with the asset owner that HMI/historian communication is unaffected (sign-off in MOC)."
+      ],
+      "detect": "SOC + OT-ENG: passive OT network monitoring rule for any IT-sourced Modbus/S7/DNP3/EtherNet-IP session, and for write/program-download function codes.",
+      "domain": "ot",
+      "category_title": "Industrial control protocol reachable from outside the OT zone",
+      "decision": "ATTEND",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=ot",
+        "technical_impact=total",
+        "asset_criticality=5/5"
+      ],
+      "risk_score": 75.8,
+      "exposure": "ot",
+      "priority": "P2",
+      "raci": {
+        "R": [
+          "OT-ENG"
+        ],
+        "A": "MGMT",
+        "C": [
+          "NETWORK",
+          "SOC"
+        ],
+        "I": [
+          "GRC-DPO"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [
+        "Requires Management of Change (MOC) and process-safety sign-off before any change on live equipment.",
+        "OT rule: contain within 72 h with compensating controls (block the conduit at the IT/OT firewall, disable remote access, increase monitoring); apply the permanent fix in the next approved maintenance window or turnaround."
+      ],
+      "why": "P2 because the asset sits in the plant control (OT) zone, a successful attack means full compromise of the system and its business criticality is 5/5 (CVSS v4 9.3).",
+      "sla_days": 30,
+      "due_date": "2026-12-02",
+      "business_impact": "PLC crude distillation unit supports 'Crude distillation unit control' (criticality 5/5, production, zone OT; data: internal). If exploited, an attacker could read or change process values or controller logic, with possible safety, environmental and production-loss consequences.",
+      "id": "F-009"
+    },
+    {
+      "host": "plc-utl-02.ot.novarefino.example",
+      "ip": "10.20.0.22",
+      "port": 102,
+      "proto": "tcp",
+      "service": "iso-tsap Siemens S7 PLC",
+      "asset": {
+        "asset_id": "A-042",
+        "asset_name": "PLC utilities (steam/cooling water)",
+        "business_service": "Utilities",
+        "criticality": 5,
+        "environment": "production",
+        "zone": "OT",
+        "internet_facing": false,
+        "data_classification": "internal",
+        "owner_dept": "OT-ENG",
+        "in_inventory": true
+      },
+      "category": "ot-protocol-exposed",
+      "cves": [],
+      "title": "Siemens S7comm exposed on 102/tcp",
+      "evidence": "nmap: 102/tcp open, service 'iso-tsap Siemens S7 PLC'",
+      "exploit_available": false,
+      "host_key": "A-042",
+      "fingerprint": "bdafecb53f",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:H/VA:H/SC:N/SI:H/SA:H",
+      "cvss4_score": 9.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T0883",
+        "T0886",
+        "T1692"
+      ],
+      "attack_mitigations": [
+        "M0930",
+        "M0937",
+        "M0807"
+      ],
+      "d3fend": [
+        "D3-NI",
+        "D3-ITF",
+        "D3-NTA"
+      ],
+      "wstg": [],
+      "cwe": [
+        306
+      ],
+      "fix": [
+        "Do NOT scan aggressively or patch live controllers: open a Management of Change (MOC) with Process Safety before any intervention.",
+        "Contain first: add a deny rule at the IT/OT boundary (conduit) so the protocol is only reachable from the engineering workstations and historian in the OT DMZ (zones and conduits model, IEC 62443 style).",
+        "Enable the controller's write-protection / run-mode key or protocol allowlist where the vendor supports it.",
+        "Plan the permanent fix (firmware, segmentation redesign) for the next scheduled turnaround and record it in the plant maintenance system."
+      ],
+      "verify": [
+        "Passive check: from the corporate IT VLAN, a single TCP connect test (nc -zv <ip> <port>) must fail; no active protocol scanning on production.",
+        "OT-ENG confirms with the asset owner that HMI/historian communication is unaffected (sign-off in MOC)."
+      ],
+      "detect": "SOC + OT-ENG: passive OT network monitoring rule for any IT-sourced Modbus/S7/DNP3/EtherNet-IP session, and for write/program-download function codes.",
+      "domain": "ot",
+      "category_title": "Industrial control protocol reachable from outside the OT zone",
+      "decision": "ATTEND",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=ot",
+        "technical_impact=total",
+        "asset_criticality=5/5"
+      ],
+      "risk_score": 75.8,
+      "exposure": "ot",
+      "priority": "P2",
+      "raci": {
+        "R": [
+          "OT-ENG"
+        ],
+        "A": "MGMT",
+        "C": [
+          "NETWORK",
+          "SOC"
+        ],
+        "I": [
+          "GRC-DPO"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [
+        "Requires Management of Change (MOC) and process-safety sign-off before any change on live equipment.",
+        "OT rule: contain within 72 h with compensating controls (block the conduit at the IT/OT firewall, disable remote access, increase monitoring); apply the permanent fix in the next approved maintenance window or turnaround."
+      ],
+      "why": "P2 because the asset sits in the plant control (OT) zone, a successful attack means full compromise of the system and its business criticality is 5/5 (CVSS v4 9.3).",
+      "sla_days": 30,
+      "due_date": "2026-12-02",
+      "business_impact": "PLC utilities (steam/cooling water) supports 'Utilities' (criticality 5/5, production, zone OT; data: internal). If exploited, an attacker could read or change process values or controller logic, with possible safety, environmental and production-loss consequences.",
+      "id": "F-010"
+    },
+    {
+      "host": "hmi-cdu-01.ot.novarefino.example",
+      "ip": "10.20.0.40",
+      "port": 80,
+      "proto": "tcp",
+      "service": "",
+      "asset": {
+        "asset_id": "A-044",
+        "asset_name": "HMI crude distillation unit",
+        "business_service": "Operator console",
+        "criticality": 5,
+        "environment": "production",
+        "zone": "OT",
+        "internet_facing": false,
+        "data_classification": "internal",
+        "owner_dept": "OT-ENG",
+        "in_inventory": true
+      },
+      "category": "default-credentials",
+      "cves": [],
+      "url": "http://10.20.0.40/",
+      "title": "HMI web interface accepts vendor default password",
+      "evidence": "Login with vendor default account succeeded (read-only test, no values changed)",
+      "exploit_available": true,
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "cvss4_score": 9.3,
+      "cwe": [
+        1392
+      ],
+      "tester_notes": "Tested with operations present; no writes performed",
+      "tester_ref": "M-05",
+      "host_key": "A-044",
+      "fingerprint": "43df786742",
+      "sources": [
+        "manual"
+      ],
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1078.001"
+      ],
+      "attack_mitigations": [
+        "M1027",
+        "M1026"
+      ],
+      "d3fend": [
+        "D3-CH",
+        "D3-SPP"
+      ],
+      "wstg": [
+        "WSTG-v42-ATHN-02"
+      ],
+      "fix": [
+        "Change the default credential immediately to a unique secret stored in the corporate vault (PAM).",
+        "Disable or rename the vendor account if the product allows it.",
+        "Add a 'no default credentials' gate to the build/commissioning checklist for new devices."
+      ],
+      "verify": [
+        "Login with the vendor default must fail.",
+        "Vault entry exists and rotation policy is attached."
+      ],
+      "detect": "SOC: alert on any successful login with a known vendor account name.",
+      "domain": "iam",
+      "category_title": "Default or vendor credentials accepted",
+      "decision": "ATTEND",
+      "decision_reasons": [
+        "exploitation=poc",
+        "exposure=ot",
+        "technical_impact=total",
+        "asset_criticality=5/5"
+      ],
+      "risk_score": 75.8,
+      "exposure": "ot",
+      "priority": "P2",
+      "raci": {
+        "R": [
+          "OT-ENG"
+        ],
+        "A": "MGMT",
+        "C": [
+          "IAM",
+          "IT-INFRA"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [
+        "Requires Management of Change (MOC) and process-safety sign-off before any change on live equipment.",
+        "OT rule: contain within 72 h with compensating controls (block the conduit at the IT/OT firewall, disable remote access, increase monitoring); apply the permanent fix in the next approved maintenance window or turnaround."
+      ],
+      "why": "P2 because the tester or the scanner confirmed it can be exploited, the asset sits in the plant control (OT) zone, a successful attack means full compromise of the system and its business criticality is 5/5 (CVSS v4 9.3).",
+      "sla_days": 30,
+      "due_date": "2026-12-02",
+      "business_impact": "HMI crude distillation unit supports 'Operator console' (criticality 5/5, production, zone OT; data: internal). If exploited, an attacker could log in as a legitimate user and bypass most other controls.",
+      "id": "F-011"
+    },
+    {
+      "host": "opc-hist01.ot.novarefino.example",
+      "ip": "10.20.0.30",
+      "port": 4840,
+      "proto": "tcp",
+      "service": "opcua-tcp OPC UA Server",
+      "asset": {
+        "asset_id": "A-043",
+        "asset_name": "OPC UA historian gateway",
+        "business_service": "Process data to IT (historian)",
+        "criticality": 4,
+        "environment": "production",
+        "zone": "OT",
+        "internet_facing": false,
+        "data_classification": "internal",
+        "owner_dept": "OT-ENG",
+        "in_inventory": true
+      },
+      "category": "ot-protocol-exposed",
+      "cves": [],
+      "title": "OPC UA exposed on 4840/tcp",
+      "evidence": "nmap: 4840/tcp open, service 'opcua-tcp OPC UA Server'",
+      "exploit_available": false,
+      "host_key": "A-043",
+      "fingerprint": "a56d67d0df",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:H/VA:H/SC:N/SI:H/SA:H",
+      "cvss4_score": 9.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T0883",
+        "T0886",
+        "T1692"
+      ],
+      "attack_mitigations": [
+        "M0930",
+        "M0937",
+        "M0807"
+      ],
+      "d3fend": [
+        "D3-NI",
+        "D3-ITF",
+        "D3-NTA"
+      ],
+      "wstg": [],
+      "cwe": [
+        306
+      ],
+      "fix": [
+        "Do NOT scan aggressively or patch live controllers: open a Management of Change (MOC) with Process Safety before any intervention.",
+        "Contain first: add a deny rule at the IT/OT boundary (conduit) so the protocol is only reachable from the engineering workstations and historian in the OT DMZ (zones and conduits model, IEC 62443 style).",
+        "Enable the controller's write-protection / run-mode key or protocol allowlist where the vendor supports it.",
+        "Plan the permanent fix (firmware, segmentation redesign) for the next scheduled turnaround and record it in the plant maintenance system."
+      ],
+      "verify": [
+        "Passive check: from the corporate IT VLAN, a single TCP connect test (nc -zv <ip> <port>) must fail; no active protocol scanning on production.",
+        "OT-ENG confirms with the asset owner that HMI/historian communication is unaffected (sign-off in MOC)."
+      ],
+      "detect": "SOC + OT-ENG: passive OT network monitoring rule for any IT-sourced Modbus/S7/DNP3/EtherNet-IP session, and for write/program-download function codes.",
+      "domain": "ot",
+      "category_title": "Industrial control protocol reachable from outside the OT zone",
+      "decision": "ATTEND",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=ot",
+        "technical_impact=total",
+        "asset_criticality=4/5"
+      ],
+      "risk_score": 73.8,
+      "exposure": "ot",
+      "priority": "P2",
+      "raci": {
+        "R": [
+          "OT-ENG"
+        ],
+        "A": "MGMT",
+        "C": [
+          "NETWORK",
+          "SOC"
+        ],
+        "I": [
+          "GRC-DPO"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [
+        "Requires Management of Change (MOC) and process-safety sign-off before any change on live equipment.",
+        "OT rule: contain within 72 h with compensating controls (block the conduit at the IT/OT firewall, disable remote access, increase monitoring); apply the permanent fix in the next approved maintenance window or turnaround."
+      ],
+      "why": "P2 because the asset sits in the plant control (OT) zone, a successful attack means full compromise of the system and its business criticality is 4/5 (CVSS v4 9.3).",
+      "sla_days": 30,
+      "due_date": "2026-12-02",
+      "business_impact": "OPC UA historian gateway supports 'Process data to IT (historian)' (criticality 4/5, production, zone OT; data: internal). If exploited, an attacker could read or change process values or controller logic, with possible safety, environmental and production-loss consequences.",
+      "id": "F-012"
+    },
+    {
+      "host": "suppliers.novarefino.example",
+      "ip": null,
+      "port": 443,
+      "proto": "tcp",
+      "service": "https",
+      "asset": {
+        "asset_id": "A-003",
+        "asset_name": "Supplier portal",
+        "business_service": "Procurement and supplier onboarding",
+        "criticality": 4,
+        "environment": "production",
+        "zone": "DMZ",
+        "internet_facing": true,
+        "data_classification": "personal",
+        "owner_dept": "APPSEC-DEV",
+        "in_inventory": true
+      },
+      "category": "web-injection",
+      "cves": [],
+      "url": "https://suppliers.novarefino.example/catalog/search?q=valve",
+      "cwe": [
+        89
+      ],
+      "title": "SQL Injection",
+      "evidence": "ZAP plugin 40018, risk 3: https://suppliers.novarefino.example/catalog/search?q=valve | evidence: q || Burp high/certain: /catalog/search [q parameter]",
+      "exploit_available": true,
+      "host_key": "A-003",
+      "fingerprint": "aa3890b6f2",
+      "sources": [
+        "burp",
+        "zap"
+      ],
+      "merged_titles": [
+        "SQL Injection"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:L/SI:L/SA:N",
+      "cvss4_score": 9.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1190"
+      ],
+      "attack_mitigations": [
+        "M1048",
+        "M1050",
+        "M1016"
+      ],
+      "d3fend": [
+        "D3-ACH"
+      ],
+      "wstg": [
+        "WSTG-v42-INPV-05",
+        "WSTG-v42-INPV-12"
+      ],
+      "fix": [
+        "Replace string-built queries/commands with parameterised queries or safe APIs in the affected endpoint and in every endpoint that reuses the same data-access helper.",
+        "Add server-side input validation (allowlist of type, length, format).",
+        "Run the database account with least privilege (no DDL, no file or OS access).",
+        "Add a regression test reproducing the payload to the CI pipeline and a SAST rule for the pattern."
+      ],
+      "verify": [
+        "Re-run the original proof of concept request; the response must not change behaviour or leak data.",
+        "DAST (ZAP active scan) on the endpoint reports no injection alert; CI regression test passes."
+      ],
+      "detect": "SOC: WAF/application log rule for SQL error strings and injection payload signatures on this endpoint.",
+      "domain": "appsec",
+      "category_title": "Injection in web application (SQL / OS command)",
+      "decision": "ATTEND",
+      "decision_reasons": [
+        "exploitation=poc",
+        "exposure=internet",
+        "technical_impact=total",
+        "asset_criticality=4/5"
+      ],
+      "risk_score": 71.8,
+      "exposure": "internet",
+      "priority": "P2",
+      "raci": {
+        "R": [
+          "APPSEC-DEV"
+        ],
+        "A": "MGMT",
+        "C": [
+          "IT-INFRA",
+          "GRC-DPO"
+        ],
+        "I": [
+          "SOC",
+          "NETWORK"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P2 because the tester or the scanner confirmed it can be exploited, the asset is reachable from the internet, a successful attack means full compromise of the system and its business criticality is 4/5 (CVSS v4 9.3).",
+      "sla_days": 14,
+      "due_date": "2026-11-16",
+      "business_impact": "Supplier portal supports 'Procurement and supplier onboarding' (criticality 4/5, production, zone DMZ, internet-facing; data: personal). If exploited, an attacker could read or modify application data and act as other users.",
+      "id": "F-013"
+    },
+    {
+      "host": "jump01.novarefino.example",
+      "ip": "203.0.113.25",
+      "port": 3389,
+      "proto": "tcp",
+      "service": "ms-wbt-server Microsoft Terminal Services",
+      "asset": {
+        "asset_id": "A-004",
+        "asset_name": "Admin jump host",
+        "business_service": "IT administration",
+        "criticality": 3,
+        "environment": "production",
+        "zone": "DMZ",
+        "internet_facing": true,
+        "data_classification": "internal",
+        "owner_dept": "IT-INFRA",
+        "in_inventory": true
+      },
+      "category": "exposed-remote-access",
+      "cves": [],
+      "title": "RDP exposed on 3389/tcp",
+      "evidence": "nmap: 3389/tcp open, service 'ms-wbt-server Microsoft Terminal Services'",
+      "exploit_available": false,
+      "host_key": "A-004",
+      "fingerprint": "fb827adb64",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "cvss4_score": 9.2,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1133",
+        "T1021.001",
+        "T1110"
+      ],
+      "attack_mitigations": [
+        "M1035",
+        "M1032",
+        "M1030"
+      ],
+      "d3fend": [
+        "D3-ITF",
+        "D3-MFA",
+        "D3-NI"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-01"
+      ],
+      "cwe": [
+        284
+      ],
+      "fix": [
+        "Remove the direct exposure: close the port on the perimeter firewall / security group for any source outside the admin allowlist.",
+        "Publish remote administration only through the corporate VPN or a zero-trust access broker with MFA.",
+        "Enforce Network Level Authentication (RDP) or key-only authentication (SSH) and disable password logins for privileged accounts.",
+        "Record the rule change with ticket ID in the firewall change log."
+      ],
+      "verify": [
+        "From an external vantage point, nmap -Pn -p <port> <public IP> must report filtered/closed.",
+        "Confirm the service is still reachable through the VPN / broker path for authorised admins."
+      ],
+      "detect": "SOC: alert on successful logons to this service from non-VPN source ranges and on password-spray patterns.",
+      "domain": "network",
+      "category_title": "Remote administration service reachable from untrusted networks",
+      "decision": "ATTEND",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=internet",
+        "technical_impact=total",
+        "asset_criticality=3/5"
+      ],
+      "risk_score": 69.2,
+      "exposure": "internet",
+      "priority": "P2",
+      "raci": {
+        "R": [
+          "NETWORK"
+        ],
+        "A": "MGMT",
+        "C": [
+          "IAM",
+          "IT-INFRA"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P2 because the asset is reachable from the internet, a successful attack means full compromise of the system and its business criticality is 3/5 (CVSS v4 9.2).",
+      "sla_days": 14,
+      "due_date": "2026-11-16",
+      "business_impact": "Admin jump host supports 'IT administration' (criticality 3/5, production, zone DMZ, internet-facing; data: internal). If exploited, an attacker could reach internal systems directly from an untrusted network.",
+      "id": "F-014"
+    },
+    {
+      "host": "suppliers.novarefino.example",
+      "ip": "203.0.113.20",
+      "port": 443,
+      "proto": "tcp",
+      "service": "",
+      "asset": {
+        "asset_id": "A-003",
+        "asset_name": "Supplier portal",
+        "business_service": "Procurement and supplier onboarding",
+        "criticality": 4,
+        "environment": "production",
+        "zone": "DMZ",
+        "internet_facing": true,
+        "data_classification": "personal",
+        "owner_dept": "APPSEC-DEV",
+        "in_inventory": true
+      },
+      "category": "sensitive-data-exposure",
+      "cves": [],
+      "url": "https://suppliers.novarefino.example/.git/config",
+      "title": "Git metadata exposed on web root",
+      "evidence": "/.git/config returned 200 with remote URL and branch names",
+      "exploit_available": true,
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+      "cvss4_score": 8.7,
+      "cwe": [
+        538
+      ],
+      "tester_notes": "",
+      "tester_ref": "M-03",
+      "host_key": "A-003",
+      "fingerprint": "8ec1aef740",
+      "sources": [
+        "burp"
+      ],
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "High",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1530",
+        "T1552.001"
+      ],
+      "attack_mitigations": [
+        "M1041",
+        "M1022"
+      ],
+      "d3fend": [
+        "D3-FE",
+        "D3-UAP"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-04",
+        "WSTG-v42-CONF-11"
+      ],
+      "fix": [
+        "Remove public access to the storage/backup location immediately and keep a copy of access logs as evidence.",
+        "Rotate any secrets found inside the exposed files.",
+        "DPO assesses whether personal data was accessed and whether a GDPR Art. 33 notification (72 hours) is required.",
+        "Enable encryption at rest and a policy that blocks public buckets/shares by default."
+      ],
+      "verify": [
+        "Anonymous request to the object/share URL returns 403.",
+        "Cloud posture scan shows the 'block public access' control enabled."
+      ],
+      "detect": "SOC: review access logs for the exposure window; alert on future public ACL changes.",
+      "domain": "data",
+      "category_title": "Sensitive or personal data exposed (public storage, backups, listings)",
+      "decision": "ATTEND",
+      "decision_reasons": [
+        "exploitation=poc",
+        "exposure=internet",
+        "technical_impact=total",
+        "asset_criticality=4/5"
+      ],
+      "risk_score": 68.2,
+      "exposure": "internet",
+      "priority": "P2",
+      "raci": {
+        "R": [
+          "IT-INFRA"
+        ],
+        "A": "MGMT",
+        "C": [
+          "GRC-DPO"
+        ],
+        "I": [
+          "SOC",
+          "NETWORK",
+          "APPSEC-DEV"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P2 because the tester or the scanner confirmed it can be exploited, the asset is reachable from the internet, a successful attack means full compromise of the system and its business criticality is 4/5 (CVSS v4 8.7).",
+      "sla_days": 14,
+      "due_date": "2026-11-16",
+      "business_impact": "Supplier portal supports 'Procurement and supplier onboarding' (criticality 4/5, production, zone DMZ, internet-facing; data: personal). If exploited, confidential or personal data could be read by unauthorised parties, with regulatory exposure (GDPR).",
+      "id": "F-015"
+    },
+    {
+      "host": "dc01.corp.novarefino.example",
+      "ip": "10.10.1.10",
+      "port": null,
+      "proto": "tcp",
+      "service": "",
+      "asset": {
+        "asset_id": "A-010",
+        "asset_name": "Domain controller",
+        "business_service": "Identity for all corporate users",
+        "criticality": 5,
+        "environment": "production",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "confidential",
+        "owner_dept": "IAM",
+        "in_inventory": true
+      },
+      "category": "auth-weakness",
+      "cves": [],
+      "url": "",
+      "title": "No MFA and weak password policy for domain accounts",
+      "evidence": "Default Domain Policy: min length 7, no lockout; Kerberoasting cracked 3 of 12 service account hashes in under 2 h",
+      "exploit_available": true,
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "cvss4_score": 8.8,
+      "cwe": [
+        521,
+        308
+      ],
+      "tester_notes": "Pentest notes day 2",
+      "tester_ref": "M-04",
+      "host_key": "A-010",
+      "fingerprint": "3dc5ae0275",
+      "sources": [
+        "manual"
+      ],
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "High",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1110",
+        "T1078"
+      ],
+      "attack_mitigations": [
+        "M1032",
+        "M1036",
+        "M1027"
+      ],
+      "d3fend": [
+        "D3-MFA",
+        "D3-AL",
+        "D3-SPP"
+      ],
+      "wstg": [
+        "WSTG-v42-ATHN-03",
+        "WSTG-v42-ATHN-07"
+      ],
+      "fix": [
+        "Put the application behind the corporate IdP (SSO) and enforce phishing-resistant MFA for all users, mandatory for admins.",
+        "Configure progressive delays or temporary lockout after repeated failures, plus breached-password screening.",
+        "Align password length and rotation rules with the corporate identity policy (length over complexity)."
+      ],
+      "verify": [
+        "Ten failed logins in a row trigger delay/lockout and a SIEM event.",
+        "Login without the second factor is refused for the test account."
+      ],
+      "detect": "SOC: password-spray and impossible-travel analytics on the IdP logs.",
+      "domain": "iam",
+      "category_title": "Weak authentication controls (no lockout / no MFA / weak policy)",
+      "decision": "ATTEND",
+      "decision_reasons": [
+        "exploitation=poc",
+        "exposure=internal",
+        "technical_impact=total",
+        "asset_criticality=5/5"
+      ],
+      "risk_score": 62.8,
+      "exposure": "internal",
+      "priority": "P2",
+      "raci": {
+        "R": [
+          "IAM"
+        ],
+        "A": "MGMT",
+        "C": [
+          "APPSEC-DEV"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P2 because the tester or the scanner confirmed it can be exploited, the asset is internal (not internet-facing), a successful attack means full compromise of the system and its business criticality is 5/5 (CVSS v4 8.8).",
+      "sla_days": 14,
+      "due_date": "2026-11-16",
+      "business_impact": "Domain controller supports 'Identity for all corporate users' (criticality 5/5, production, zone IT; data: confidential). If exploited, an attacker could log in as a legitimate user and bypass most other controls.",
+      "id": "F-016"
+    },
+    {
+      "host": "erp-db01.corp.novarefino.example",
+      "ip": "10.10.2.40",
+      "port": 1433,
+      "proto": "tcp",
+      "service": "mssql",
+      "asset": {
+        "asset_id": "A-021",
+        "asset_name": "ERP database",
+        "business_service": "Finance and procurement",
+        "criticality": 5,
+        "environment": "production",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "personal",
+        "owner_dept": "IT-INFRA",
+        "in_inventory": true
+      },
+      "category": "vulnerable-software",
+      "cves": [],
+      "title": "Microsoft SQL Server Unsupported Version Detection (remote check)",
+      "evidence": "Nessus plugin 73756: Installed version: 13.0.5026.0 (SQL Server 2016 SP2). Mainstream and extended support status should be checked against vendor lifecycle.",
+      "exploit_available": false,
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+      "cvss4_score": 8.7,
+      "tool_solution": "Upgrade to a supported version of SQL Server.",
+      "host_key": "A-021",
+      "fingerprint": "b882517c0c",
+      "sources": [
+        "nessus"
+      ],
+      "cvss4_source": "tool/tester",
+      "severity": "High",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1190",
+        "T1210"
+      ],
+      "attack_mitigations": [
+        "M1051",
+        "M1016"
+      ],
+      "d3fend": [
+        "D3-SU"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-02"
+      ],
+      "cwe": [
+        1104
+      ],
+      "fix": [
+        "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+        "Scanner guidance: Upgrade to a supported version of SQL Server.",
+        "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+        "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+        "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+      ],
+      "verify": [
+        "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+        "Re-run the original exploit check (non-destructive) and confirm it fails."
+      ],
+      "detect": "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "domain": "infra",
+      "category_title": "Outdated software with known vulnerabilities",
+      "decision": "ATTEND",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=internal",
+        "technical_impact=total",
+        "asset_criticality=5/5"
+      ],
+      "risk_score": 62.2,
+      "exposure": "internal",
+      "priority": "P2",
+      "raci": {
+        "R": [
+          "IT-INFRA"
+        ],
+        "A": "MGMT",
+        "C": [
+          "APPSEC-DEV",
+          "GRC-DPO"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P2 because the asset is internal (not internet-facing), a successful attack means full compromise of the system and its business criticality is 5/5 (CVSS v4 8.7).",
+      "sla_days": 14,
+      "due_date": "2026-11-16",
+      "business_impact": "ERP database supports 'Finance and procurement' (criticality 5/5, production, zone IT; data: personal). If exploited, an attacker could take control of the server and use it as a foothold for lateral movement or ransomware.",
+      "id": "F-017"
+    },
+    {
+      "host": "erp-db01.corp.novarefino.example",
+      "ip": "10.10.2.40",
+      "port": 1433,
+      "proto": "tcp",
+      "service": "ms-sql-s Microsoft SQL Server 2016 13.00.5026",
+      "asset": {
+        "asset_id": "A-021",
+        "asset_name": "ERP database",
+        "business_service": "Finance and procurement",
+        "criticality": 5,
+        "environment": "production",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "personal",
+        "owner_dept": "IT-INFRA",
+        "in_inventory": true
+      },
+      "category": "exposed-database",
+      "cves": [],
+      "title": "Database/cache exposed on 1433/tcp",
+      "evidence": "nmap: 1433/tcp open, service 'ms-sql-s Microsoft SQL Server 2016 13.00.5026'",
+      "exploit_available": false,
+      "host_key": "A-021",
+      "fingerprint": "5c6bd9a8b2",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:L/VA:L/SC:N/SI:N/SA:N",
+      "cvss4_score": 8.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "High",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1190",
+        "T1213"
+      ],
+      "attack_mitigations": [
+        "M1035",
+        "M1030",
+        "M1026"
+      ],
+      "d3fend": [
+        "D3-NI",
+        "D3-ITF",
+        "D3-UAP"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-01"
+      ],
+      "cwe": [
+        668
+      ],
+      "fix": [
+        "Bind the service to the application subnet only and add a host firewall rule allowing just the app servers.",
+        "Require authentication and TLS for every client connection; remove anonymous or default accounts.",
+        "Move the database into a dedicated data tier segment if it currently shares the user VLAN."
+      ],
+      "verify": [
+        "From a user-VLAN host, nmap -p <db port> <host> must report filtered.",
+        "Unauthenticated connection attempt must be refused."
+      ],
+      "detect": "SOC: alert on database logins from hosts outside the application tier.",
+      "domain": "infra",
+      "category_title": "Database or cache service reachable without network restriction",
+      "decision": "ATTEND",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=internal",
+        "technical_impact=partial",
+        "asset_criticality=5/5"
+      ],
+      "risk_score": 59.8,
+      "exposure": "internal",
+      "priority": "P2",
+      "raci": {
+        "R": [
+          "IT-INFRA"
+        ],
+        "A": "MGMT",
+        "C": [
+          "APPSEC-DEV",
+          "NETWORK",
+          "GRC-DPO"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P2 because the asset is internal (not internet-facing) and its business criticality is 5/5 (CVSS v4 8.3).",
+      "sla_days": 14,
+      "due_date": "2026-11-16",
+      "business_impact": "ERP database supports 'Finance and procurement' (criticality 5/5, production, zone IT; data: personal). If exploited, an attacker could take control of the server and use it as a foothold for lateral movement or ransomware.",
+      "id": "F-018"
+    },
+    {
+      "host": "erp-db01.corp.novarefino.example",
+      "ip": "10.10.2.40",
+      "port": 5432,
+      "proto": "tcp",
+      "service": "postgresql PostgreSQL DB 12.3",
+      "asset": {
+        "asset_id": "A-021",
+        "asset_name": "ERP database",
+        "business_service": "Finance and procurement",
+        "criticality": 5,
+        "environment": "production",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "personal",
+        "owner_dept": "IT-INFRA",
+        "in_inventory": true
+      },
+      "category": "exposed-database",
+      "cves": [],
+      "title": "Database/cache exposed on 5432/tcp",
+      "evidence": "nmap: 5432/tcp open, service 'postgresql PostgreSQL DB 12.3'",
+      "exploit_available": false,
+      "host_key": "A-021",
+      "fingerprint": "310a6a620f",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:L/VA:L/SC:N/SI:N/SA:N",
+      "cvss4_score": 8.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "High",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1190",
+        "T1213"
+      ],
+      "attack_mitigations": [
+        "M1035",
+        "M1030",
+        "M1026"
+      ],
+      "d3fend": [
+        "D3-NI",
+        "D3-ITF",
+        "D3-UAP"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-01"
+      ],
+      "cwe": [
+        668
+      ],
+      "fix": [
+        "Bind the service to the application subnet only and add a host firewall rule allowing just the app servers.",
+        "Require authentication and TLS for every client connection; remove anonymous or default accounts.",
+        "Move the database into a dedicated data tier segment if it currently shares the user VLAN."
+      ],
+      "verify": [
+        "From a user-VLAN host, nmap -p <db port> <host> must report filtered.",
+        "Unauthenticated connection attempt must be refused."
+      ],
+      "detect": "SOC: alert on database logins from hosts outside the application tier.",
+      "domain": "infra",
+      "category_title": "Database or cache service reachable without network restriction",
+      "decision": "ATTEND",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=internal",
+        "technical_impact=partial",
+        "asset_criticality=5/5"
+      ],
+      "risk_score": 59.8,
+      "exposure": "internal",
+      "priority": "P2",
+      "raci": {
+        "R": [
+          "IT-INFRA"
+        ],
+        "A": "MGMT",
+        "C": [
+          "APPSEC-DEV",
+          "NETWORK",
+          "GRC-DPO"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P2 because the asset is internal (not internet-facing) and its business criticality is 5/5 (CVSS v4 8.3).",
+      "sla_days": 14,
+      "due_date": "2026-11-16",
+      "business_impact": "ERP database supports 'Finance and procurement' (criticality 5/5, production, zone IT; data: personal). If exploited, an attacker could take control of the server and use it as a foothold for lateral movement or ransomware.",
+      "id": "F-019"
+    },
+    {
+      "host": "suppliers.novarefino.example",
+      "ip": "203.0.113.20",
+      "port": 443,
+      "proto": "tcp",
+      "service": "",
+      "asset": {
+        "asset_id": "A-003",
+        "asset_name": "Supplier portal",
+        "business_service": "Procurement and supplier onboarding",
+        "criticality": 4,
+        "environment": "production",
+        "zone": "DMZ",
+        "internet_facing": true,
+        "data_classification": "personal",
+        "owner_dept": "APPSEC-DEV",
+        "in_inventory": true
+      },
+      "category": "broken-access-control",
+      "cves": [],
+      "url": "https://suppliers.novarefino.example/api/v2/suppliers/1043/bank",
+      "title": "IDOR: supplier bank details readable by changing supplierId",
+      "evidence": "GET /api/v2/suppliers/1043/bank as supplier 2210 returned IBAN of supplier 1043 (HTTP 200)",
+      "exploit_available": true,
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "cvss4_score": 7.1,
+      "cwe": [
+        639
+      ],
+      "tester_notes": "Manual test with two supplier accounts",
+      "tester_ref": "M-01",
+      "host_key": "A-003",
+      "fingerprint": "af19711eed",
+      "sources": [
+        "burp"
+      ],
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "High",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1190",
+        "T1213"
+      ],
+      "attack_mitigations": [
+        "M1026",
+        "M1048"
+      ],
+      "d3fend": [
+        "D3-UAP"
+      ],
+      "wstg": [
+        "WSTG-v42-ATHZ-02",
+        "WSTG-v42-ATHZ-04"
+      ],
+      "fix": [
+        "Enforce an object-level authorization check on the server for every request that takes an object identifier (owner or tenant match).",
+        "Centralise the check in a policy middleware instead of per-controller code.",
+        "Use non-sequential identifiers as defence in depth (never as the only control).",
+        "Add negative authorization tests (user A cannot read user B) to CI."
+      ],
+      "verify": [
+        "Repeat the request with a second low-privilege account; the API must return 403/404.",
+        "Automated authorization test suite passes."
+      ],
+      "detect": "SOC: alert on a single session enumerating many object IDs in a short window.",
+      "domain": "appsec",
+      "category_title": "Broken access control (IDOR / BOLA)",
+      "decision": "ATTEND",
+      "decision_reasons": [
+        "exploitation=poc",
+        "exposure=internet",
+        "technical_impact=partial",
+        "asset_criticality=4/5"
+      ],
+      "risk_score": 58.6,
+      "exposure": "internet",
+      "priority": "P2",
+      "raci": {
+        "R": [
+          "APPSEC-DEV"
+        ],
+        "A": "MGMT",
+        "C": [
+          "IAM",
+          "GRC-DPO"
+        ],
+        "I": [
+          "SOC",
+          "NETWORK"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P2 because the tester or the scanner confirmed it can be exploited, the asset is reachable from the internet and its business criticality is 4/5 (CVSS v4 7.1).",
+      "sla_days": 14,
+      "due_date": "2026-11-16",
+      "business_impact": "Supplier portal supports 'Procurement and supplier onboarding' (criticality 4/5, production, zone DMZ, internet-facing; data: personal). If exploited, an attacker could read or modify application data and act as other users.",
+      "id": "F-020"
+    },
+    {
+      "host": "maint-app.corp.novarefino.example",
+      "ip": "10.10.2.60",
+      "port": 22,
+      "proto": "tcp",
+      "service": "ssh OpenSSH 8.9p1",
+      "asset": {
+        "asset_id": "A-023",
+        "asset_name": "Maintenance planning app",
+        "business_service": "Plant maintenance work orders",
+        "criticality": 4,
+        "environment": "production",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "internal",
+        "owner_dept": "APPSEC-DEV",
+        "in_inventory": true
+      },
+      "category": "vulnerable-software",
+      "cves": [
+        "CVE-2024-6387",
+        "CVE-2023-48795"
+      ],
+      "title": "OpenSSH 8.9p1: CVE-2024-6387 +1 more",
+      "evidence": "nmap NSE vulners: cpe:/a:openbsd:openssh:8.9p1: |     \tCVE-2024-6387\t8.1\thttps://vulners.com/cve/CVE-2024-6387 |     \tCVE-2023-48795\t5.9\thttps://vulners.com/cve/CVE-2023-48795",
+      "exploit_available": false,
+      "host_key": "A-023",
+      "fingerprint": "77de0ff2b7",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "cvss4_score": 9.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": 0.99506,
+      "epss_percentile": 0.99946,
+      "attack": [
+        "T1190",
+        "T1210"
+      ],
+      "attack_mitigations": [
+        "M1051",
+        "M1016"
+      ],
+      "d3fend": [
+        "D3-SU"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-02"
+      ],
+      "cwe": [
+        1104
+      ],
+      "fix": [
+        "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+        "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+        "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+        "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+      ],
+      "verify": [
+        "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+        "Re-run the original exploit check (non-destructive) and confirm it fails."
+      ],
+      "detect": "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "domain": "infra",
+      "category_title": "Outdated software with known vulnerabilities",
+      "decision": "TRACK*",
+      "decision_reasons": [
+        "exploitation=poc",
+        "exposure=internal",
+        "technical_impact=total",
+        "asset_criticality=4/5"
+      ],
+      "risk_score": 78.7,
+      "exposure": "internal",
+      "priority": "P3",
+      "raci": {
+        "R": [
+          "IT-INFRA"
+        ],
+        "A": "MGMT",
+        "C": [
+          "APPSEC-DEV"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P3 because EPSS gives a 100% probability of exploitation activity in the next 30 days, the asset is internal (not internet-facing), a successful attack means full compromise of the system and its business criticality is 4/5 (CVSS v4 9.3).",
+      "sla_days": 45,
+      "due_date": "2026-12-17",
+      "business_impact": "Maintenance planning app supports 'Plant maintenance work orders' (criticality 4/5, production, zone IT; data: internal). If exploited, an attacker could take control of the server and use it as a foothold for lateral movement or ransomware.",
+      "id": "F-021"
+    },
+    {
+      "host": "10.10.9.99",
+      "ip": "10.10.9.99",
+      "port": 5900,
+      "proto": "tcp",
+      "service": "vnc VNC protocol 3.8",
+      "asset": {
+        "asset_id": "UNKNOWN",
+        "asset_name": "10.10.9.99 (not in inventory)",
+        "business_service": "unknown",
+        "criticality": 3,
+        "environment": "unknown",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "unknown",
+        "owner_dept": "",
+        "in_inventory": false
+      },
+      "category": "exposed-remote-access",
+      "cves": [],
+      "title": "VNC exposed on 5900/tcp",
+      "evidence": "nmap: 5900/tcp open, service 'vnc VNC protocol 3.8'",
+      "exploit_available": false,
+      "host_key": "10.10.9.99",
+      "fingerprint": "9f5d1684e4",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "cvss4_score": 9.2,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Critical",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1133",
+        "T1021.001",
+        "T1110"
+      ],
+      "attack_mitigations": [
+        "M1035",
+        "M1032",
+        "M1030"
+      ],
+      "d3fend": [
+        "D3-ITF",
+        "D3-MFA",
+        "D3-NI"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-01"
+      ],
+      "cwe": [
+        284
+      ],
+      "fix": [
+        "Remove the direct exposure: close the port on the perimeter firewall / security group for any source outside the admin allowlist.",
+        "Publish remote administration only through the corporate VPN or a zero-trust access broker with MFA.",
+        "Enforce Network Level Authentication (RDP) or key-only authentication (SSH) and disable password logins for privileged accounts.",
+        "Record the rule change with ticket ID in the firewall change log."
+      ],
+      "verify": [
+        "From an external vantage point, nmap -Pn -p <port> <public IP> must report filtered/closed.",
+        "Confirm the service is still reachable through the VPN / broker path for authorised admins."
+      ],
+      "detect": "SOC: alert on successful logons to this service from non-VPN source ranges and on password-spray patterns.",
+      "domain": "network",
+      "category_title": "Remote administration service reachable from untrusted networks",
+      "decision": "TRACK*",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=internal",
+        "technical_impact=total",
+        "asset_criticality=3/5"
+      ],
+      "risk_score": 61.2,
+      "exposure": "internal",
+      "priority": "P3",
+      "raci": {
+        "R": [
+          "NETWORK"
+        ],
+        "A": "MGMT",
+        "C": [
+          "IAM",
+          "IT-INFRA"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [
+        "Asset not found in inventory: IT-INFRA must register it in the CMDB (unknown assets are a finding by themselves)."
+      ],
+      "why": "P3 because the asset is internal (not internet-facing), a successful attack means full compromise of the system and its business criticality is 3/5 (CVSS v4 9.2).",
+      "sla_days": 45,
+      "due_date": "2026-12-17",
+      "business_impact": "10.10.9.99 (not in inventory) supports 'unknown' (criticality 3/5, unknown, zone IT; data: unknown). If exploited, an attacker could reach internal systems directly from an untrusted network.",
+      "id": "F-022"
+    },
+    {
+      "host": "suppliers.novarefino.example",
+      "ip": "203.0.113.20",
+      "port": 443,
+      "proto": "tcp",
+      "service": "",
+      "asset": {
+        "asset_id": "A-003",
+        "asset_name": "Supplier portal",
+        "business_service": "Procurement and supplier onboarding",
+        "criticality": 4,
+        "environment": "production",
+        "zone": "DMZ",
+        "internet_facing": true,
+        "data_classification": "personal",
+        "owner_dept": "APPSEC-DEV",
+        "in_inventory": true
+      },
+      "category": "admin-interface-exposed",
+      "cves": [],
+      "url": "https://suppliers.novarefino.example/admin/",
+      "title": "Admin console reachable from the internet",
+      "evidence": "/admin/ login page served to anonymous internet users; no IP allow-list",
+      "exploit_available": false,
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:L/SC:N/SI:N/SA:N",
+      "cvss4_score": 6.9,
+      "cwe": [
+        284
+      ],
+      "tester_notes": "",
+      "tester_ref": "M-02",
+      "host_key": "A-003",
+      "fingerprint": "4d3efd44ee",
+      "sources": [
+        "burp"
+      ],
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Medium",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1190",
+        "T1078"
+      ],
+      "attack_mitigations": [
+        "M1035",
+        "M1032"
+      ],
+      "d3fend": [
+        "D3-ITF",
+        "D3-MFA"
+      ],
+      "wstg": [
+        "WSTG-v42-CONF-05"
+      ],
+      "fix": [
+        "Move the admin path to an internal-only listener or restrict it by source IP at the reverse proxy.",
+        "Require SSO + MFA for the admin role.",
+        "Remove sample/installer pages left by the vendor."
+      ],
+      "verify": [
+        "External request to the admin path returns 403/404.",
+        "Admin access works from the admin network with MFA."
+      ],
+      "detect": "SOC: alert on admin path access from external IPs.",
+      "domain": "appsec",
+      "category_title": "Administrative interface exposed to users or internet",
+      "decision": "TRACK*",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=internet",
+        "technical_impact=partial",
+        "asset_criticality=4/5"
+      ],
+      "risk_score": 57.4,
+      "exposure": "internet",
+      "priority": "P3",
+      "raci": {
+        "R": [
+          "APPSEC-DEV"
+        ],
+        "A": "MGMT",
+        "C": [
+          "NETWORK",
+          "IAM",
+          "GRC-DPO"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P3 because the asset is reachable from the internet and its business criticality is 4/5 (CVSS v4 6.9).",
+      "sla_days": 45,
+      "due_date": "2026-12-17",
+      "business_impact": "Supplier portal supports 'Procurement and supplier onboarding' (criticality 4/5, production, zone DMZ, internet-facing; data: personal). If exploited, an attacker could read or modify application data and act as other users.",
+      "id": "F-023"
+    },
+    {
+      "host": "core-sw01.corp.novarefino.example",
+      "ip": "10.10.3.5",
+      "port": 161,
+      "proto": "udp",
+      "service": "snmp SNMPv1 server; public",
+      "asset": {
+        "asset_id": "A-030",
+        "asset_name": "Core switch",
+        "business_service": "Campus network",
+        "criticality": 5,
+        "environment": "production",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "internal",
+        "owner_dept": "NETWORK",
+        "in_inventory": true
+      },
+      "category": "snmp-weak-community",
+      "cves": [],
+      "title": "SNMP exposed on 161/udp (unauthenticated read)",
+      "evidence": "nmap: 161/udp open, service 'snmp SNMPv1 server; public' | snmp-info: enterprise: ciscoSystems\n  engineIDFormat: unknown\n  community: public (read)",
+      "exploit_available": false,
+      "host_key": "A-030",
+      "fingerprint": "568343cce0",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "cvss4_score": 6.9,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Medium",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1046",
+        "T1078.001"
+      ],
+      "attack_mitigations": [
+        "M1042",
+        "M1027"
+      ],
+      "d3fend": [
+        "D3-SPP",
+        "D3-ACH"
+      ],
+      "wstg": [],
+      "cwe": [
+        798
+      ],
+      "fix": [
+        "Migrate the device to SNMPv3 with authPriv (SHA-2 + AES).",
+        "If v2c must stay temporarily, set a long random read-only community and an ACL that allows only the NMS address.",
+        "Disable SNMP write access entirely."
+      ],
+      "verify": [
+        "nmap -sU -p161 --script snmp-info <host> with 'public' must fail.",
+        "NMS still polls the device over SNMPv3."
+      ],
+      "detect": "SOC: alert on SNMP requests from sources other than the NMS.",
+      "domain": "network",
+      "category_title": "SNMP v1/v2c with default or guessable community string",
+      "decision": "TRACK*",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=internal",
+        "technical_impact=partial",
+        "asset_criticality=5/5"
+      ],
+      "risk_score": 51.4,
+      "exposure": "internal",
+      "priority": "P3",
+      "raci": {
+        "R": [
+          "NETWORK"
+        ],
+        "A": "MGMT",
+        "C": [
+          "IT-INFRA"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P3 because the asset is internal (not internet-facing) and its business criticality is 5/5 (CVSS v4 6.9).",
+      "sla_days": 45,
+      "due_date": "2026-12-17",
+      "business_impact": "Core switch supports 'Campus network' (criticality 5/5, production, zone IT; data: internal). If exploited, an attacker could reach internal systems directly from an untrusted network.",
+      "id": "F-024"
+    },
+    {
+      "host": "users",
+      "ip": null,
+      "port": null,
+      "proto": "tcp",
+      "service": "",
+      "asset": {
+        "asset_id": "A-090",
+        "asset_name": "Workforce",
+        "business_service": "All business processes",
+        "criticality": 4,
+        "environment": "production",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "personal",
+        "owner_dept": "HR-AWARENESS",
+        "in_inventory": true
+      },
+      "category": "phishing-susceptibility",
+      "cves": [],
+      "url": "",
+      "title": "Phishing simulation: 18% click rate and 7% credential submission",
+      "evidence": "Campaign Q3: 412 recipients, 74 clicks, 29 credential submissions, 6 reports to SOC",
+      "exploit_available": false,
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:H/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "cvss4_score": 7.0,
+      "cwe": [],
+      "tester_notes": "",
+      "tester_ref": "M-06",
+      "host_key": "A-090",
+      "fingerprint": "f3766172fe",
+      "sources": [
+        "phishing-sim"
+      ],
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "High",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1566"
+      ],
+      "attack_mitigations": [
+        "M1017",
+        "M1054"
+      ],
+      "d3fend": [
+        "D3-DNSDL"
+      ],
+      "wstg": [],
+      "fix": [
+        "Run short, role-based awareness sessions for the affected teams within 30 days (no blame, focus on reporting).",
+        "Deploy a one-click 'report phishing' button and publish the reporting channel.",
+        "Enforce MFA so a captured password alone is not enough.",
+        "Schedule a follow-up simulation in 90 days to measure improvement."
+      ],
+      "verify": [
+        "Follow-up simulation click rate below the agreed target; report rate above target."
+      ],
+      "detect": "SOC: triage queue for user-reported phishing with SLA.",
+      "domain": "people",
+      "category_title": "Users susceptible to phishing / social engineering",
+      "decision": "TRACK*",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=internal",
+        "technical_impact=partial",
+        "asset_criticality=4/5"
+      ],
+      "risk_score": 50.0,
+      "exposure": "internal",
+      "priority": "P3",
+      "raci": {
+        "R": [
+          "HR-AWARENESS"
+        ],
+        "A": "MGMT",
+        "C": [
+          "SOC",
+          "GRC-DPO"
+        ],
+        "I": [],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P3 because the asset is internal (not internet-facing) and its business criticality is 4/5 (CVSS v4 7.0).",
+      "sla_days": 45,
+      "due_date": "2026-12-17",
+      "business_impact": "Workforce supports 'All business processes' (criticality 4/5, production, zone IT; data: personal). If exploited, attackers could obtain credentials or code execution through users.",
+      "id": "F-025"
+    },
+    {
+      "host": "suppliers.novarefino.example",
+      "ip": null,
+      "port": 443,
+      "proto": "tcp",
+      "service": "https",
+      "asset": {
+        "asset_id": "A-003",
+        "asset_name": "Supplier portal",
+        "business_service": "Procurement and supplier onboarding",
+        "criticality": 4,
+        "environment": "production",
+        "zone": "DMZ",
+        "internet_facing": true,
+        "data_classification": "personal",
+        "owner_dept": "APPSEC-DEV",
+        "in_inventory": true
+      },
+      "category": "web-xss",
+      "cves": [],
+      "url": "https://suppliers.novarefino.example/onboarding/step2?company=",
+      "cwe": [
+        79
+      ],
+      "title": "Cross Site Scripting (Reflected)",
+      "evidence": "ZAP plugin 40012, risk 3: https://suppliers.novarefino.example/onboarding/step2?company= | evidence: <scrIpt>alert(1);</scRipt>",
+      "exploit_available": true,
+      "host_key": "A-003",
+      "fingerprint": "9956f836e7",
+      "sources": [
+        "zap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:N",
+      "cvss4_score": 5.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Medium",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1185",
+        "T1059.007"
+      ],
+      "attack_mitigations": [
+        "M1021",
+        "M1048"
+      ],
+      "d3fend": [
+        "D3-ACH"
+      ],
+      "wstg": [
+        "WSTG-v42-CLNT-01",
+        "WSTG-v42-INPV-01",
+        "WSTG-v42-INPV-02"
+      ],
+      "fix": [
+        "Apply context-aware output encoding in the template layer for the affected parameter (HTML, attribute, JS, URL contexts).",
+        "Enable the framework's auto-escaping and remove any raw/unsafe rendering helpers in the affected view.",
+        "Deploy a restrictive Content-Security-Policy (no unsafe-inline) as defence in depth.",
+        "Set HttpOnly on session cookies so injected script cannot read them."
+      ],
+      "verify": [
+        "Replay the payload; it must render as inert text.",
+        "ZAP passive + active scan shows no XSS alert for the endpoint."
+      ],
+      "detect": "SOC: CSP violation reports forwarded to SIEM; alert on spikes.",
+      "domain": "appsec",
+      "category_title": "Cross-site scripting (reflected or stored)",
+      "decision": "TRACK*",
+      "decision_reasons": [
+        "exploitation=poc",
+        "exposure=internet",
+        "technical_impact=partial",
+        "asset_criticality=4/5"
+      ],
+      "risk_score": 47.8,
+      "exposure": "internet",
+      "priority": "P3",
+      "raci": {
+        "R": [
+          "APPSEC-DEV"
+        ],
+        "A": "MGMT",
+        "C": [
+          "GRC-DPO"
+        ],
+        "I": [
+          "SOC",
+          "NETWORK"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P3 because the tester or the scanner confirmed it can be exploited, the asset is reachable from the internet and its business criticality is 4/5 (CVSS v4 5.3).",
+      "sla_days": 45,
+      "due_date": "2026-12-17",
+      "business_impact": "Supplier portal supports 'Procurement and supplier onboarding' (criticality 4/5, production, zone DMZ, internet-facing; data: personal). If exploited, an attacker could read or modify application data and act as other users.",
+      "id": "F-026"
+    },
+    {
+      "host": "siem",
+      "ip": null,
+      "port": null,
+      "proto": "tcp",
+      "service": "",
+      "asset": {
+        "asset_id": "A-091",
+        "asset_name": "SIEM / SOC tooling",
+        "business_service": "Security monitoring",
+        "criticality": 4,
+        "environment": "production",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "confidential",
+        "owner_dept": "SOC",
+        "in_inventory": true
+      },
+      "category": "logging-detection-gap",
+      "cves": [],
+      "url": "",
+      "title": "Port scans and password spraying generated no SOC alert",
+      "evidence": "Full nmap sweep and 600 spraying attempts over 2 days; no ticket raised by SOC",
+      "exploit_available": false,
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N",
+      "cvss4_score": 6.3,
+      "cwe": [
+        778
+      ],
+      "tester_notes": "Purple-team check",
+      "tester_ref": "M-07",
+      "host_key": "A-091",
+      "fingerprint": "3e394be8a6",
+      "sources": [
+        "manual"
+      ],
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Medium",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1046",
+        "T1110"
+      ],
+      "attack_mitigations": [
+        "M1047"
+      ],
+      "d3fend": [
+        "D3-NTA",
+        "D3-UBA",
+        "D3-PM"
+      ],
+      "wstg": [],
+      "fix": [
+        "Onboard the missing log source (host, firewall, application) to the SIEM with parsing validated.",
+        "Create or tune the detection for the ATT&CK techniques used during the test, using the ATT&CK v20 detection strategies as a starting point.",
+        "Add the scenario to the purple-team regression list."
+      ],
+      "verify": [
+        "Replay the test activity (atomic test) and confirm an alert is raised and triaged within the SOC SLA."
+      ],
+      "detect": "This ticket IS the detection work.",
+      "domain": "soc",
+      "category_title": "Attack activity not detected or not logged",
+      "decision": "TRACK*",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=internal",
+        "technical_impact=partial",
+        "asset_criticality=4/5",
+        "category floor P3"
+      ],
+      "risk_score": 45.8,
+      "exposure": "internal",
+      "priority": "P3",
+      "raci": {
+        "R": [
+          "SOC"
+        ],
+        "A": "MGMT",
+        "C": [
+          "IT-INFRA"
+        ],
+        "I": [],
+        "detect": "none"
+      },
+      "routing_notes": [],
+      "why": "P3 because the asset is internal (not internet-facing) and its business criticality is 4/5 (CVSS v4 6.3). Raised to P3 by policy: this category never ranks lower.",
+      "sla_days": 45,
+      "due_date": "2026-12-17",
+      "business_impact": "SIEM / SOC tooling supports 'Security monitoring' (criticality 4/5, production, zone IT; data: confidential). If exploited, an intrusion could progress without being noticed, increasing dwell time and damage.",
+      "id": "F-027"
+    },
+    {
+      "host": "suppliers.novarefino.example",
+      "ip": null,
+      "port": 443,
+      "proto": "tcp",
+      "service": "https",
+      "asset": {
+        "asset_id": "A-003",
+        "asset_name": "Supplier portal",
+        "business_service": "Procurement and supplier onboarding",
+        "criticality": 4,
+        "environment": "production",
+        "zone": "DMZ",
+        "internet_facing": true,
+        "data_classification": "personal",
+        "owner_dept": "APPSEC-DEV",
+        "in_inventory": true
+      },
+      "category": "security-misconfiguration-web",
+      "cves": [],
+      "url": "https://suppliers.novarefino.example/",
+      "cwe": [
+        693
+      ],
+      "title": "Missing web security headers / insecure cookie attributes (2 issues)",
+      "evidence": "ZAP plugin 10038, risk 2: https://suppliers.novarefino.example/; https://suppliers.novarefino.example/onboarding/ || ZAP plugin 10010, risk 1: https://suppliers.novarefino.example/login | evidence: Set-Cookie: SESSIONID || Burp low/firm: /login [SESSIONID cookie]",
+      "exploit_available": false,
+      "host_key": "A-003",
+      "fingerprint": "dd6cd5a0b5",
+      "sources": [
+        "burp",
+        "zap"
+      ],
+      "merged_titles": [
+        "Content Security Policy (CSP) Header Not Set (2 URLs)",
+        "Cookie No HttpOnly Flag"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:P/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "cvss4_score": 2.3,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Low",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1185"
+      ],
+      "attack_mitigations": [
+        "M1021"
+      ],
+      "d3fend": [
+        "D3-ACH"
+      ],
+      "wstg": [
+        "WSTG-v42-CLNT-09",
+        "WSTG-v42-CONF-07",
+        "WSTG-v42-SESS-02"
+      ],
+      "fix": [
+        "Add Strict-Transport-Security (max-age >= 1 year), Content-Security-Policy, X-Content-Type-Options and frame-ancestors at the reverse proxy for all virtual hosts.",
+        "Set Secure, HttpOnly and SameSite on session cookies in the framework configuration.",
+        "Keep the header set in a shared proxy snippet under version control."
+      ],
+      "verify": [
+        "curl -sI https://<host> shows the headers; ZAP passive scan shows no header alerts.",
+        "Browser dev tools show the cookie flags."
+      ],
+      "detect": "Track through configuration compliance; no SOC rule needed.",
+      "domain": "appsec",
+      "category_title": "Missing web security headers / insecure cookie attributes",
+      "decision": "TRACK*",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=internet",
+        "technical_impact=partial",
+        "asset_criticality=4/5"
+      ],
+      "risk_score": 29.8,
+      "exposure": "internet",
+      "priority": "P3",
+      "raci": {
+        "R": [
+          "APPSEC-DEV"
+        ],
+        "A": "MGMT",
+        "C": [
+          "IT-INFRA",
+          "GRC-DPO"
+        ],
+        "I": [
+          "NETWORK"
+        ],
+        "detect": "none"
+      },
+      "routing_notes": [],
+      "why": "P3 because the asset is reachable from the internet and its business criticality is 4/5 (CVSS v4 2.3).",
+      "sla_days": 45,
+      "due_date": "2026-12-17",
+      "business_impact": "Supplier portal supports 'Procurement and supplier onboarding' (criticality 4/5, production, zone DMZ, internet-facing; data: personal). If exploited, an attacker could read or modify application data and act as other users.",
+      "id": "F-028"
+    },
+    {
+      "host": "portal.novarefino.example",
+      "ip": "203.0.113.11",
+      "port": 443,
+      "proto": "tcp",
+      "service": "www",
+      "asset": {
+        "asset_id": "A-002",
+        "asset_name": "Citrix gateway",
+        "business_service": "Remote apps for engineering",
+        "criticality": 4,
+        "environment": "production",
+        "zone": "DMZ",
+        "internet_facing": true,
+        "data_classification": "internal",
+        "owner_dept": "IT-INFRA",
+        "in_inventory": true
+      },
+      "category": "weak-tls",
+      "cves": [],
+      "title": "TLS Version 1.0 Protocol Detection",
+      "evidence": "Nessus plugin 104743: TLSv1.0 is enabled and the server supports at least one cipher.",
+      "exploit_available": false,
+      "cvss4_vector": "CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "cvss4_score": 6.3,
+      "tool_solution": "Enable TLS 1.2 or 1.3 only.",
+      "host_key": "A-002",
+      "fingerprint": "c15aff38e5",
+      "sources": [
+        "nessus"
+      ],
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "Medium",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1557"
+      ],
+      "attack_mitigations": [
+        "M1041"
+      ],
+      "d3fend": [
+        "D3-ET",
+        "D3-CA"
+      ],
+      "wstg": [
+        "WSTG-v42-CRYP-01"
+      ],
+      "cwe": [
+        326
+      ],
+      "fix": [
+        "Disable SSLv3, TLS 1.0 and TLS 1.1; keep TLS 1.2 with AEAD ciphers and TLS 1.3.",
+        "Scanner guidance: Enable TLS 1.2 or 1.3 only.",
+        "Replace self-signed or expiring certificates with certificates from the corporate or public CA and automate renewal.",
+        "Apply the change through a shared hardening baseline (Ansible/GPO) so every web front end gets it."
+      ],
+      "verify": [
+        "nmap --script ssl-enum-ciphers -p443 <host> must show no TLS 1.0/1.1 and grade A ciphers only.",
+        "testssl.sh <host> shows no high or critical items."
+      ],
+      "detect": "Low detection value; track through configuration compliance scanning.",
+      "domain": "infra",
+      "category_title": "Weak TLS configuration (old protocol versions or ciphers)",
+      "decision": "TRACK",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=internet",
+        "technical_impact=partial",
+        "asset_criticality=4/5"
+      ],
+      "risk_score": 53.8,
+      "exposure": "internet",
+      "priority": "P4",
+      "raci": {
+        "R": [
+          "IT-INFRA"
+        ],
+        "A": "MGMT",
+        "C": [
+          "APPSEC-DEV"
+        ],
+        "I": [
+          "NETWORK"
+        ],
+        "detect": "none"
+      },
+      "routing_notes": [],
+      "why": "P4 because the asset is reachable from the internet and its business criticality is 4/5 (CVSS v4 6.3).",
+      "sla_days": 90,
+      "due_date": "2027-01-31",
+      "business_impact": "Citrix gateway supports 'Remote apps for engineering' (criticality 4/5, production, zone DMZ, internet-facing; data: internal). If exploited, an attacker could take control of the server and use it as a foothold for lateral movement or ransomware.",
+      "id": "F-029"
+    },
+    {
+      "host": "prn-ctrlroom.corp.novarefino.example",
+      "ip": "10.10.3.8",
+      "port": 21,
+      "proto": "tcp",
+      "service": "ftp vsftpd 3.0.3",
+      "asset": {
+        "asset_id": "A-031",
+        "asset_name": "Control room printer",
+        "business_service": "Shift reports printing",
+        "criticality": 1,
+        "environment": "production",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "internal",
+        "owner_dept": "IT-INFRA",
+        "in_inventory": true
+      },
+      "category": "cleartext-protocol",
+      "cves": [],
+      "title": "FTP exposed on 21/tcp",
+      "evidence": "nmap: 21/tcp open, service 'ftp vsftpd 3.0.3'",
+      "exploit_available": false,
+      "host_key": "A-031",
+      "fingerprint": "7d5433fa01",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:A/AC:L/AT:N/PR:N/UI:N/VC:H/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "cvss4_score": 7.1,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "High",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1040",
+        "T1557"
+      ],
+      "attack_mitigations": [
+        "M1041",
+        "M1042"
+      ],
+      "d3fend": [
+        "D3-ET",
+        "D3-MENCR"
+      ],
+      "wstg": [
+        "WSTG-v42-CRYP-03"
+      ],
+      "cwe": [
+        319
+      ],
+      "fix": [
+        "Replace Telnet with SSH and FTP with SFTP/FTPS; disable the cleartext daemon after migration.",
+        "Rotate every credential that was ever used over the cleartext protocol.",
+        "Block the cleartext port at the host firewall so it cannot be re-enabled silently."
+      ],
+      "verify": [
+        "nmap -p 21,23 <host> must report closed/filtered.",
+        "Confirm that the replacement encrypted service accepts logins with rotated credentials."
+      ],
+      "detect": "SOC: network sensor rule for any new Telnet/FTP session on the segment.",
+      "domain": "infra",
+      "category_title": "Cleartext management or file-transfer protocol in use",
+      "decision": "TRACK",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=internal",
+        "technical_impact=partial",
+        "asset_criticality=1/5"
+      ],
+      "risk_score": 44.6,
+      "exposure": "internal",
+      "priority": "P4",
+      "raci": {
+        "R": [
+          "IT-INFRA"
+        ],
+        "A": "MGMT",
+        "C": [
+          "NETWORK"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P4 because the asset is internal (not internet-facing) and its business criticality is 1/5 (CVSS v4 7.1).",
+      "sla_days": 90,
+      "due_date": "2027-01-31",
+      "business_impact": "Control room printer supports 'Shift reports printing' (criticality 1/5, production, zone IT; data: internal). If exploited, an attacker could take control of the server and use it as a foothold for lateral movement or ransomware.",
+      "id": "F-030"
+    },
+    {
+      "host": "prn-ctrlroom.corp.novarefino.example",
+      "ip": "10.10.3.8",
+      "port": 23,
+      "proto": "tcp",
+      "service": "telnet Busybox telnetd",
+      "asset": {
+        "asset_id": "A-031",
+        "asset_name": "Control room printer",
+        "business_service": "Shift reports printing",
+        "criticality": 1,
+        "environment": "production",
+        "zone": "IT",
+        "internet_facing": false,
+        "data_classification": "internal",
+        "owner_dept": "IT-INFRA",
+        "in_inventory": true
+      },
+      "category": "cleartext-protocol",
+      "cves": [],
+      "title": "Telnet exposed on 23/tcp",
+      "evidence": "nmap: 23/tcp open, service 'telnet Busybox telnetd'",
+      "exploit_available": false,
+      "host_key": "A-031",
+      "fingerprint": "ed60b0ce24",
+      "sources": [
+        "nmap"
+      ],
+      "cvss4_vector": "CVSS:4.0/AV:A/AC:L/AT:N/PR:N/UI:N/VC:H/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "cvss4_score": 7.1,
+      "cvss4_source": "category default (assessor must confirm)",
+      "severity": "High",
+      "kev": false,
+      "kev_cves": [],
+      "kev_ransomware": false,
+      "epss": null,
+      "epss_percentile": null,
+      "attack": [
+        "T1040",
+        "T1557"
+      ],
+      "attack_mitigations": [
+        "M1041",
+        "M1042"
+      ],
+      "d3fend": [
+        "D3-ET",
+        "D3-MENCR"
+      ],
+      "wstg": [
+        "WSTG-v42-CRYP-03"
+      ],
+      "cwe": [
+        319
+      ],
+      "fix": [
+        "Replace Telnet with SSH and FTP with SFTP/FTPS; disable the cleartext daemon after migration.",
+        "Rotate every credential that was ever used over the cleartext protocol.",
+        "Block the cleartext port at the host firewall so it cannot be re-enabled silently."
+      ],
+      "verify": [
+        "nmap -p 21,23 <host> must report closed/filtered.",
+        "Confirm that the replacement encrypted service accepts logins with rotated credentials."
+      ],
+      "detect": "SOC: network sensor rule for any new Telnet/FTP session on the segment.",
+      "domain": "infra",
+      "category_title": "Cleartext management or file-transfer protocol in use",
+      "decision": "TRACK",
+      "decision_reasons": [
+        "exploitation=none",
+        "exposure=internal",
+        "technical_impact=partial",
+        "asset_criticality=1/5"
+      ],
+      "risk_score": 44.6,
+      "exposure": "internal",
+      "priority": "P4",
+      "raci": {
+        "R": [
+          "IT-INFRA"
+        ],
+        "A": "MGMT",
+        "C": [
+          "NETWORK"
+        ],
+        "I": [
+          "SOC"
+        ],
+        "detect": "SOC"
+      },
+      "routing_notes": [],
+      "why": "P4 because the asset is internal (not internet-facing) and its business criticality is 1/5 (CVSS v4 7.1).",
+      "sla_days": 90,
+      "due_date": "2027-01-31",
+      "business_impact": "Control room printer supports 'Shift reports printing' (criticality 1/5, production, zone IT; data: internal). If exploited, an attacker could take control of the server and use it as a foothold for lateral movement or ransomware.",
+      "id": "F-031"
+    }
+  ]
+}

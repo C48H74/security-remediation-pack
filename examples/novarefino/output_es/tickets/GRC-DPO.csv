@@ -1,0 +1,8 @@
+ticket_id,type,priority,jira_priority,due_date,department,summary,finding_id,labels,accountable,consulted,informed
+GRC-DPO-001,compliance,P1,Highest,2026-11-05,GRC-DPO,[P1] Assess personal-data impact of F-004 on HR file server,F-004,legacy-smb;T1210;T1021.002;KEV,MGMT,NETWORK;GRC-DPO,SOC
+GRC-DPO-002,compliance,P2,High,2026-11-16,GRC-DPO,[P2] Assess personal-data impact of F-013 on Supplier portal,F-013,web-injection;T1190;WSTG-v42-INPV-05;WSTG-v42-INPV-12,MGMT,IT-INFRA;GRC-DPO,SOC;NETWORK
+GRC-DPO-003,compliance,P2,High,2026-11-16,GRC-DPO,[P2] Assess personal-data impact of F-015 on Supplier portal,F-015,sensitive-data-exposure;T1530;T1552.001;WSTG-v42-CONF-04;WSTG-v42-CONF-11,MGMT,GRC-DPO,SOC;NETWORK;APPSEC-DEV
+GRC-DPO-004,compliance,P2,High,2026-11-16,GRC-DPO,[P2] Assess personal-data impact of F-017 on ERP database,F-017,vulnerable-software;T1190;T1210;WSTG-v42-CONF-02,MGMT,APPSEC-DEV;GRC-DPO,SOC
+GRC-DPO-005,compliance,P2,High,2026-11-16,GRC-DPO,[P2] Assess personal-data impact of F-018 on ERP database,F-018,exposed-database;T1190;T1213;WSTG-v42-CONF-01,MGMT,APPSEC-DEV;NETWORK;GRC-DPO,SOC
+GRC-DPO-006,compliance,P2,High,2026-11-16,GRC-DPO,[P2] Assess personal-data impact of F-019 on ERP database,F-019,exposed-database;T1190;T1213;WSTG-v42-CONF-01,MGMT,APPSEC-DEV;NETWORK;GRC-DPO,SOC
+GRC-DPO-007,compliance,P2,High,2026-11-16,GRC-DPO,[P2] Assess personal-data impact of F-020 on Supplier portal,F-020,broken-access-control;T1190;T1213;WSTG-v42-ATHZ-02;WSTG-v42-ATHZ-04,MGMT,IAM;GRC-DPO,SOC;NETWORK

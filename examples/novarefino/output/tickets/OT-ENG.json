@@ -1,0 +1,216 @@
+[
+  {
+    "ticket_id": "OT-ENG-001",
+    "department": "OT-ENG",
+    "department_name": "OT / Plant Engineering & Automation",
+    "queue": "OT",
+    "assignee_group": "OT Engineering",
+    "lead": "Ramon Vidal (fictitious)",
+    "lead_email": "ot-eng@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-003",
+    "fingerprint": "c428f48027",
+    "priority": "P1",
+    "jira_priority": "Highest",
+    "snow_urgency": 1,
+    "snow_impact": 1,
+    "due_date": "2026-11-05",
+    "summary": "[P1] Outdated software with known vulnerabilities on Engineering workstation (DCS/PLC programming) (ews01.ot.novarefino.example:3389)",
+    "steps": [
+      "Confirm the exact installed version and the vendor advisory for every CVE listed.",
+      "Apply the vendor fixed release (or the supported LTS branch) through the normal change process; emergency change if the CVE is in CISA KEV.",
+      "If patching must wait, apply the vendor workaround or put the service behind an allowlist / WAF virtual patch and document the compensating control with an expiry date.",
+      "Add the component to the software inventory (SBOM / CMDB) so the next advisory is matched automatically."
+    ],
+    "verify": [
+      "Re-run the version detection scan (nmap -sV --script vulners) and confirm the banner or package reports the fixed version.",
+      "Re-run the original exploit check (non-destructive) and confirm it fails."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02",
+      "KEV",
+      "OT"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "IT-INFRA",
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "OT-ENG-002",
+    "department": "OT-ENG",
+    "department_name": "OT / Plant Engineering & Automation",
+    "queue": "OT",
+    "assignee_group": "OT Engineering",
+    "lead": "Ramon Vidal (fictitious)",
+    "lead_email": "ot-eng@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-009",
+    "fingerprint": "d0f9f2522e",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-12-02",
+    "summary": "[P2] Industrial control protocol reachable from outside the OT zone on PLC crude distillation unit (plc-cdu-01.ot.novarefino.example:502)",
+    "steps": [
+      "Do NOT scan aggressively or patch live controllers: open a Management of Change (MOC) with Process Safety before any intervention.",
+      "Contain first: add a deny rule at the IT/OT boundary (conduit) so the protocol is only reachable from the engineering workstations and historian in the OT DMZ (zones and conduits model, IEC 62443 style).",
+      "Enable the controller's write-protection / run-mode key or protocol allowlist where the vendor supports it.",
+      "Plan the permanent fix (firmware, segmentation redesign) for the next scheduled turnaround and record it in the plant maintenance system."
+    ],
+    "verify": [
+      "Passive check: from the corporate IT VLAN, a single TCP connect test (nc -zv <ip> <port>) must fail; no active protocol scanning on production.",
+      "OT-ENG confirms with the asset owner that HMI/historian communication is unaffected (sign-off in MOC)."
+    ],
+    "labels": [
+      "ot-protocol-exposed",
+      "T0883",
+      "T0886",
+      "T1692",
+      "OT"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "NETWORK",
+      "SOC"
+    ],
+    "informed": [
+      "GRC-DPO"
+    ]
+  },
+  {
+    "ticket_id": "OT-ENG-003",
+    "department": "OT-ENG",
+    "department_name": "OT / Plant Engineering & Automation",
+    "queue": "OT",
+    "assignee_group": "OT Engineering",
+    "lead": "Ramon Vidal (fictitious)",
+    "lead_email": "ot-eng@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-010",
+    "fingerprint": "bdafecb53f",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-12-02",
+    "summary": "[P2] Industrial control protocol reachable from outside the OT zone on PLC utilities (steam/cooling water) (plc-utl-02.ot.novarefino.example:102)",
+    "steps": [
+      "Do NOT scan aggressively or patch live controllers: open a Management of Change (MOC) with Process Safety before any intervention.",
+      "Contain first: add a deny rule at the IT/OT boundary (conduit) so the protocol is only reachable from the engineering workstations and historian in the OT DMZ (zones and conduits model, IEC 62443 style).",
+      "Enable the controller's write-protection / run-mode key or protocol allowlist where the vendor supports it.",
+      "Plan the permanent fix (firmware, segmentation redesign) for the next scheduled turnaround and record it in the plant maintenance system."
+    ],
+    "verify": [
+      "Passive check: from the corporate IT VLAN, a single TCP connect test (nc -zv <ip> <port>) must fail; no active protocol scanning on production.",
+      "OT-ENG confirms with the asset owner that HMI/historian communication is unaffected (sign-off in MOC)."
+    ],
+    "labels": [
+      "ot-protocol-exposed",
+      "T0883",
+      "T0886",
+      "T1692",
+      "OT"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "NETWORK",
+      "SOC"
+    ],
+    "informed": [
+      "GRC-DPO"
+    ]
+  },
+  {
+    "ticket_id": "OT-ENG-004",
+    "department": "OT-ENG",
+    "department_name": "OT / Plant Engineering & Automation",
+    "queue": "OT",
+    "assignee_group": "OT Engineering",
+    "lead": "Ramon Vidal (fictitious)",
+    "lead_email": "ot-eng@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-011",
+    "fingerprint": "43df786742",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-12-02",
+    "summary": "[P2] Default or vendor credentials accepted on HMI crude distillation unit (hmi-cdu-01.ot.novarefino.example:80)",
+    "steps": [
+      "Change the default credential immediately to a unique secret stored in the corporate vault (PAM).",
+      "Disable or rename the vendor account if the product allows it.",
+      "Add a 'no default credentials' gate to the build/commissioning checklist for new devices."
+    ],
+    "verify": [
+      "Login with the vendor default must fail.",
+      "Vault entry exists and rotation policy is attached."
+    ],
+    "labels": [
+      "default-credentials",
+      "T1078.001",
+      "WSTG-v42-ATHN-02",
+      "OT"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "IAM",
+      "IT-INFRA"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "OT-ENG-005",
+    "department": "OT-ENG",
+    "department_name": "OT / Plant Engineering & Automation",
+    "queue": "OT",
+    "assignee_group": "OT Engineering",
+    "lead": "Ramon Vidal (fictitious)",
+    "lead_email": "ot-eng@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-012",
+    "fingerprint": "a56d67d0df",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-12-02",
+    "summary": "[P2] Industrial control protocol reachable from outside the OT zone on OPC UA historian gateway (opc-hist01.ot.novarefino.example:4840)",
+    "steps": [
+      "Do NOT scan aggressively or patch live controllers: open a Management of Change (MOC) with Process Safety before any intervention.",
+      "Contain first: add a deny rule at the IT/OT boundary (conduit) so the protocol is only reachable from the engineering workstations and historian in the OT DMZ (zones and conduits model, IEC 62443 style).",
+      "Enable the controller's write-protection / run-mode key or protocol allowlist where the vendor supports it.",
+      "Plan the permanent fix (firmware, segmentation redesign) for the next scheduled turnaround and record it in the plant maintenance system."
+    ],
+    "verify": [
+      "Passive check: from the corporate IT VLAN, a single TCP connect test (nc -zv <ip> <port>) must fail; no active protocol scanning on production.",
+      "OT-ENG confirms with the asset owner that HMI/historian communication is unaffected (sign-off in MOC)."
+    ],
+    "labels": [
+      "ot-protocol-exposed",
+      "T0883",
+      "T0886",
+      "T1692",
+      "OT"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "NETWORK",
+      "SOC"
+    ],
+    "informed": [
+      "GRC-DPO"
+    ]
+  }
+]

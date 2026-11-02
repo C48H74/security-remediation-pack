@@ -1,0 +1,43 @@
+[
+  {
+    "ticket_id": "IAM-001",
+    "department": "IAM",
+    "department_name": "Identity & Access Management",
+    "queue": "IAM",
+    "assignee_group": "Identity",
+    "lead": "Pedro Lima (fictitious)",
+    "lead_email": "iam@novarefino.example",
+    "type": "fix",
+    "finding_id": "F-016",
+    "fingerprint": "3dc5ae0275",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-16",
+    "summary": "[P2] Weak authentication controls (no lockout / no MFA / weak policy) on Domain controller (dc01.corp.novarefino.example)",
+    "steps": [
+      "Put the application behind the corporate IdP (SSO) and enforce phishing-resistant MFA for all users, mandatory for admins.",
+      "Configure progressive delays or temporary lockout after repeated failures, plus breached-password screening.",
+      "Align password length and rotation rules with the corporate identity policy (length over complexity)."
+    ],
+    "verify": [
+      "Ten failed logins in a row trigger delay/lockout and a SIEM event.",
+      "Login without the second factor is refused for the test account."
+    ],
+    "labels": [
+      "auth-weakness",
+      "T1110",
+      "T1078",
+      "WSTG-v42-ATHN-03",
+      "WSTG-v42-ATHN-07"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  }
+]

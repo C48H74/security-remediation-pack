@@ -1,0 +1,451 @@
+[
+  {
+    "ticket_id": "SOC-001",
+    "department": "SOC",
+    "department_name": "Security Operations Center",
+    "queue": "SOC",
+    "assignee_group": "SOC L2",
+    "lead": "Lucia Ferrer (fictitious)",
+    "lead_email": "soc@novarefino.example",
+    "type": "detection",
+    "finding_id": "F-002",
+    "fingerprint": "f436dcea04",
+    "priority": "P1",
+    "jira_priority": "Highest",
+    "snow_urgency": 1,
+    "snow_impact": 1,
+    "due_date": "2026-11-11",
+    "summary": "[P1] Interim detection while F-002 is open: T1190, T1210 on Citrix gateway",
+    "steps": [
+      "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "Map the rule to ATT&CK T1190, T1210 and tag alerts with F-002.",
+      "Keep the rule active until the fix ticket is verified closed."
+    ],
+    "verify": [
+      "Trigger a safe simulation of the technique and confirm the alert reaches the SOC queue."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02",
+      "KEV"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "SOC",
+      "NETWORK"
+    ]
+  },
+  {
+    "ticket_id": "SOC-002",
+    "department": "SOC",
+    "department_name": "Security Operations Center",
+    "queue": "SOC",
+    "assignee_group": "SOC L2",
+    "lead": "Lucia Ferrer (fictitious)",
+    "lead_email": "soc@novarefino.example",
+    "type": "detection",
+    "finding_id": "F-003",
+    "fingerprint": "c428f48027",
+    "priority": "P1",
+    "jira_priority": "Highest",
+    "snow_urgency": 1,
+    "snow_impact": 1,
+    "due_date": "2026-11-11",
+    "summary": "[P1] Interim detection while F-003 is open: T1190, T1210 on Engineering workstation (DCS/PLC programming)",
+    "steps": [
+      "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "Map the rule to ATT&CK T1190, T1210 and tag alerts with F-003.",
+      "Keep the rule active until the fix ticket is verified closed."
+    ],
+    "verify": [
+      "Trigger a safe simulation of the technique and confirm the alert reaches the SOC queue."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02",
+      "KEV",
+      "OT"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "IT-INFRA",
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "SOC-003",
+    "department": "SOC",
+    "department_name": "Security Operations Center",
+    "queue": "SOC",
+    "assignee_group": "SOC L2",
+    "lead": "Lucia Ferrer (fictitious)",
+    "lead_email": "soc@novarefino.example",
+    "type": "detection",
+    "finding_id": "F-005",
+    "fingerprint": "52ec51831a",
+    "priority": "P1",
+    "jira_priority": "Highest",
+    "snow_urgency": 1,
+    "snow_impact": 1,
+    "due_date": "2026-11-11",
+    "summary": "[P1] Interim detection while F-005 is open: T1190, T1210 on Domain controller",
+    "steps": [
+      "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "Map the rule to ATT&CK T1190, T1210 and tag alerts with F-005.",
+      "Keep the rule active until the fix ticket is verified closed."
+    ],
+    "verify": [
+      "Trigger a safe simulation of the technique and confirm the alert reaches the SOC queue."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02",
+      "KEV"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "SOC",
+      "IAM"
+    ]
+  },
+  {
+    "ticket_id": "SOC-004",
+    "department": "SOC",
+    "department_name": "Security Operations Center",
+    "queue": "SOC",
+    "assignee_group": "SOC L2",
+    "lead": "Lucia Ferrer (fictitious)",
+    "lead_email": "soc@novarefino.example",
+    "type": "detection",
+    "finding_id": "F-006",
+    "fingerprint": "c4915084ae",
+    "priority": "P1",
+    "jira_priority": "Highest",
+    "snow_urgency": 1,
+    "snow_impact": 1,
+    "due_date": "2026-11-11",
+    "summary": "[P1] Interim detection while F-006 is open: T1190, T1210 on Message broker",
+    "steps": [
+      "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "Map the rule to ATT&CK T1190, T1210 and tag alerts with F-006.",
+      "Keep the rule active until the fix ticket is verified closed."
+    ],
+    "verify": [
+      "Trigger a safe simulation of the technique and confirm the alert reaches the SOC queue."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02",
+      "KEV"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "SOC-005",
+    "department": "SOC",
+    "department_name": "Security Operations Center",
+    "queue": "SOC",
+    "assignee_group": "SOC L2",
+    "lead": "Lucia Ferrer (fictitious)",
+    "lead_email": "soc@novarefino.example",
+    "type": "detection",
+    "finding_id": "F-007",
+    "fingerprint": "540c0312a7",
+    "priority": "P1",
+    "jira_priority": "Highest",
+    "snow_urgency": 1,
+    "snow_impact": 1,
+    "due_date": "2026-11-11",
+    "summary": "[P1] Interim detection while F-007 is open: T1190, T1210 on Maintenance planning app",
+    "steps": [
+      "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "Map the rule to ATT&CK T1190, T1210 and tag alerts with F-007.",
+      "Keep the rule active until the fix ticket is verified closed."
+    ],
+    "verify": [
+      "Trigger a safe simulation of the technique and confirm the alert reaches the SOC queue."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02",
+      "KEV"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "SOC-006",
+    "department": "SOC",
+    "department_name": "Security Operations Center",
+    "queue": "SOC",
+    "assignee_group": "SOC L2",
+    "lead": "Lucia Ferrer (fictitious)",
+    "lead_email": "soc@novarefino.example",
+    "type": "detection",
+    "finding_id": "F-008",
+    "fingerprint": "0d26bfd84d",
+    "priority": "P1",
+    "jira_priority": "Highest",
+    "snow_urgency": 1,
+    "snow_impact": 1,
+    "due_date": "2026-11-11",
+    "summary": "[P1] Interim detection while F-008 is open: T1190, T1210 on Intranet web server",
+    "steps": [
+      "Alert on exploitation patterns for the listed CVEs at the edge (WAF/IDS) and on unexpected child processes of the service.",
+      "Map the rule to ATT&CK T1190, T1210 and tag alerts with F-008.",
+      "Keep the rule active until the fix ticket is verified closed."
+    ],
+    "verify": [
+      "Trigger a safe simulation of the technique and confirm the alert reaches the SOC queue."
+    ],
+    "labels": [
+      "vulnerable-software",
+      "T1190",
+      "T1210",
+      "WSTG-v42-CONF-02",
+      "KEV"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "SOC-007",
+    "department": "SOC",
+    "department_name": "Security Operations Center",
+    "queue": "SOC",
+    "assignee_group": "SOC L2",
+    "lead": "Lucia Ferrer (fictitious)",
+    "lead_email": "soc@novarefino.example",
+    "type": "detection",
+    "finding_id": "F-009",
+    "fingerprint": "d0f9f2522e",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-11",
+    "summary": "[P2] Interim detection while F-009 is open: T0883, T0886, T1692 on PLC crude distillation unit",
+    "steps": [
+      "SOC + OT-ENG: passive OT network monitoring rule for any IT-sourced Modbus/S7/DNP3/EtherNet-IP session, and for write/program-download function codes.",
+      "Map the rule to ATT&CK T0883, T0886, T1692 and tag alerts with F-009.",
+      "Keep the rule active until the fix ticket is verified closed."
+    ],
+    "verify": [
+      "Trigger a safe simulation of the technique and confirm the alert reaches the SOC queue."
+    ],
+    "labels": [
+      "ot-protocol-exposed",
+      "T0883",
+      "T0886",
+      "T1692",
+      "OT"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "NETWORK",
+      "SOC"
+    ],
+    "informed": [
+      "GRC-DPO"
+    ]
+  },
+  {
+    "ticket_id": "SOC-008",
+    "department": "SOC",
+    "department_name": "Security Operations Center",
+    "queue": "SOC",
+    "assignee_group": "SOC L2",
+    "lead": "Lucia Ferrer (fictitious)",
+    "lead_email": "soc@novarefino.example",
+    "type": "detection",
+    "finding_id": "F-010",
+    "fingerprint": "bdafecb53f",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-11",
+    "summary": "[P2] Interim detection while F-010 is open: T0883, T0886, T1692 on PLC utilities (steam/cooling water)",
+    "steps": [
+      "SOC + OT-ENG: passive OT network monitoring rule for any IT-sourced Modbus/S7/DNP3/EtherNet-IP session, and for write/program-download function codes.",
+      "Map the rule to ATT&CK T0883, T0886, T1692 and tag alerts with F-010.",
+      "Keep the rule active until the fix ticket is verified closed."
+    ],
+    "verify": [
+      "Trigger a safe simulation of the technique and confirm the alert reaches the SOC queue."
+    ],
+    "labels": [
+      "ot-protocol-exposed",
+      "T0883",
+      "T0886",
+      "T1692",
+      "OT"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "NETWORK",
+      "SOC"
+    ],
+    "informed": [
+      "GRC-DPO"
+    ]
+  },
+  {
+    "ticket_id": "SOC-009",
+    "department": "SOC",
+    "department_name": "Security Operations Center",
+    "queue": "SOC",
+    "assignee_group": "SOC L2",
+    "lead": "Lucia Ferrer (fictitious)",
+    "lead_email": "soc@novarefino.example",
+    "type": "detection",
+    "finding_id": "F-012",
+    "fingerprint": "a56d67d0df",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-11",
+    "summary": "[P2] Interim detection while F-012 is open: T0883, T0886, T1692 on OPC UA historian gateway",
+    "steps": [
+      "SOC + OT-ENG: passive OT network monitoring rule for any IT-sourced Modbus/S7/DNP3/EtherNet-IP session, and for write/program-download function codes.",
+      "Map the rule to ATT&CK T0883, T0886, T1692 and tag alerts with F-012.",
+      "Keep the rule active until the fix ticket is verified closed."
+    ],
+    "verify": [
+      "Trigger a safe simulation of the technique and confirm the alert reaches the SOC queue."
+    ],
+    "labels": [
+      "ot-protocol-exposed",
+      "T0883",
+      "T0886",
+      "T1692",
+      "OT"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "NETWORK",
+      "SOC"
+    ],
+    "informed": [
+      "GRC-DPO"
+    ]
+  },
+  {
+    "ticket_id": "SOC-010",
+    "department": "SOC",
+    "department_name": "Security Operations Center",
+    "queue": "SOC",
+    "assignee_group": "SOC L2",
+    "lead": "Lucia Ferrer (fictitious)",
+    "lead_email": "soc@novarefino.example",
+    "type": "detection",
+    "finding_id": "F-018",
+    "fingerprint": "5c6bd9a8b2",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-11",
+    "summary": "[P2] Interim detection while F-018 is open: T1190, T1213 on ERP database",
+    "steps": [
+      "SOC: alert on database logins from hosts outside the application tier.",
+      "Map the rule to ATT&CK T1190, T1213 and tag alerts with F-018.",
+      "Keep the rule active until the fix ticket is verified closed."
+    ],
+    "verify": [
+      "Trigger a safe simulation of the technique and confirm the alert reaches the SOC queue."
+    ],
+    "labels": [
+      "exposed-database",
+      "T1190",
+      "T1213",
+      "WSTG-v42-CONF-01"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV",
+      "NETWORK",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "SOC-011",
+    "department": "SOC",
+    "department_name": "Security Operations Center",
+    "queue": "SOC",
+    "assignee_group": "SOC L2",
+    "lead": "Lucia Ferrer (fictitious)",
+    "lead_email": "soc@novarefino.example",
+    "type": "detection",
+    "finding_id": "F-019",
+    "fingerprint": "310a6a620f",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-11",
+    "summary": "[P2] Interim detection while F-019 is open: T1190, T1213 on ERP database",
+    "steps": [
+      "SOC: alert on database logins from hosts outside the application tier.",
+      "Map the rule to ATT&CK T1190, T1213 and tag alerts with F-019.",
+      "Keep the rule active until the fix ticket is verified closed."
+    ],
+    "verify": [
+      "Trigger a safe simulation of the technique and confirm the alert reaches the SOC queue."
+    ],
+    "labels": [
+      "exposed-database",
+      "T1190",
+      "T1213",
+      "WSTG-v42-CONF-01"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV",
+      "NETWORK",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  }
+]

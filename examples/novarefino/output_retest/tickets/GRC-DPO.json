@@ -1,0 +1,84 @@
+[
+  {
+    "ticket_id": "GRC-DPO-001",
+    "department": "GRC-DPO",
+    "department_name": "Legal, Compliance & Data Protection Officer",
+    "queue": "GRC",
+    "assignee_group": "Compliance",
+    "lead": "Elena Sanz (fictitious)",
+    "lead_email": "dpo@novarefino.example",
+    "type": "compliance",
+    "finding_id": "F-018",
+    "fingerprint": "5c6bd9a8b2",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-23",
+    "summary": "[P2] Assess personal-data impact of F-018 on ERP database",
+    "steps": [
+      "Check access logs for the exposure window together with SOC.",
+      "Decide whether the incident threshold for GDPR Art. 33 notification (72 h to the authority) is met and document the decision.",
+      "Record the finding and treatment in the risk register / RoPA."
+    ],
+    "verify": [
+      "Decision recorded with date and signatory."
+    ],
+    "labels": [
+      "exposed-database",
+      "T1190",
+      "T1213",
+      "WSTG-v42-CONF-01"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV",
+      "NETWORK",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  },
+  {
+    "ticket_id": "GRC-DPO-002",
+    "department": "GRC-DPO",
+    "department_name": "Legal, Compliance & Data Protection Officer",
+    "queue": "GRC",
+    "assignee_group": "Compliance",
+    "lead": "Elena Sanz (fictitious)",
+    "lead_email": "dpo@novarefino.example",
+    "type": "compliance",
+    "finding_id": "F-019",
+    "fingerprint": "310a6a620f",
+    "priority": "P2",
+    "jira_priority": "High",
+    "snow_urgency": 2,
+    "snow_impact": 1,
+    "due_date": "2026-11-23",
+    "summary": "[P2] Assess personal-data impact of F-019 on ERP database",
+    "steps": [
+      "Check access logs for the exposure window together with SOC.",
+      "Decide whether the incident threshold for GDPR Art. 33 notification (72 h to the authority) is met and document the decision.",
+      "Record the finding and treatment in the risk register / RoPA."
+    ],
+    "verify": [
+      "Decision recorded with date and signatory."
+    ],
+    "labels": [
+      "exposed-database",
+      "T1190",
+      "T1213",
+      "WSTG-v42-CONF-01"
+    ],
+    "accountable": "MGMT",
+    "consulted": [
+      "APPSEC-DEV",
+      "NETWORK",
+      "GRC-DPO"
+    ],
+    "informed": [
+      "SOC"
+    ]
+  }
+]

@@ -1,0 +1,48 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><style>
+.phases{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:34px 0 26px}
+.ph{padding:14px 16px;border-radius:12px;border:1px solid rgba(0,229,255,.22);background:rgba(0,229,255,.05);position:relative}
+.ph b{font:700 19px "Space Grotesk";color:#fff;display:block} .ph span{font-size:13.5px;color:#9fb2cc;line-height:1.35;display:block;margin-top:4px}
+.ph em{font:600 12px "JetBrains Mono";font-style:normal;color:#00e5ff;letter-spacing:.08em}
+.board{padding:18px 18px 14px}
+.grid{display:grid;grid-template-columns:210px repeat(8,1fr);}
+.hdr{display:contents} .hdr .corner{font:700 13px "JetBrains Mono";color:#6f84a3;letter-spacing:.12em;padding:8px 6px;align-self:end}
+.col{padding:8px 8px 12px;border-bottom:2px solid rgba(0,229,255,.35);text-align:center}
+.col b{font:700 18px "JetBrains Mono";color:#00e5ff;display:block} .col span{font:600 13px "JetBrains Mono";color:#d7e3f4;display:block;margin-top:2px}
+.col i{font-style:normal;font-size:12.5px;color:#9fb2cc;display:block;margin-top:5px;line-height:1.3;min-height:33px}
+.row{display:contents}
+.who{padding:11px 6px;border-bottom:1px solid rgba(255,255,255,.06)} .who b{font:700 14px "JetBrains Mono";color:#a9ff9a;display:block} .who span{font-size:12.5px;color:#8396b3}
+.cell{border-bottom:1px solid rgba(255,255,255,.06);border-left:1px dashed rgba(0,229,255,.1);padding:8px 6px;display:flex;flex-direction:column;gap:5px;align-items:center;justify-content:center;min-height:58px}
+.cell.rt{background:rgba(124,255,107,.045)}
+.chip{font:600 12.5px "JetBrains Mono";padding:5px 9px;border-radius:7px;white-space:nowrap;border:1px solid}
+.chip b{font-size:14px}
+.chip.p1{color:#ff9bb0;background:rgba(255,64,96,.14);border-color:rgba(255,64,96,.45)}
+.chip.p2{color:#ffcf7a;background:rgba(255,170,40,.12);border-color:rgba(255,170,40,.42)}
+.chip.p3{color:#fff09a;background:rgba(255,225,77,.09);border-color:rgba(255,225,77,.35)}
+.chip.p4{color:#9fe3ff;background:rgba(90,209,255,.1);border-color:rgba(90,209,255,.35)}
+.chip.det{border-style:dashed}
+.legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:14px;font:500 13.5px "JetBrains Mono";color:#9fb2cc}
+.legend span b{color:#fff}.legend span b.p1{color:#ff5470}.legend span b.p2{color:#ffad33}.legend span b.p3{color:#ffe14d}.legend span b.p4{color:#5ad1ff}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.note{padding:16px 18px} .note h4{font:700 14px "JetBrains Mono";letter-spacing:.12em;color:#00e5ff;text-transform:uppercase;margin-bottom:8px}
+.note p{font-size:15px;line-height:1.45;color:#cfdcee} .note p b{color:#fff}
+</style></head><body><div class="grid-bg"></div><div class="wrap">
+<div class="kicker">Remediation roadmap · fictitious refinery demo · generated, not drawn by hand</div>
+<h1>90 days from report to <em>verified fixes</em></h1>
+<p class="sub">Every ticket in the package has a due date taken from its priority and zone. This is the actual schedule the skill produced for the demo: 59 tickets across 9 departments, plus a retest that only marks an item fixed when it was re-tested.</p>
+<div class="phases">
+ <div class="ph"><em>BEFORE</em><b>Test</b><span>Authorized scope, rules of engagement (PTES, NIST SP 800-115)</span></div>
+ <div class="ph"><em>DAY 0</em><b>Package</b><span>Report, tickets, Jira / ServiceNow / DefectDojo imports</span></div>
+ <div class="ph"><em>DAY 0-2</em><b>Approve &amp; detect</b><span>MGMT signs the plan; SOC rules cover every open P1/P2</span></div>
+ <div class="ph"><em>DAY 3</em><b>Contain</b><span>All KEV items fixed or isolated; OT conduits blocked</span></div>
+ <div class="ph"><em>DAY 14-90</em><b>Fix</b><span>P2 to P4 by SLA; OT permanent fixes through MOC</span></div>
+ <div class="ph"><em>EVERY RESCAN</em><b>Verify</b><span>--baseline delta: fixed, still open, new, not retested</span></div>
+</div>
+<div class="board card"><div class="grid"><div class="hdr"><div class="corner">TEAM</div><div class="col"><b>D0</b><span>Nov 2</span><i>Package issued</i></div><div class="col"><b>D+2</b><span>Nov 4</span><i>Plan approved · detections live</i></div><div class="col"><b>D+3</b><span>Nov 5</span><i>P1 deadline · OT contained (72 h)</i></div><div class="col"><b>D+7</b><span>Nov 9</span><i>Retest #1</i></div><div class="col"><b>D+14</b><span>Nov 16</span><i>P2 deadline (IT)</i></div><div class="col"><b>D+30</b><span>Dec 2</span><i>P2 deadline (OT, via MOC)</i></div><div class="col"><b>D+45</b><span>Dec 17</span><i>P3 deadline (IT)</i></div><div class="col"><b>D+90</b><span>Jan 31</span><i>P4 deadline (IT)</i></div></div><div class="row"><div class="who"><b>MGMT</b><span>Management / CISO</span></div><div class="cell"></div><div class="cell"><div class="chip p1 gov"><b>1</b> P1 approve</div></div><div class="cell"></div><div class="cell rt"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div><div class="row"><div class="who"><b>IT-INFRA</b><span>IT Infrastructure</span></div><div class="cell"></div><div class="cell"></div><div class="cell"><div class="chip p1 fix"><b>7</b> P1 fix</div></div><div class="cell rt"></div><div class="cell"><div class="chip p2 fix"><b>4</b> P2 fix</div></div><div class="cell"></div><div class="cell"><div class="chip p3 fix"><b>1</b> P3 fix</div></div><div class="cell"><div class="chip p4 fix"><b>3</b> P4 fix</div></div></div><div class="row"><div class="who"><b>SOC</b><span>Security Operations</span></div><div class="cell"></div><div class="cell"><div class="chip p1 det"><b>8</b> P1 detect</div><div class="chip p2 det"><b>12</b> P2 detect</div></div><div class="cell"></div><div class="cell rt"></div><div class="cell"></div><div class="cell"></div><div class="cell"><div class="chip p3 fix"><b>1</b> P3 fix</div></div><div class="cell"></div></div><div class="row"><div class="who"><b>OT-ENG</b><span>OT / Plant Engineering</span></div><div class="cell"></div><div class="cell"></div><div class="cell"><div class="chip p1 fix"><b>1</b> P1 fix</div></div><div class="cell rt"></div><div class="cell"></div><div class="cell"><div class="chip p2 fix"><b>4</b> P2 fix</div></div><div class="cell"></div><div class="cell"></div></div><div class="row"><div class="who"><b>APPSEC-DEV</b><span>AppSec & Development</span></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell rt"></div><div class="cell"><div class="chip p2 fix"><b>2</b> P2 fix</div></div><div class="cell"></div><div class="cell"><div class="chip p3 fix"><b>3</b> P3 fix</div></div><div class="cell"></div></div><div class="row"><div class="who"><b>NETWORK</b><span>Network & Perimeter</span></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell rt"></div><div class="cell"><div class="chip p2 fix"><b>1</b> P2 fix</div></div><div class="cell"></div><div class="cell"><div class="chip p3 fix"><b>2</b> P3 fix</div></div><div class="cell"></div></div><div class="row"><div class="who"><b>IAM</b><span>Identity & Access</span></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell rt"></div><div class="cell"><div class="chip p2 fix"><b>1</b> P2 fix</div></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div><div class="row"><div class="who"><b>GRC-DPO</b><span>Legal, Compliance & DPO</span></div><div class="cell"></div><div class="cell"></div><div class="cell"><div class="chip p1 cmp"><b>1</b> P1 GDPR</div></div><div class="cell rt"></div><div class="cell"><div class="chip p2 cmp"><b>6</b> P2 GDPR</div></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div><div class="row"><div class="who"><b>HR-AWARENESS</b><span>HR & Awareness</span></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell rt"></div><div class="cell"></div><div class="cell"></div><div class="cell"><div class="chip p3 fix"><b>1</b> P3 fix</div></div><div class="cell"></div></div></div>
+<div class="legend"><span><b class="p1">■</b> P1 ACT</span><span><b class="p2">■</b> P2 ATTEND</span><span><b class="p3">■</b> P3 TRACK*</span><span><b class="p4">■</b> P4 TRACK</span><span>dashed = SOC detection while the fix is pending</span><span>green column = retest #1</span></div></div>
+<div class="notes">
+ <div class="note card"><h4>Retest #1 · D+7</h4><p>Network rescan only. <b>3 fixed and verified</b> (VPN CVE-2024-3400, SMBv1 on the HR file server, internet RDP on the jump host). <b>12 not retested</b> stay open: web and manual findings need their own retest.</p></div>
+ <div class="note card"><h4>OT rule</h4><p>Plant findings are never patched live. <b>Contain in 72 h</b> at the IT/OT boundary, then apply the permanent fix in the next approved window under <b>Management of Change</b>.</p></div>
+ <div class="note card"><h4>Personal data</h4><p>When a P1/P2 hits an asset with personal data, the DPO gets a ticket to decide on <b>GDPR Art. 33</b> notification (72 h) in parallel with the fix.</p></div>
+</div>
+<div class="footer"><span>SLA days · IT: P1 3 · P2 14 · P3 45 · P4 90 &nbsp;|&nbsp; OT: P1 3 · P2 30 · P3 90 · P4 180</span><span>All values editable in <b>routing/raci_matrix.yaml</b></span></div>
+</div></body></html>

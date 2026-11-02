@@ -1,0 +1,3 @@
+ticket_id,type,priority,jira_priority,due_date,department,summary,finding_id,labels,accountable,consulted,informed
+GRC-DPO-001,compliance,P2,High,2026-11-23,GRC-DPO,[P2] Assess personal-data impact of F-018 on ERP database,F-018,exposed-database;T1190;T1213;WSTG-v42-CONF-01,MGMT,APPSEC-DEV;NETWORK;GRC-DPO,SOC
+GRC-DPO-002,compliance,P2,High,2026-11-23,GRC-DPO,[P2] Assess personal-data impact of F-019 on ERP database,F-019,exposed-database;T1190;T1213;WSTG-v42-CONF-01,MGMT,APPSEC-DEV;NETWORK;GRC-DPO,SOC
