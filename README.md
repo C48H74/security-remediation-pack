@@ -19,7 +19,7 @@ A test only pays off when the fix lands. Most reports stop at "here are 31 vulne
 ## Quickstart
 
 ```bash
-git clone {{GITHUB_URL}} security-remediation-pack
+git clone https://github.com/C48H74/security-remediation-pack security-remediation-pack
 cd security-remediation-pack
 bash examples/novarefino/run_example.sh      # builds the demo package and runs the self-test
 ```

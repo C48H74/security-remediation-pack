@@ -19,7 +19,7 @@ Um teste só vale a pena quando a correção é aplicada. A maioria dos relatór
 ## Início rápido
 
 ```bash
-git clone {{GITHUB_URL}} security-remediation-pack
+git clone https://github.com/C48H74/security-remediation-pack security-remediation-pack
 cd security-remediation-pack
 bash examples/novarefino/run_example.sh      # gera o pacote de demonstração e roda o autoteste
 ```

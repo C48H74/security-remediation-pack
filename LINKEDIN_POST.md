@@ -26,7 +26,7 @@ I tested it on a fictitious refinery: 31 findings became 59 tickets across 9 tea
 Before writing any code I compared the six frameworks from the Cisco NetAcad Ethical Hacker course. PTES, NIST SP 800-115, OWASP WSTG and ATT&CK all made it in. None of them says what to fix first or who owns it, and that gap is what this project tries to close.
 
 Code, demo and the full framework comparison:
-{{GITHUB_URL}}
+https://github.com/C48H74/security-remediation-pack
 
 If you work in a SOC or run pentests, I'd like to know what breaks when you try it.
 

@@ -19,7 +19,7 @@ Un test solo sirve cuando la corrección se aplica. La mayoría de los informes 
 ## Inicio rápido
 
 ```bash
-git clone {{GITHUB_URL}} security-remediation-pack
+git clone https://github.com/C48H74/security-remediation-pack security-remediation-pack
 cd security-remediation-pack
 bash examples/novarefino/run_example.sh      # genera el paquete de demo y ejecuta el autotest
 ```
